@@ -1,8 +1,8 @@
 name: butter
-description: A new Flutter package project.
+description: A thin application framework for flutter making use of async_redux
 version: 0.0.1
-author:
-homepage:
+author: Kenneth Baylosis
+homepage: https://zoogtech.com
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -10,11 +10,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  async_redux: ^2.5.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  async_redux: ^2.5.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

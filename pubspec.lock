@@ -9,7 +9,7 @@ packages:
     source: hosted
     version: "2.4.1"
   async_redux:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: async_redux
       url: "https://pub.dartlang.org"
