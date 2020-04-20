@@ -1,6 +1,5 @@
-
 class PageArguments<BasePageTransition> {
-  final dynamic items;
+  dynamic items;
   BasePageTransition transition;
 
   PageArguments({

@@ -1,19 +1,21 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rokpak_mobile/core/base_dispatcher.dart';
-import 'package:rokpak_mobile/core/base_navigator.dart';
 
 import 'app_state.dart';
+import 'base_dispatcher.dart';
+import 'base_navigator.dart';
 
 class BaseAction extends ReduxAction<AppState> implements BaseDispatcher, BaseNavigator {
-  Map<String, dynamic> data = {};
+  var _data = {};
 
   BaseAction();
-  BaseAction.build(this.data);
+  BaseAction.build(Map<String, dynamic> data) :
+    _data = data
+  ;
 
   @override
   reduce() {
-    return state.copyAll(data);
+    return state.copyAll(this._data);
   }
 
   dispatchAttribs(Map<String, dynamic> data) => super.dispatch(BaseAction.build(data));

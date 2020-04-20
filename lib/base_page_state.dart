@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:async_redux/async_redux.dart';
-import 'package:rokpak_mobile/core/base_action.dart';
-import 'package:rokpak_mobile/core/base_dispatcher.dart';
-import 'package:rokpak_mobile/core/base_navigator.dart';
 
 import 'app_state.dart';
+import 'base_action.dart';
+import 'base_dispatcher.dart';
+import 'base_navigator.dart';
 
 abstract class BasePageState extends BaseModel<AppState> implements BaseDispatcher, BaseNavigator {
 

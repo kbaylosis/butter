@@ -1,33 +1,40 @@
 import 'package:flutter/widgets.dart';
 
-import 'package:rokpak_mobile/core/base_module.dart';
-import 'package:rokpak_mobile/core/base_page_transition.dart';
-import 'package:rokpak_mobile/core/page_arguments.dart';
+import 'base_module.dart';
+import 'base_page_transition.dart';
+import 'page_arguments.dart';
 
 class BaseRoutes<SingleChildRenderObjectWidget> {
-  BaseModule defaultModule;
   final BasePageTransition defaultTransition;
-  Map<String, BaseModule> routes;
+
+  BaseModule _defaultModule;
+  get defaultModule => _defaultModule; 
+
+  Map<String, BaseModule> _routes;
+  get routes => _routes;
 
   BaseRoutes({
     @required List<BaseModule> modules,
     @required this.defaultTransition,
-  }) {
-    routes = Map();
+  }) : 
+  assert(modules != null),
+  assert(modules.isNotEmpty), 
+  assert(defaultTransition != null) {
+    _routes = Map();
 
     if (modules.isEmpty) {
       throw UnimplementedError("At least one module must be defined");
     }
 
-    defaultModule = modules[0];
-    routes['/'] = defaultModule;
+    _defaultModule = modules[0];
+    _routes['/'] = _defaultModule;
     modules.forEach((m) {
-      routes[m.routeName] = m;
+      _routes[m.routeName] = m;
     });
   }
 
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final PageArguments args = settings.arguments ?? PageArguments();
+    final PageArguments args = settings.arguments;
     final routeFragments = settings.name.split('/');
     String routePrefix = '';
 
@@ -39,12 +46,12 @@ class BaseRoutes<SingleChildRenderObjectWidget> {
 
     routePrefix = '/$routePrefix';
 
-    if (!this.routes.containsKey(routePrefix)) {
+    if (!this._routes.containsKey(routePrefix)) {
       throw UnimplementedError();
     }
 
-    RouteTransitionsBuilder transitionsBuilder; 
-    if (args.transition != null) {
+    RouteTransitionsBuilder transitionsBuilder;
+    if (args?.transition != null) {
       transitionsBuilder = args.transition.build(); 
     } else if (this.defaultTransition != null) {
       transitionsBuilder = this.defaultTransition.build(); 
@@ -56,7 +63,7 @@ class BaseRoutes<SingleChildRenderObjectWidget> {
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
-      ) => this.routes[routePrefix],
+      ) => this._routes[routePrefix],
       transitionsBuilder: transitionsBuilder,
     );
   }
