@@ -5,7 +5,7 @@ import 'base_page_transition.dart';
 import 'page_arguments.dart';
 
 class BaseRoutes<SingleChildRenderObjectWidget> {
-  final BasePageTransition defaultTransition;
+  BasePageTransition defaultTransition;
 
   BaseModule _defaultModule;
   get defaultModule => _defaultModule; 
@@ -15,11 +15,10 @@ class BaseRoutes<SingleChildRenderObjectWidget> {
 
   BaseRoutes({
     @required List<BaseModule> modules,
-    @required this.defaultTransition,
+    this.defaultTransition,
   }) : 
   assert(modules != null),
-  assert(modules.isNotEmpty), 
-  assert(defaultTransition != null) {
+  assert(modules.isNotEmpty) {
     _routes = Map();
 
     if (modules.isEmpty) {
@@ -64,7 +63,13 @@ class BaseRoutes<SingleChildRenderObjectWidget> {
         Animation<double> animation,
         Animation<double> secondaryAnimation,
       ) => this._routes[routePrefix],
-      transitionsBuilder: transitionsBuilder,
+      transitionsBuilder: transitionsBuilder ?? _defaultTransitionsBuilder,
     );
   }
+
+  Widget _defaultTransitionsBuilder(
+    BuildContext context, 
+    Animation<double> animation, 
+    Animation<double> secondaryAnimation, 
+    Widget child) => child;
 }
