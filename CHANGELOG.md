@@ -1,3 +1,7 @@
+## [0.1.0] 
+
+* Incremented minor version due to breaking changes
+
 ## [0.0.3] 
 
 * Discontinue the use of store attributes
