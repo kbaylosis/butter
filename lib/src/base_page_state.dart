@@ -8,7 +8,12 @@ import 'base_navigator.dart';
 import 'base_store_utils.dart';
 import 'base_ui_model.dart';
 
-abstract class BasePageState<Model> extends BaseModel<AppState> implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
+abstract class BasePageState<Model extends BaseUIModel> extends BaseModel<AppState> implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
+  BasePageState();
+
+  BasePageState.build(Model m, void Function(Model m) f) {
+    f(m);
+  }
 
   @override
   Model read<Model extends BaseUIModel>(Model defaultModel) =>

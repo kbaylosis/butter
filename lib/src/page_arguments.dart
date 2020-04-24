@@ -1,6 +1,8 @@
-class PageArguments<BasePageTransition> {
+import 'base_page_transition.dart';
+
+class PageArguments<PageTransition extends BasePageTransition> {
   dynamic arg;
-  BasePageTransition transition;
+  PageTransition transition;
 
   PageArguments({
     this.arg, 

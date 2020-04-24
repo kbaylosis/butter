@@ -4,7 +4,7 @@ import 'base_module.dart';
 import 'base_page_transition.dart';
 import 'page_arguments.dart';
 
-class BaseRoutes<SingleChildRenderObjectWidget> {
+class BaseRoutes {
   BasePageTransition defaultTransition;
 
   BaseModule _defaultModule;
