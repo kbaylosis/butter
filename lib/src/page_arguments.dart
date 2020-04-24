@@ -1,9 +1,9 @@
 class PageArguments<BasePageTransition> {
-  dynamic items;
+  dynamic arg;
   BasePageTransition transition;
 
   PageArguments({
-    this.items, 
+    this.arg, 
     this.transition,
   });
 }

@@ -11,34 +11,31 @@ import 'base_ui_model.dart';
 abstract class BasePageState<Model> extends BaseModel<AppState> implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
 
   @override
-  Model read<Model extends BaseUIModel>(String key, Model defaultModel) { 
-    Model m = this.store.state.read(key, defaultModel);
-
-    return m;
-  }
+  Model read<Model extends BaseUIModel>(Model defaultModel) =>
+    this.store.state.read(defaultModel.$key, defaultModel);
 
   @override
-  Model mutate<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) {
-    var d = read(key, defaultModel);
+  Model mutate<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) {
+    var d = read(defaultModel).clone();
     f.call(d);
 
     return d;
   }
   
   @override
-  AppState write<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) =>
+  AppState write<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) =>
     this.state.copy(
-      key: key,
-      value: mutate(key, f, defaultModel),
+      key: defaultModel.$key,
+      value: mutate(defaultModel, f),
     );
-
-  @override
+  
+  @deprecated
   dispatchAttribs(Map<String, dynamic> data) => super.dispatch(BaseAction.build(data));
 
   @override
-  dispatchModel<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) => 
+  dispatchModel<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) => 
     super.dispatch(BaseAction.build({
-      key: mutate(key, f, defaultModel),
+      defaultModel.$key: mutate(defaultModel, f),
     }));
 
   @override

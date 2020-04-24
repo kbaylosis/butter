@@ -1,5 +1,4 @@
 import 'package:async_redux/async_redux.dart';
-import 'package:butter/src/base_store_utils.dart';
 import 'package:flutter/widgets.dart';
 
 import 'app_state.dart';
@@ -22,31 +21,31 @@ class BaseAction extends ReduxAction<AppState> implements BaseDispatcher, BaseNa
   }
 
   @override
-  Model read<Model extends BaseUIModel>(String key, Model defaultModel) =>
-    this.store.state.read(key, defaultModel);
+  Model read<Model extends BaseUIModel>(Model defaultModel) =>
+    this.store.state.read(defaultModel.$key, defaultModel);
 
   @override
-  Model mutate<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) {
-    var d = read(key, defaultModel).clone();
+  Model mutate<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) {
+    var d = read(defaultModel).clone();
     f.call(d);
 
     return d;
   }
   
   @override
-  AppState write<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) =>
+  AppState write<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) =>
     this.state.copy(
-      key: key,
-      value: mutate(key, f, defaultModel),
+      key: defaultModel.$key,
+      value: mutate(defaultModel, f),
     );
   
   @deprecated
   dispatchAttribs(Map<String, dynamic> data) => super.dispatch(BaseAction.build(data));
 
   @override
-  dispatchModel<Model extends BaseUIModel>(String key, void Function(Model m) f, Model defaultModel) => 
+  dispatchModel<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) => 
     super.dispatch(BaseAction.build({
-      key: mutate(key, f, defaultModel),
+      defaultModel.$key: mutate(defaultModel, f),
     }));
 
   @override
