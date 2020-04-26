@@ -16,9 +16,7 @@ class BaseAction extends ReduxAction<AppState> implements BaseDispatcher, BaseNa
   ;
 
   @override
-  reduce() {
-    return state.copyAll(this._data);
-  }
+  AppState reduce() => state.copyAll(this._data);
 
   @override
   Model read<Model extends BaseUIModel>(Model defaultModel) =>
