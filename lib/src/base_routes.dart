@@ -46,7 +46,7 @@ class BaseRoutes {
     routePrefix = '/$routePrefix';
 
     if (!this._routes.containsKey(routePrefix)) {
-      throw UnimplementedError();
+      return null;
     }
 
     RouteTransitionsBuilder transitionsBuilder;

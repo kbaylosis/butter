@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-abstract class BasePageView extends StatelessWidget {
+abstract class BasePageView extends Widget {
 
 }
