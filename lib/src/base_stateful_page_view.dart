@@ -25,9 +25,7 @@ abstract class BaseStatefulPageView extends StatefulWidget implements BasePageVi
   }
 
   @override
-  getElement(String key) {
-    return null;
-  }
+  get specs => null;
 }
 
 class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {

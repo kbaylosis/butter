@@ -6,6 +6,7 @@ export 'src/base_dispatcher.dart';
 export 'src/base_module.dart';
 export 'src/base_navigator.dart';
 export 'src/base_page_connector.dart';
+export 'src/base_page_specs.dart';
 export 'src/base_page_state.dart';
 export 'src/base_page_transition.dart';
 export 'src/base_page_view.dart';
