@@ -15,14 +15,17 @@ abstract class BaseModule extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => getCurrentRoute(context);
+
+  BasePageConnector<BasePageState, BasePageView> getCurrentRoute(BuildContext context) {
     String routeName = NavigateAction.getCurrentNavigatorRouteName(context);
 
     if (routes.containsKey(routeName)) {
       return routes[routeName];
+    } else if (routes.containsKey('/')) {
+      return routes['/'];
     }
 
     throw UnimplementedError();
   }
-
 }

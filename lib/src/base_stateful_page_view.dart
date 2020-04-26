@@ -13,7 +13,7 @@ abstract class BaseStatefulPageView extends StatefulWidget implements BasePageVi
   beforeUpdate() => true;
 
   Widget buildLoading(BuildContext context) {
-    return null;
+    return Scaffold();
   }
 
   Widget build(BuildContext context) {
@@ -22,6 +22,11 @@ abstract class BaseStatefulPageView extends StatefulWidget implements BasePageVi
 
   Widget buildError(BuildContext context) {
     return Scaffold();
+  }
+
+  @override
+  getElement(String key) {
+    return null;
   }
 }
 
@@ -64,7 +69,9 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
         return null;
       }
 
-      return widget.beforeUpdate();
+      return Future.microtask(() async {
+        return await widget.beforeUpdate();
+      });
     }
 
     initialized = true;

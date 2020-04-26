@@ -2,6 +2,8 @@
 
 * Split BasePageView into BaseStatefulPageView and BaseStatelessPageView
 * Provided BaseStatefulPageView to support smart page loads and updates
+* Provided baseline implementation for nested modules capability
+* Allow mother pages to retrieve elements from child pages
 
 ## [0.1.0] 
 
