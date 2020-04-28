@@ -28,6 +28,8 @@ class NewsFeedPage extends BaseStatefulPageView {
 
   // This allows the page to re-route before being able to render.
   // Useful for handling login sessions or some asynchronous task.
+  // Kindly use this with care. Most weight of asynchronous processes must be 
+  // put inside Actions... not here.
   @override
   beforeLoad() async {
     return Future.delayed(Duration(seconds: 3), () => true);

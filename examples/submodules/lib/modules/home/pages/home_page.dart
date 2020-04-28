@@ -19,6 +19,9 @@ class HomePage extends BaseStatefulPageView {
 
   // This allows the page to re-route before being able to render.
   // Useful for handling login sessions or some asynchronous tasks.
+  // Kindly use this with care. Most weight of asynchronous processes must be 
+  // put inside Actions... not here.
+  @override
   @override
   beforeLoad() {
     if (this.model.checkIfInit()) {
