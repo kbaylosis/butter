@@ -1,7 +1,7 @@
 ## [0.2.1] 
 
 * Allow models to overwrite data in the store
-  write(), dispatchModel() and mutate() now have an overwrite parameter 
+* write(), dispatchModel() and mutate() now have an overwrite parameter 
 
 ## [0.2.0] 
 
