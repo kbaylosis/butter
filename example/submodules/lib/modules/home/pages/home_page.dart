@@ -15,11 +15,11 @@ import '../models/home_model.dart';
 class HomePage extends BaseStatefulPageView {
   final HomeModel model;
 
-  HomePage({ this.model });
+  HomePage({this.model});
 
   // This allows the page to re-route before being able to render.
   // Useful for handling login sessions or some asynchronous tasks.
-  // Kindly use this with care. Most weight of asynchronous processes must be 
+  // Kindly use this with care. Most weight of asynchronous processes must be
   // put inside Actions... not here.
   @override
   @override
@@ -35,7 +35,7 @@ class HomePage extends BaseStatefulPageView {
 
     return true;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     // The following shows one way on how to handle subModules. This mechanism
@@ -46,20 +46,24 @@ class HomePage extends BaseStatefulPageView {
     // definition in the utils as you need.
     final PageSpecs specs = module?.page?.specs;
 
-    var appBar = specs != null && specs.hasAppBar ? AppBar(
-      leading: specs?.leading ?? Container(),
-      centerTitle: true,
-      title: Text(
-        specs?.title ?? '',
-        style: TextStyle(
-          fontSize: 18,
-        ),
-      ),
-      actions: specs?.actions,
-    ) : null;
-    var safeArea = specs != null && specs.inSafeArea ? SafeArea(
-      child: this.model.subModule,
-    ) : this.model.subModule;
+    var appBar = specs != null && specs.hasAppBar
+        ? AppBar(
+            leading: specs?.leading ?? Container(),
+            centerTitle: true,
+            title: Text(
+              specs?.title ?? '',
+              style: TextStyle(
+                fontSize: 18,
+              ),
+            ),
+            actions: specs?.actions,
+          )
+        : null;
+    var safeArea = specs != null && specs.inSafeArea
+        ? SafeArea(
+            child: this.model.subModule,
+          )
+        : this.model.subModule;
 
     return SafeArea(
       child: Scaffold(

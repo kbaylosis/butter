@@ -8,7 +8,7 @@ class BaseRoutes {
   BasePageTransition defaultTransition;
 
   BaseModule _defaultModule;
-  get defaultModule => _defaultModule; 
+  get defaultModule => _defaultModule;
 
   Map<String, BaseModule> _routes;
   get routes => _routes;
@@ -16,9 +16,8 @@ class BaseRoutes {
   BaseRoutes({
     @required List<BaseModule> modules,
     this.defaultTransition,
-  }) : 
-  assert(modules != null),
-  assert(modules.isNotEmpty) {
+  })  : assert(modules != null),
+        assert(modules.isNotEmpty) {
     _routes = Map();
 
     if (modules.isEmpty) {
@@ -51,9 +50,9 @@ class BaseRoutes {
 
     RouteTransitionsBuilder transitionsBuilder;
     if (args?.transition != null) {
-      transitionsBuilder = args.transition.build(); 
+      transitionsBuilder = args.transition.build();
     } else if (this.defaultTransition != null) {
-      transitionsBuilder = this.defaultTransition.build(); 
+      transitionsBuilder = this.defaultTransition.build();
     }
 
     return PageRouteBuilder(
@@ -62,14 +61,16 @@ class BaseRoutes {
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
-      ) => this._routes[routePrefix],
+      ) =>
+          this._routes[routePrefix],
       transitionsBuilder: transitionsBuilder ?? _defaultTransitionsBuilder,
     );
   }
 
   Widget _defaultTransitionsBuilder(
-    BuildContext context, 
-    Animation<double> animation, 
-    Animation<double> secondaryAnimation, 
-    Widget child) => child;
+          BuildContext context,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+          Widget child) =>
+      child;
 }

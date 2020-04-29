@@ -20,7 +20,8 @@ class _AddTodoFormState extends State<AddTodoForm> {
     List<Widget> items = [];
 
     widget.model.items.forEach((element) {
-      items.add(Container(
+      items.add(
+        Container(
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.all(10),
           child: Text(element),
@@ -41,7 +42,7 @@ class _AddTodoFormState extends State<AddTodoForm> {
                   controller: txtItem,
                   decoration: InputDecoration(
                     hintText: 'Enter todo item',
-                  ), 
+                  ),
                   onSubmitted: (value) {
                     widget.model.add(value);
                     txtItem.clear();

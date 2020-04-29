@@ -9,7 +9,7 @@ import '../models/newsfeed_model.dart';
 class NewsFeedPage extends BaseStatefulPageView {
   final NewsFeedModel model;
 
-  NewsFeedPage({ this.model });
+  NewsFeedPage({this.model});
 
   // specs and PageSpecs provide a way for mother pages to retrieve data from child pages
   // The definition of PageSpecs varies from app to app so change the PageSpecs
@@ -28,7 +28,7 @@ class NewsFeedPage extends BaseStatefulPageView {
 
   // This allows the page to re-route before being able to render.
   // Useful for handling login sessions or some asynchronous task.
-  // Kindly use this with care. Most weight of asynchronous processes must be 
+  // Kindly use this with care. Most weight of asynchronous processes must be
   // put inside Actions... not here.
   @override
   beforeLoad() async {

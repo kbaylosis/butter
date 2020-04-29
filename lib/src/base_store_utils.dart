@@ -3,8 +3,10 @@ import 'base_ui_model.dart';
 
 abstract class BaseStoreUtils {
   Model read<Model extends BaseUIModel>(Model defaultModel);
-  Model mutate<Model extends BaseUIModel>(Model defaultModel,
-    void Function(Model m) f, [bool overwrite = false]);
-  AppState write<Model extends BaseUIModel>(Model defaultModel,
-    void Function(Model m) f, [bool overwrite = false]);
+  Model mutate<Model extends BaseUIModel>(
+      Model defaultModel, void Function(Model m) f,
+      [bool overwrite = false]);
+  AppState write<Model extends BaseUIModel>(
+      Model defaultModel, void Function(Model m) f,
+      [bool overwrite = false]);
 }

@@ -13,7 +13,7 @@ class SeletMenuItemAction extends BaseAction {
   // https://pub.dev/packages/async_redux/#async-reducer
   @override
   AppState reduce() {
-    switch(this.index) {
+    switch (this.index) {
       case 0:
         dispatch(ChangeSubModuleAction('/home/newsfeed'));
         break;
@@ -27,7 +27,7 @@ class SeletMenuItemAction extends BaseAction {
         dispatch(LogoutAction());
         break;
     }
-    
+
     return write<HomeModel>(HomeModel(), (m) {
       m.selectedIndex = index;
     });

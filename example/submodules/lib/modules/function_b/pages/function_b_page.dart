@@ -8,7 +8,7 @@ import '../models/function_b_model.dart';
 class FunctionBPage extends BaseStatelessPageView {
   final FunctionBModel model;
 
-  FunctionBPage({ this.model });
+  FunctionBPage({this.model});
 
   final _specs = PageSpecs(
     inSafeArea: true,

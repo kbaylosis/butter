@@ -5,8 +5,8 @@ class HomeModel extends BaseUIModel<HomeModel> {
   //
   // Do not declare things as final unless you really intend so.
   //
-  int selectedIndex; 
-  BaseModule subModule; 
+  int selectedIndex;
+  BaseModule subModule;
   void Function(int index) onTapMenuItem;
   bool Function() checkIfInit;
   VoidCallback exit;
@@ -21,11 +21,11 @@ class HomeModel extends BaseUIModel<HomeModel> {
   // used as the key to retrieve this model from the AppStore. You wouldn't want
   // to overlap different models.
   @override
-  String get $key => '/home'; 
+  String get $key => '/home';
 
   @override
   HomeModel clone() => HomeModel(
-    selectedIndex: this.selectedIndex,
-    subModule: this.subModule,
-  );
+        selectedIndex: this.selectedIndex,
+        subModule: this.subModule,
+      );
 }

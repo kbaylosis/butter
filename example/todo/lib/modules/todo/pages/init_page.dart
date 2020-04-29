@@ -7,7 +7,7 @@ import '../models/init_model.dart';
 class InitPage extends BaseStatelessPageView {
   final InitModel model;
 
-  InitPage({ this.model });
+  InitPage({this.model});
 
   @override
   Widget build(BuildContext context) {

@@ -16,6 +16,6 @@ class InitModel extends BaseUIModel<InitModel> {
 
   @override
   InitModel clone() => InitModel(
-    hasInitialized: this.hasInitialized,
-  );
+        hasInitialized: this.hasInitialized,
+      );
 }

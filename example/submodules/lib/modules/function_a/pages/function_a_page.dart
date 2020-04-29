@@ -9,7 +9,7 @@ import '../models/function_a_model.dart';
 class FunctionAPage extends BaseStatelessPageView {
   final FunctionAModel model;
 
-  FunctionAPage({ this.model });
+  FunctionAPage({this.model});
 
   final _specs = PageSpecs(
     inSafeArea: true,
@@ -21,7 +21,7 @@ class FunctionAPage extends BaseStatelessPageView {
   get specs {
     return this._specs;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

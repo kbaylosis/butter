@@ -5,7 +5,7 @@ class PageArguments<PageTransition extends BasePageTransition> {
   PageTransition transition;
 
   PageArguments({
-    this.arg, 
+    this.arg,
     this.transition,
   });
 }

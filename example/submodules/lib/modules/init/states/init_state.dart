@@ -13,24 +13,25 @@ class InitState extends BasePageState<InitModel> {
   // follow this, no errors will be produced in butter. However, this allows you to
   // properly fillup your models with valid function handlers after being read
   // from the store and before it is being fed to the page.
-  InitState.build(this.model, void Function(InitModel m) f) : super.build(model, f);
+  InitState.build(this.model, void Function(InitModel m) f)
+      : super.build(model, f);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-      other is InitState && 
-      this.runtimeType == other.runtimeType;
+        other is InitState && this.runtimeType == other.runtimeType;
   }
 
   @override
   int get hashCode => this.hashCode;
 
   @override
-  InitState fromStore() => InitState.build(read<InitModel>(
-    InitModel(
-      hasInitialized: false,
-    ),
-  ), (m) {
-    m.proceed = () => dispatch(GoToHomeAction());
-  });
+  InitState fromStore() => InitState.build(
+          read<InitModel>(
+            InitModel(
+              hasInitialized: false,
+            ),
+          ), (m) {
+        m.proceed = () => dispatch(GoToHomeAction());
+      });
 }

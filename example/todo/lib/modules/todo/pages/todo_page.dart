@@ -8,7 +8,7 @@ import '../models/todo_model.dart';
 class TodoPage extends BaseStatelessPageView {
   final TodoModel model;
 
-  TodoPage({ this.model });
+  TodoPage({this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TodoPage extends BaseStatelessPageView {
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: this.model.back,
-          ), 
+          ),
         ),
         body: AddTodoForm(this.model),
       ),

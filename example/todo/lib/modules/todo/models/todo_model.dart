@@ -14,10 +14,10 @@ class TodoModel extends BaseUIModel<TodoModel> {
   });
 
   @override
-  String get $key => '/todo'; 
+  String get $key => '/todo';
 
   @override
   TodoModel clone() => TodoModel(
-    items: this.items == null ? [] : [ ...this.items ],
-  );
+        items: this.items == null ? [] : [...this.items],
+      );
 }

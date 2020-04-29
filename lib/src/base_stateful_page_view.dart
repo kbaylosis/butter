@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 
 import 'base_page_view.dart';
 
-abstract class BaseStatefulPageView extends StatefulWidget implements BasePageView {
-
+abstract class BaseStatefulPageView extends StatefulWidget
+    implements BasePageView {
   @override
   State<StatefulWidget> createState() => _BaseStatefulPageViewState();
 
@@ -42,20 +42,19 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   @override
   void dispose() {
     super.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: this._cycle(), 
+      future: this._cycle(),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return widget.build(context);
         } else if (snapshot.hasError) {
           return widget.buildError(context);
         }
-        
+
         return widget.buildLoading(context);
       },
     );

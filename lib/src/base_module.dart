@@ -17,7 +17,8 @@ abstract class BaseModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) => getCurrentRoute(context);
 
-  BasePageConnector<BasePageState, BasePageView> getCurrentRoute(BuildContext context) {
+  BasePageConnector<BasePageState, BasePageView> getCurrentRoute(
+      BuildContext context) {
     String routeName = NavigateAction.getCurrentNavigatorRouteName(context);
 
     if (routes.containsKey(routeName)) {

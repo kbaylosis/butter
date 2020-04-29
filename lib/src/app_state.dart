@@ -5,21 +5,19 @@ class AppState {
 
   AppState({
     @required Map<String, dynamic> data,
-  }) :
-    _data = data
-  ;
+  }) : _data = data;
 
-  AppState copy({ String key, dynamic value }) {
+  AppState copy({String key, dynamic value}) {
     final Map<String, dynamic> newData = Map<String, dynamic>.from(this._data);
     newData[key] = value;
-    
+
     return AppState(data: newData);
   }
 
   AppState copyAll(Map<String, dynamic> map) {
     final Map<String, dynamic> newData = Map<String, dynamic>.from(this._data);
     newData.addAll(map);
-    
+
     return AppState(data: newData);
   }
 
@@ -28,11 +26,11 @@ class AppState {
     maps.forEach((map) {
       newData.addAll(map);
     });
-    
+
     return AppState(data: newData);
   }
 
-  T read<T>(String key, [ T defValue ]) {
+  T read<T>(String key, [T defValue]) {
     return this._data[key] ?? defValue;
   }
 }

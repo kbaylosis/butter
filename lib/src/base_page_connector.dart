@@ -5,7 +5,8 @@ import 'app_state.dart';
 import 'base_page_state.dart';
 import 'base_page_view.dart';
 
-class BasePageConnector<PageState extends BasePageState, PageView extends BasePageView> extends StoreConnector<AppState, PageState> {
+class BasePageConnector<PageState extends BasePageState,
+    PageView extends BasePageView> extends StoreConnector<AppState, PageState> {
   final PageView page;
 
   BasePageConnector({
@@ -13,7 +14,7 @@ class BasePageConnector<PageState extends BasePageState, PageView extends BasePa
     @required this.page,
     @required PageView Function(PageState) getPage,
   }) : super(
-    model: state,
-    builder: (BuildContext context, PageState vm) => getPage(vm),
-  );
+          model: state,
+          builder: (BuildContext context, PageState vm) => getPage(vm),
+        );
 }

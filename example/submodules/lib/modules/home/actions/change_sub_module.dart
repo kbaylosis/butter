@@ -12,6 +12,6 @@ class ChangeSubModuleAction extends BaseAction {
   // https://pub.dev/packages/async_redux/#async-reducer
   @override
   AppState reduce() => write<HomeModel>(HomeModel(), (m) {
-    m.subModule = SubModules.routes[route];
-  });
+        m.subModule = SubModules.routes[route];
+      });
 }

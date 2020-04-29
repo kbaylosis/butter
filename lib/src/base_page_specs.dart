@@ -1,4 +1,1 @@
-
-abstract class BasePageSpecs {
-
-}
+abstract class BasePageSpecs {}
