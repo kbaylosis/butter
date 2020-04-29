@@ -1,3 +1,7 @@
+## [0.2.2] 
+
+* Fix various health issues and suggestions reported by pub.dev
+
 ## [0.2.1] 
 
 * Allow models to overwrite data in the store
