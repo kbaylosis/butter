@@ -15,5 +15,7 @@ class InitModel extends BaseUIModel<InitModel> {
   String get $key => '/init';
 
   @override
-  InitModel clone() => InitModel();
+  InitModel clone() => InitModel(
+    hasInitialized: this.hasInitialized,
+  );
 }
