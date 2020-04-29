@@ -20,27 +20,30 @@ abstract class BasePageState<Model extends BaseUIModel> extends BaseModel<AppSta
     this.store.state.read(defaultModel.$key, defaultModel);
 
   @override
-  Model mutate<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) {
-    var d = read(defaultModel).clone();
-    f.call(d);
+  Model mutate<Model extends BaseUIModel>(Model defaultModel,
+    void Function(Model m) f, [bool overwrite = false]) {
+    var d = overwrite ? defaultModel : read(defaultModel).clone();
+    f(d);
 
     return d;
   }
   
   @override
-  AppState write<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) =>
+  AppState write<Model extends BaseUIModel>(Model defaultModel, 
+    void Function(Model m) f, [bool overwrite = false]) =>
     this.state.copy(
       key: defaultModel.$key,
-      value: mutate(defaultModel, f),
+      value: mutate(defaultModel, f, overwrite),
     );
   
   @deprecated
   dispatchAttribs(Map<String, dynamic> data) => super.dispatch(BaseAction.build(data));
 
   @override
-  dispatchModel<Model extends BaseUIModel>(Model defaultModel, void Function(Model m) f) => 
+  dispatchModel<Model extends BaseUIModel>(Model defaultModel, 
+    void Function(Model m) f, [bool overwrite = false]) => 
     super.dispatch(BaseAction.build({
-      defaultModel.$key: mutate(defaultModel, f),
+      defaultModel.$key: mutate(defaultModel, f, overwrite),
     }));
 
   @override
