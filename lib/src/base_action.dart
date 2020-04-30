@@ -15,6 +15,8 @@ class BaseAction extends ReduxAction<AppState>
     implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
   var _data = {};
 
+  BaseAction();
+
   /// Builds anonymous actions
   ///
   /// This is useful within the butter library and using it outside is highly discouraged.
