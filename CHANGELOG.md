@@ -1,3 +1,8 @@
+## [0.2.5]
+
+* Updated the butter logo
+* Added pub.dev and travis badges
+
 ## [0.2.4]
 
 * Restored deleted BaseAction default constructor
