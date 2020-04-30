@@ -18,7 +18,7 @@ class FunctionAPage extends BaseStatelessPageView {
   );
 
   @override
-  get specs {
+  PageSpecs get specs {
     return this._specs;
   }
 
