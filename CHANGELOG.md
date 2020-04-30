@@ -1,3 +1,9 @@
+## [0.3.0]
+
+* Provided full documentation on the API and README
+* Defined type of BaseStatefulPageView.specs
+* Updated the definitions of beforeLoad() and beforeUpdate() of BaseStatefulPageView
+
 ## [0.2.5]
 
 * Updated the butter logo
