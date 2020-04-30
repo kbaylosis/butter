@@ -31,7 +31,8 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// Modifies the data of the model of type [BaseUIModel] stored the store
   ///
   /// The key used for the model must be guaranteed as unique by the developer
-  /// across the whole app.
+  /// across the whole app. Setting [overwrite] to true forces [mutate] not to
+  /// reuse any portion of the [Model] in the [Store].
   @override
   Model mutate<Model extends BaseUIModel>(
       Model defaultModel, void Function(Model m) f,
@@ -45,7 +46,8 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// Writes the data of the model of type [BaseUIModel] in the store
   ///
   /// The key used for the model must be guaranteed as unique by the developer
-  /// across the whole app.
+  /// across the whole app. Setting [overwrite] to true forces [write] not to
+  /// reuse any portion of the [Model] in the [Store].
   @override
   AppState write<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
@@ -58,7 +60,8 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// Sends an anonymous action given the data of a model of type [BaseUIModel]
   ///
   /// The key used for the model must be guaranteed as unique by the developer
-  /// across the whole app.
+  /// across the whole app. Setting [overwrite] to true forces [dispatchModel] not to
+  /// reuse any portion of the [Model] in the [Store].
   @override
   dispatchModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
