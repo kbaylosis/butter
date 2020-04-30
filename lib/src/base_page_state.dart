@@ -111,8 +111,8 @@ abstract class BasePageState<Model extends BaseUIModel>
         predicate: predicate,
       ));
 
-  /// Removes all routes in the navigation stack until the condition specified in 
-  /// [predicate] is satisfied 
+  /// Removes all routes in the navigation stack until the condition specified in
+  /// [predicate] is satisfied
   @override
   void popUntil(String route) => dispatch(NavigateAction.popUntil(route));
 

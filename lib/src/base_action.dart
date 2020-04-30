@@ -115,8 +115,8 @@ class BaseAction extends ReduxAction<AppState>
         predicate: predicate,
       ));
 
-  /// Removes all routes in the navigation stack until the condition specified in 
-  /// [predicate] is satisfied 
+  /// Removes all routes in the navigation stack until the condition specified in
+  /// [predicate] is satisfied
   @override
   void popUntil(String route) => dispatch(NavigateAction.popUntil(route));
 
