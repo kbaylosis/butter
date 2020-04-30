@@ -30,7 +30,7 @@ class HomePage extends BaseStatefulPageView {
       }
     } else {
       this.model.exit();
-      return;
+      return null;
     }
 
     return true;
