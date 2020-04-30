@@ -1,3 +1,9 @@
+## [0.2.3]
+
+* Remove BaseDispatcher.dispatchAttribs()
+* Fix the reduce() definition of BaseAction
+* Add docs to BaseAction and BasePageState
+
 ## [0.2.2] 
 
 * Fix various health issues and suggestions reported by pub.dev
