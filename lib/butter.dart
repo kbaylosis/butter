@@ -1,3 +1,16 @@
+/// A thin application framework for flutter making use of async_redux.
+///
+/// Butter allows you to structure your app into modules and submodules where
+/// each module is composed of pages, states, models and actions as already
+/// introduced by [redux](https://redux.js.org/).
+///
+/// Most common classes used to structure the app are: [BaseAction], [BaseModule],
+/// [BasePageState], [BaseStatefulPageView], and [BaseStatelessPageView]
+///
+/// References:
+/// * [butter_cli](https://pub.dev/packages/butter_cli)
+/// * [async_redux](https://pub.dev/packages/async_redux/)
+/// * [redux](https://redux.js.org/)
 library butter;
 
 export 'src/app_state.dart';
