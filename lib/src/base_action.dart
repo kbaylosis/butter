@@ -9,22 +9,33 @@ import 'base_navigator.dart';
 import 'base_store_utils.dart';
 import 'base_ui_model.dart';
 
-/// A wrapper to the ReduxAction and provides all necessary utilities
-/// needed to interact with the store and the [Navigator].
+/// A [ReduxAction] wrapper for Action objects and provides all necessary utilities
+/// needed to interact with the [Store] and the [Navigator].
 class BaseAction extends ReduxAction<AppState>
     implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
   var _data = {};
 
-  BaseAction();
+  /// Builds anonymous actions
+  ///
+  /// This is useful within the butter library and using it outside is highly discouraged.
   BaseAction.build(Map<String, dynamic> data) : _data = data;
 
+  /// An override to the [ReduxAction.reduce] to allow processing of anonymous actions
   @override
   FutureOr<AppState> reduce() => state.copyAll(this._data);
 
+  /// Reads a model of type [BaseUIModel] from the store
+  ///
+  /// The key used for the model must be guaranteed as unique by the developer
+  /// across the whole app.
   @override
   Model read<Model extends BaseUIModel>(Model defaultModel) =>
       this.store.state.read(defaultModel.$key, defaultModel);
 
+  /// Modifies the data of the model of type [BaseUIModel] stored the store
+  ///
+  /// The key used for the model must be guaranteed as unique by the developer
+  /// across the whole app.
   @override
   Model mutate<Model extends BaseUIModel>(
       Model defaultModel, void Function(Model m) f,
@@ -35,6 +46,10 @@ class BaseAction extends ReduxAction<AppState>
     return d;
   }
 
+  /// Writes the data of the model of type [BaseUIModel] in the store
+  ///
+  /// The key used for the model must be guaranteed as unique by the developer
+  /// across the whole app.
   @override
   AppState write<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
@@ -44,10 +59,10 @@ class BaseAction extends ReduxAction<AppState>
             value: mutate(defaultModel, f, overwrite),
           );
 
-  @deprecated
-  dispatchAttribs(Map<String, dynamic> data) =>
-      super.dispatch(BaseAction.build(data));
-
+  /// Sends an anonymous action given the data of a model of type [BaseUIModel]
+  ///
+  /// The key used for the model must be guaranteed as unique by the developer
+  /// across the whole app.
   @override
   dispatchModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
@@ -56,9 +71,11 @@ class BaseAction extends ReduxAction<AppState>
         defaultModel.$key: mutate(defaultModel, f, overwrite),
       }));
 
+  /// Removes the current route from the navigation stack
   @override
   void pop() => dispatch(NavigateAction.pop());
 
+  /// Puts a route on top of the navigation stack
   @override
   void pushNamed(
     String route, {
@@ -66,6 +83,7 @@ class BaseAction extends ReduxAction<AppState>
   }) =>
       dispatch(NavigateAction.pushNamed(route, arguments: arguments));
 
+  /// Replaces the current route with the specified route
   @override
   void pushReplacementNamed(
     String route, {
@@ -74,6 +92,7 @@ class BaseAction extends ReduxAction<AppState>
       dispatch(
           NavigateAction.pushReplacementNamed(route, arguments: arguments));
 
+  /// Adds a route into the navigation stack and removes everything else
   @override
   void pushNamedAndRemoveAll(
     String route, {
@@ -82,6 +101,8 @@ class BaseAction extends ReduxAction<AppState>
       dispatch(
           NavigateAction.pushNamedAndRemoveAll(route, arguments: arguments));
 
+  /// Adds a route into the navigation stack and removes everything until the condition
+  /// specified in [predicate] is satisfied
   @override
   void pushNamedAndRemoveUntil(
     String route, {
@@ -94,9 +115,12 @@ class BaseAction extends ReduxAction<AppState>
         predicate: predicate,
       ));
 
+  /// Removes all routes in the navigation stack until the condition specified in 
+  /// [predicate] is satisfied 
   @override
   void popUntil(String route) => dispatch(NavigateAction.popUntil(route));
 
+  /// Puts a route object on top of the navigation stack
   @override
   void push(
     Route route, {
