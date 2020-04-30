@@ -1,3 +1,7 @@
+## [0.2.4]
+
+* Restored deleted BaseAction default constructor
+
 ## [0.2.3]
 
 * Remove BaseDispatcher.dispatchAttribs()

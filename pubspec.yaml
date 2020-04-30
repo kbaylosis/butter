@@ -1,6 +1,6 @@
 name: butter
 description: A thin application framework for flutter making use of async_redux
-version: 0.2.3
+version: 0.2.4
 homepage: https://zoogtech.com
 
 environment:
