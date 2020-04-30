@@ -118,23 +118,17 @@ lib
 ```
 
 ### Directories
-[app](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/app)
-   - App specific codes
+[app](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/app) - App specific codes
 
-[config](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/config)
-   - App configurations separated depending on purpose, such as, security, API urls, etc.
+[config](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/config) - App configurations separated depending on purpose, such as, security, API urls, etc.
   
-[data](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/data)
-   - Data models to be used for things like API transactions
+[data](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/data) - Data models to be used for things like API transactions
 
-[modules](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules)
-   - All app modules
+[modules](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules) - All app modules
 
-[services](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/services)
-   - All services pertaining to the device api encapsulations or 3rd party api middlewares
+[services](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/services) - All services pertaining to the device api encapsulations or 3rd party api middlewares
 
-[utils](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/utils)
-   - Utility codes from shared components across modules and utility libraries that doesn't qualify elsewhere
+[utils](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/utils) - Utility codes from shared components across modules and utility libraries that doesn't qualify elsewhere
 
 ### First Class Files
 [main.dart](
@@ -207,7 +201,7 @@ https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/utils/sub
 [Submodules](https://github.com/kbaylosis/butter/tree/master/example/submodules)
    - shows how an app with multiple modules looks like
    - demonstrates how submodules are constructed
-   - provides the differences between a page inheriting from a BaseStatelessPageView and a BaseStatefulPageView
+   - provides the differences between a page inheriting from a [BaseStatefulPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatefulPageView-class.html) and a [BaseStatelessPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatelessPageView-class.html)
 
 ## References:
 * [butter_cli](https://pub.dev/packages/butter_cli)
