@@ -1,6 +1,6 @@
 import 'package:butter/butter.dart';
 
-import 'package:submodules/config/app.dart';
+import 'package:submodules/config/app_config.dart';
 import 'package:submodules/modules/home/actions/logout.dart';
 import 'package:submodules/modules/init/models/init_model.dart';
 

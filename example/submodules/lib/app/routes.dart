@@ -4,6 +4,7 @@ import 'package:submodules/modules/init/init.dart';
 
 import '../utils/transitions/scale_page_transition.dart';
 
+/// Registry of all top level modules
 class Routes extends BaseRoutes {
   Routes()
       : super(

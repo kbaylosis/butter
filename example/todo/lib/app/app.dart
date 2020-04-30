@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../config/app.dart';
+import '../config/app_config.dart';
 import '../app/routes.dart';
 import 'routes.dart';
 

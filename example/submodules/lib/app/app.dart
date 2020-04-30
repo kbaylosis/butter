@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../config/app.dart';
+import '../config/app_config.dart';
 import '../app/routes.dart';
 import 'routes.dart';
 
+/// The main app declaration
 class App extends StatelessWidget {
   static Routes routes = Routes();
   final GlobalKey<NavigatorState> navigatorKey;
