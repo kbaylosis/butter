@@ -21,20 +21,23 @@ class InitPage extends BaseStatelessPageView {
   }
 
   _body() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          alignment: Alignment.center,
-          child: Image.asset('assets/logo.png'),
-        ),
-        Container(
-          child: RaisedButton(
-            child: Text('Proceed'),
-            onPressed: this.model.proceed,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            width: 300,
+            child: Image.asset('assets/logo.png'),
           ),
-        ),
-      ],
+          Container(
+            child: RaisedButton(
+              child: Text('Proceed'),
+              onPressed: this.model.proceed,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
