@@ -29,6 +29,8 @@ Most common classes used to structure the app are as follows:
 
 ## Data Flow
 
+<img src="https://github.com/kbaylosis/butter/blob/master/misc/butter_flow.png?raw=true" width="500">
+
 #### Typical Flow
 1. An event occurs on the Page that triggers an action
 2. An Action is dispatched
@@ -43,6 +45,8 @@ Most common classes used to structure the app are as follows:
 2. UI Model data is passed to the Page for initial rendering
 
 ## Routing
+
+<img src="https://github.com/kbaylosis/butter/blob/master/misc/butter_routing.png?raw=true" width="800">
 
 The App object will contain a list of top level Modules. A typical Module contains
 a list of routes of State and Page pairs but it can also contain a list of sub-Modules.
