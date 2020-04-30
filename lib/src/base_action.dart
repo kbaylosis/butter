@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/widgets.dart';
 
@@ -7,6 +9,8 @@ import 'base_navigator.dart';
 import 'base_store_utils.dart';
 import 'base_ui_model.dart';
 
+/// A wrapper to the ReduxAction and provides all necessary utilities
+/// needed to interact with the store and the [Navigator].
 class BaseAction extends ReduxAction<AppState>
     implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
   var _data = {};
@@ -15,7 +19,7 @@ class BaseAction extends ReduxAction<AppState>
   BaseAction.build(Map<String, dynamic> data) : _data = data;
 
   @override
-  AppState reduce() => state.copyAll(this._data);
+  FutureOr<AppState> reduce() => state.copyAll(this._data);
 
   @override
   Model read<Model extends BaseUIModel>(Model defaultModel) =>
