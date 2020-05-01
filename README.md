@@ -2,7 +2,7 @@
 
 [![pub package](https://img.shields.io/pub/v/butter)](https://pub.dartlang.org/packages/butter) [![Build Status](https://travis-ci.org/kbaylosis/butter.svg?branch=master)](https://travis-ci.org/kbaylosis/butter)
 
-A thin application framework for flutter making use of async_redux.
+A thin application framework for [flutter](https://flutter.dev/) making use of [async_redux](https://pub.dev/packages/async_redux/).
 
 Butter allows you to structure your app into modules and submodules where each 
 module is composed of pages, states, models and actions as already introduced by 
@@ -19,11 +19,11 @@ import 'package:butter/butter.dart';
 Check out the [API Reference](https://pub.dev/documentation/butter/latest/butter/butter-library.html) for a more detailed information on usage.
 
 Most common classes used to structure the app are as follows:
-[BaseAction](https://pub.dev/documentation/butter/latest/butter/BaseAction-class.html)
-[BaseModule](https://pub.dev/documentation/butter/latest/butter/BaseModule-class.html)
-[BasePageState](https://pub.dev/documentation/butter/latest/butter/BasePageState-class.html)
-[BaseStatefulPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatefulPageView-class.html)
-[BaseStatelessPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatelessPageView-class.html)
+- [BaseAction](https://pub.dev/documentation/butter/latest/butter/BaseAction-class.html)
+- [BaseModule](https://pub.dev/documentation/butter/latest/butter/BaseModule-class.html)
+- [BasePageState](https://pub.dev/documentation/butter/latest/butter/BasePageState-class.html)
+- [BaseStatefulPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatefulPageView-class.html)
+- [BaseStatelessPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatelessPageView-class.html)
 
 ## Concepts
 
