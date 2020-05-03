@@ -36,6 +36,12 @@ class AppState {
 
   /// Retrieves a value from the store
   T read<T>(String key, [T defValue]) {
-    return this._data[key] ?? defValue;
+    if (this._data[key] == null || this._data[key] is T) {
+      return this._data[key] ?? defValue;
+    }
+
+    throw FormatException(
+        'Store expects a [${T}] but got [${this._data[key].runtimeType}]. '
+        'It is possible that the key [${key}] used is wrong.');
   }
 }
