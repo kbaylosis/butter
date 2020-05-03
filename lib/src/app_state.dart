@@ -41,7 +41,7 @@ class AppState {
     }
 
     throw FormatException(
-        'Store expects a [${T}] but got [${this._data[key].runtimeType}]. '
-        'It is possible that the key [${key}] used is wrong.');
+        'Store expects a [$T] but got [${this._data[key].runtimeType}]. '
+        'It is possible that the key [$key] used is wrong.');
   }
 }
