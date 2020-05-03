@@ -1,3 +1,7 @@
+## [0.3.1]
+
+* Add repository to pubspec
+  
 ## [0.3.0]
 
 * Provided full documentation on the API and README
