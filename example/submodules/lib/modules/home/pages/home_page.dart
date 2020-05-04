@@ -2,6 +2,7 @@ import 'package:butter/butter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import 'package:submodules/app/app.dart';
 import 'package:submodules/config/app_config.dart';
 import 'package:submodules/utils/sub_module_page_specs.dart';
 
@@ -25,7 +26,7 @@ class HomePage extends BaseStatefulPageView {
   @override
   beforeLoad() {
     if (this.model.checkIfInit()) {
-      if (this.model.subModule == null) {
+      if (!this.model.initialized) {
         this.model.onTapMenuItem(AppConfig.defaultHomePage);
       }
     } else {
@@ -40,7 +41,7 @@ class HomePage extends BaseStatefulPageView {
   Widget build(BuildContext context) {
     // The following shows one way on how to handle subModules. This mechanism
     // allows you to have nested modules (a module within a module within a module, etc).
-    var module = this.model.subModule?.getCurrentRoute(context);
+    var module = App.getChild(context, this.model);
 
     // The definition of PageSpecs varies from app to app so change the PageSpecs
     // definition in the utils as you need.
@@ -61,15 +62,18 @@ class HomePage extends BaseStatefulPageView {
         : null;
     var safeArea = specs != null && specs.inSafeArea
         ? SafeArea(
-            child: this.model.subModule,
+            child: module,
           )
-        : this.model.subModule;
+        : module;
 
     return SafeArea(
       child: Scaffold(
         appBar: appBar,
         body: safeArea,
-        bottomNavigationBar: Navbar(this.model),
+        bottomNavigationBar: Navbar(
+          model: this.model,
+          routeName: App.getRouteName(context, this.model),
+        ),
       ),
     );
   }

@@ -27,8 +27,7 @@ class HomeState extends BasePageState<HomeModel> {
     return identical(this, other) ||
         other is HomeState &&
             this.runtimeType == other.runtimeType &&
-            this.model.selectedIndex == other.model.selectedIndex &&
-            this.model.subModule == other.model.subModule;
+            this.model.initialized == other.model.initialized;
   }
 
   @override
@@ -37,7 +36,7 @@ class HomeState extends BasePageState<HomeModel> {
   @override
   HomeState fromStore() => HomeState.build(
           read<HomeModel>(HomeModel(
-            selectedIndex: AppConfig.defaultHomePage,
+            initialized: false,
           )), (m) {
         m.onTapMenuItem = (index) => dispatch(SeletMenuItemAction(index));
         m.checkIfInit = () => read<InitModel>(InitModel()).hasInitialized;

@@ -5,15 +5,13 @@ class HomeModel extends BaseUIModel<HomeModel> {
   //
   // Do not declare things as final unless you really intend so.
   //
-  int selectedIndex;
-  BaseModule subModule;
+  bool initialized;
   void Function(int index) onTapMenuItem;
   bool Function() checkIfInit;
   VoidCallback exit;
 
   HomeModel({
-    this.selectedIndex = 0,
-    this.subModule,
+    this.initialized = false,
     this.onTapMenuItem,
   });
 
@@ -25,7 +23,6 @@ class HomeModel extends BaseUIModel<HomeModel> {
 
   @override
   HomeModel clone() => HomeModel(
-        selectedIndex: this.selectedIndex,
-        subModule: this.subModule,
+        initialized: this.initialized,
       );
 }

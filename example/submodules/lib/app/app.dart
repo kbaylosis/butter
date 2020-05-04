@@ -1,3 +1,4 @@
+import 'package:butter/butter.dart';
 import 'package:flutter/material.dart';
 
 import '../config/app_config.dart';
@@ -22,4 +23,11 @@ class App extends StatelessWidget {
       initialRoute: routes.defaultModule.routeName,
     );
   }
+
+  static BasePageConnector<BasePageState<BaseUIModel>, BasePageView> 
+    getChild(BuildContext context, BaseUIModel model) =>
+    App.routes.routes[model.$key].getChild(context);
+
+  static String getRouteName(BuildContext context, BaseUIModel model) =>
+    App.routes.routes[model.$key].getRouteName(context);
 }
