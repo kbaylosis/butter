@@ -24,10 +24,10 @@ class App extends StatelessWidget {
     );
   }
 
-  static BasePageConnector<BasePageState<BaseUIModel>, BasePageView> 
-    getChild(BuildContext context, BaseUIModel model) =>
-    App.routes.routes[model.$key].getChild(context);
+  static BasePageConnector<BasePageState<BaseUIModel>, BasePageView> getChild(
+          BuildContext context, BaseUIModel model) =>
+      App.routes.routes[model.$key].getChild(context);
 
   static String getRouteName(BuildContext context, BaseUIModel model) =>
-    App.routes.routes[model.$key].getRouteName(context);
+      App.routes.routes[model.$key].getRouteName(context);
 }
