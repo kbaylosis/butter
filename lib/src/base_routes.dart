@@ -30,13 +30,13 @@ class BaseRoutes {
   BaseModule _defaultModule;
 
   /// The default module of the application
-  get defaultModule => _defaultModule;
+  BaseModule get defaultModule => _defaultModule;
 
   /// The list of top level routes in the app
   Map<String, BaseModule> _routes;
 
   /// The list of top level routes in the app
-  get routes => _routes;
+  Map<String, BaseModule> get routes => _routes;
 
   /// Handles the top level route management of the app given a list of [modules] and
   /// a [defaultTransition]
