@@ -1,6 +1,15 @@
+## [0.4.0]
+
+* Added type checking when retrieving data from the store
+* Defined the types of BaseRoutes.routes and BaseRoutes.defaultModule properly
+* Handled navigator routing for submodules
+* Added BuildContext to BaseStatefulPageView.beforeLoad() and beforeUpdate()
+* Fetched route objects based on either the context or the specified routeName
+* Added BaseNavigation.getRouteName()
+  
 ## [0.3.1]
 
-* Add repository to pubspec
+* Added repository to pubspec
   
 ## [0.3.0]
 
@@ -19,17 +28,17 @@
 
 ## [0.2.3]
 
-* Remove BaseDispatcher.dispatchAttribs()
-* Fix the reduce() definition of BaseAction
-* Add docs to BaseAction and BasePageState
+* Removed BaseDispatcher.dispatchAttribs()
+* Fixed the reduce() definition of BaseAction
+* Added docs to BaseAction and BasePageState
 
 ## [0.2.2] 
 
-* Fix various health issues and suggestions reported by pub.dev
+* Fixed various health issues and suggestions reported by pub.dev
 
 ## [0.2.1] 
 
-* Allow models to overwrite data in the store
+* Allowed models to overwrite data in the store
 * write(), dispatchModel() and mutate() now have an overwrite parameter 
 
 ## [0.2.0] 
@@ -37,7 +46,7 @@
 * Split BasePageView into BaseStatefulPageView and BaseStatelessPageView
 * Provided BaseStatefulPageView to support smart page loads and updates
 * Provided baseline implementation for nested modules capability
-* Allow mother pages to retrieve elements from child pages
+* Allowed mother pages to retrieve elements from child pages
 
 ## [0.1.0] 
 
@@ -45,13 +54,13 @@
 
 ## [0.0.3] 
 
-* Discontinue the use of store attributes
+* Discontinued the use of store attributes
 * Introduced model keys
 * Properly define generic types
 
 ## [0.0.2] 
 
-* Make defaultTransition as optional in BaseRoutes
+* Made defaultTransition as optional in BaseRoutes
 
 ## [0.0.1] 
 
