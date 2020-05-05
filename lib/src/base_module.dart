@@ -27,13 +27,17 @@ abstract class BaseModule extends StatelessWidget {
   @override
   Widget build(BuildContext context) => getRoute(context);
 
+  /// Retrieves the routeName of the current route in the navigation stack
   String getRouteName(BuildContext context) =>
       NavigateAction.getCurrentNavigatorRouteName(context);
 
   /// Retrieves the current route
-  BasePageConnector<BasePageState, BasePageView> getRoute(
-      BuildContext context) {
-    String routeName = this.getRouteName(context);
+  ///
+  /// If a [routeName] is not specified, it will use the current route from the
+  /// navigation stack.
+  BasePageConnector<BasePageState, BasePageView> getRoute(BuildContext context,
+      [String routeName]) {
+    routeName ??= this.getRouteName(context);
 
     if (routes.containsKey(routeName)) {
       return _fetchRouteByType(context, routeName);
@@ -43,23 +47,32 @@ abstract class BaseModule extends StatelessWidget {
   }
 
   /// Retrieves the current route
-  BasePageConnector<BasePageState, BasePageView> getChild(
-      BuildContext context) {
+  ///
+  /// If a [routeName] is not specified, it will use the current route from the
+  /// navigation stack.
+  BasePageConnector<BasePageState, BasePageView> getChild(BuildContext context,
+      [String routeName]) {
     if (modules == null) {
       return null;
     }
 
-    String routeName = this.getRouteName(context);
+    routeName ??= this.getRouteName(context);
 
     if (modules.containsKey(routeName)) {
-      return modules[routeName].getRoute(context);
+      return modules[routeName].getRoute(context, routeName);
     } else if (modules.containsKey('/')) {
-      return modules['/'].getRoute(context);
+      return modules['/'].getRoute(context, routeName);
     }
 
     return this.getRoute(context);
   }
 
+  /// Fetches a route using its [routeName]
+  ///
+  /// If an object of type [BaseModule] is obtained, drill down until the route nest
+  /// yields a [BasePageConnector]. Any other type throws a [FormatException].
+  /// NOTE: This mechanism doesn't handle circular references. Take good care
+  /// in designing your root trees well!
   BasePageConnector<BasePageState, BasePageView> _fetchRouteByType(
       BuildContext context, String routeName) {
     var r = routes[routeName];
