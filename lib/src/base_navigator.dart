@@ -1,3 +1,4 @@
+import 'package:async_redux/async_redux.dart';
 import 'package:flutter/widgets.dart';
 
 /// The base interface for navigation
@@ -40,4 +41,8 @@ abstract class BaseNavigator {
     Route route, {
     Object arguments,
   });
+
+  /// Retrieves the routeName of the current route in the navigation stack
+  static String getRouteName(BuildContext context) =>
+      NavigateAction.getCurrentNavigatorRouteName(context);
 }
