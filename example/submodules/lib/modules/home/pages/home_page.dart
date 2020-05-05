@@ -23,8 +23,7 @@ class HomePage extends BaseStatefulPageView {
   // Kindly use this with care. Most weight of asynchronous processes must be
   // put inside Actions... not here.
   @override
-  @override
-  beforeLoad() {
+  beforeLoad(BuildContext context) {
     if (this.model.checkIfInit()) {
       if (!this.model.initialized) {
         this.model.onTapMenuItem(AppConfig.defaultHomePage);
@@ -72,7 +71,7 @@ class HomePage extends BaseStatefulPageView {
         body: safeArea,
         bottomNavigationBar: Navbar(
           model: this.model,
-          routeName: App.getRouteName(context, this.model),
+          routeName: App.getRouteName(context),
         ),
       ),
     );

@@ -31,7 +31,7 @@ class NewsFeedPage extends BaseStatefulPageView {
   // Kindly use this with care. Most weight of asynchronous processes must be
   // put inside Actions... not here.
   @override
-  beforeLoad() async {
+  beforeLoad(BuildContext context) async {
     return Future.delayed(Duration(seconds: 3), () => true);
   }
 
