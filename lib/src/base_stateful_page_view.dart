@@ -22,13 +22,13 @@ abstract class BaseStatefulPageView extends StatefulWidget
   ///
   /// Returns either a [Future<bool>] or [bool]. If [true] is returned, the page
   /// will load normally, otherwise, it will not proceed to calling [build].
-  FutureOr<bool> beforeLoad() => true;
+  FutureOr<bool> beforeLoad(BuildContext context) => true;
 
   /// Called when a page is about to be updated.
   ///
   /// Returns either a [Future<bool>] or [bool]. If [true] is returned, the page
   /// will update normally, otherwise, it will not proceed to calling [build].
-  FutureOr<bool> beforeUpdate() => true;
+  FutureOr<bool> beforeUpdate(BuildContext context) => true;
 
   /// Called while waiting for the result of [beforeLoad]
   ///
@@ -83,7 +83,7 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: this._cycle(),
+      future: this._cycle(context),
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.hasData) {
           return widget.build(context);
@@ -99,20 +99,20 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   /// Manages the page cycle
   ///
   /// Returns null if page loading or updating needs to be aborted
-  Future<bool> _cycle() async {
+  Future<bool> _cycle(BuildContext context) async {
     if (initialized) {
       if (!loadRetVal) {
         return null;
       }
 
       return Future.microtask(() async {
-        return await widget.beforeUpdate();
+        return await widget.beforeUpdate(context);
       });
     }
 
     initialized = true;
     return Future.microtask(() async {
-      loadRetVal = await widget.beforeLoad();
+      loadRetVal = await widget.beforeLoad(context);
       return loadRetVal;
     });
   }
