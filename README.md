@@ -181,8 +181,9 @@ https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/f
    - See [BasePageState](https://pub.dev/documentation/butter/latest/butter/BasePageState-class.html) class
 
 [<module-name.dart>](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/function_a.dart)
+https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/modules/home/home.dart)
    - Root file of the module
+   - Sub routing and child modules are defined here
    - See [BaseModule](https://pub.dev/documentation/butter/latest/butter/BaseModule-class.html) class
 
 ### Optional Files
