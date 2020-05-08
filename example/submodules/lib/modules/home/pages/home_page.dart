@@ -41,6 +41,9 @@ class HomePage extends BaseStatefulPageView {
     // The following shows one way on how to handle subModules. This mechanism
     // allows you to have nested modules (a module within a module within a module, etc).
     var module = App.getChild(context, this.model);
+    if (module == null) {
+      return Scaffold();
+    }
 
     // The definition of PageSpecs varies from app to app so change the PageSpecs
     // definition in the utils as you need.
