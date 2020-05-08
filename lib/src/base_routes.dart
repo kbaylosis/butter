@@ -89,6 +89,7 @@ class BaseRoutes {
 
     if (!this._routes.containsKey(routePrefix)) {
       routePrefix = '/';
+      print('Routing: [${settings.name}] ==> [$routePrefix]');
     }
 
     RouteTransitionsBuilder transitionsBuilder;

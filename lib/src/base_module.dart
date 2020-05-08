@@ -40,11 +40,17 @@ abstract class BaseModule extends StatelessWidget {
     routeName ??= this.getRouteName(context);
 
     if (routes.containsKey(routeName)) {
+      print('getRoute(): module->[${this.routeName}].fetchRouteByType(): [${routeName}]');
       return _fetchRouteByType(context, routeName);
     } else {
       var parentRouteName = _trimRouteName(routeName);
-      return parentRouteName.isEmpty ? 
-        _fetchRouteByType(context, '/') : getRoute(context, parentRouteName);
+      if (parentRouteName.isEmpty) {
+        print('getRoute(): module->[${this.routeName}].fetchRouteByType(): [/]');
+        return _fetchRouteByType(context, '/');
+      }
+
+      print('getRoute(): module->[${this.routeName}].getRoute(): [${parentRouteName}]');
+      return getRoute(context, parentRouteName);
     }
   }
 
@@ -61,11 +67,17 @@ abstract class BaseModule extends StatelessWidget {
     routeName ??= this.getRouteName(context);
 
     if (modules.containsKey(routeName)) {
+      print('getChild(): module->[${routeName}].getRoute(): [${this.getRouteName(context)}]');
       return modules[routeName].getRoute(context, this.getRouteName(context));
     } else {
       var parentRouteName = _trimRouteName(routeName); 
-      return parentRouteName.isEmpty ? 
-        modules['/'].getChild(context, parentRouteName) : getChild(context, parentRouteName);
+      if (parentRouteName.isEmpty) {
+        print('getChild(): module->[/].getChild(): [${parentRouteName}]');
+        return modules['/'].getChild(context, parentRouteName);
+      }
+
+      print('getChild(): module->[${this.routeName}].getChild(): [${parentRouteName}]');
+      return getChild(context, parentRouteName);
     }
   }
 
@@ -89,6 +101,7 @@ abstract class BaseModule extends StatelessWidget {
         'Must of be of type BasePageConnector or BaseModule.');
   }
 
+  /// Remove either the leading or trailing path fragment '/<name>' from the full routeName
   String _trimRouteName(String routeName, [ bool tail = true ]) =>
     routeName.replaceFirst(RegExp('/([A-Za-z_])+([A-Za-z0-9_])+${ tail ? '\$' : ''}'), '');
 }
