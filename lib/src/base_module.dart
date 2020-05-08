@@ -42,7 +42,9 @@ abstract class BaseModule extends StatelessWidget {
     if (routes.containsKey(routeName)) {
       return _fetchRouteByType(context, routeName);
     } else {
-      return _fetchRouteByType(context, '/');
+      var parentRouteName = _trimRouteName(routeName);
+      return parentRouteName.isEmpty ? 
+        _fetchRouteByType(context, '/') : getRoute(context, parentRouteName);
     }
   }
 
@@ -59,12 +61,12 @@ abstract class BaseModule extends StatelessWidget {
     routeName ??= this.getRouteName(context);
 
     if (modules.containsKey(routeName)) {
-      return modules[routeName].getRoute(context, routeName);
-    } else if (modules.containsKey('/')) {
-      return modules['/'].getRoute(context, routeName);
+      return modules[routeName].getRoute(context, this.getRouteName(context));
+    } else {
+      var parentRouteName = _trimRouteName(routeName); 
+      return parentRouteName.isEmpty ? 
+        modules['/'].getChild(context, parentRouteName) : getChild(context, parentRouteName);
     }
-
-    return this.getRoute(context);
   }
 
   /// Fetches a route using its [routeName]
@@ -79,11 +81,14 @@ abstract class BaseModule extends StatelessWidget {
     if (r is BasePageConnector) {
       return r;
     } else if (r is BaseModule) {
-      return r.getRoute(context);
+      return r.getRoute(context, routeName);
     }
 
     throw FormatException(
         'Invalid type in BaseModule.routes for route [$routeName] in [${this.routeName}]. '
         'Must of be of type BasePageConnector or BaseModule.');
   }
+
+  String _trimRouteName(String routeName, [ bool tail = true ]) =>
+    routeName.replaceFirst(RegExp('/([A-Za-z_])+([A-Za-z0-9_])+${ tail ? '\$' : ''}'), '');
 }
