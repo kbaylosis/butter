@@ -8,6 +8,9 @@ Store<AppState> store;
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
+  Butter.showFxLogs = true;
+
+  Butter.d('Starting the app...');
   store = Store<AppState>(initialState: AppState(data: Map<String, dynamic>()));
   NavigateAction.setNavigatorKey(navigatorKey);
 
