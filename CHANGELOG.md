@@ -1,3 +1,10 @@
+## 0.5.0
+
+* Improve routing of submodules
+* Handled submodules via routeName configuration
+* Adapt a logger
+* Update the submodules example to comply with framework updates
+
 ## 0.4.0
 
 * Added type checking when retrieving data from the store
