@@ -27,4 +27,5 @@ export 'src/base_routes.dart';
 export 'src/base_stateful_page_view.dart';
 export 'src/base_stateless_page_view.dart';
 export 'src/base_ui_model.dart';
+export 'src/butter.dart';
 export 'src/page_arguments.dart';
