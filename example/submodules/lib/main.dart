@@ -8,6 +8,8 @@ Store<AppState> store;
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {
+  Butter.level = LogLevel.debug;
+  Butter.showTimestamp = true;
   Butter.showFxLogs = true;
 
   Butter.d('Starting the app...');
