@@ -1,3 +1,7 @@
+## 0.5.1
+
+* Remove unused import
+  
 ## 0.5.0
 
 * Improve routing of submodules
