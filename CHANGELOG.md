@@ -1,3 +1,8 @@
+## 0.6.0
+
+* Fix the state access error produced in BasePageState
+* Update async_redux
+  
 ## 0.5.1
 
 * Remove unused import
