@@ -32,7 +32,7 @@ class BaseAction extends ReduxAction<AppState>
   /// across the whole app.
   @override
   Model read<Model extends BaseUIModel>(Model defaultModel) =>
-      this.store.state.read(defaultModel.$key, defaultModel);
+      this.state.read(defaultModel.$key, defaultModel);
 
   /// Modifies the data of the model of type [BaseUIModel] stored the store
   ///
