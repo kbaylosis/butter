@@ -111,5 +111,5 @@ abstract class BaseModule extends StatelessWidget {
   /// Remove either the leading or trailing path fragment '/<name>' from the full routeName
   String _trimRouteName(String routeName, [bool tail = true]) =>
       routeName.replaceFirst(
-          RegExp('/([A-Za-z_])+([A-Za-z0-9_])+${tail ? '\$' : ''}'), '');
+          RegExp('/([A-Za-z_])+([A-Za-z0-9_])*${tail ? '\$' : ''}'), '');
 }
