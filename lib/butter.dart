@@ -13,6 +13,7 @@
 /// * [redux](https://redux.js.org/)
 library butter;
 
+export 'src/app_persistor.dart';
 export 'src/app_state.dart';
 export 'src/base_action.dart';
 export 'src/base_dispatcher.dart';
