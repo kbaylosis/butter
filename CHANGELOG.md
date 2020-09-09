@@ -1,3 +1,10 @@
+## 0.6.1
+
+* Fix infinite recursion in getChild if route is root
+* Add dispatchFutureModel
+* Allow single character paths
+* Add the AppPersistor
+
 ## 0.6.0
 
 * Fix the state access error produced in BasePageState
