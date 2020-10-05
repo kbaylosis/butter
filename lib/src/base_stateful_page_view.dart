@@ -110,9 +110,10 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
       });
     }
 
-    initialized = true;
+    setState(() => initialized = true);
     return Future.microtask(() async {
       loadRetVal = await widget.beforeLoad(context);
+      setState(() => loadRetVal = true);
       return loadRetVal;
     });
   }
