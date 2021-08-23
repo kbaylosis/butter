@@ -37,9 +37,9 @@ class BasePageConnector<PageState extends BasePageState,
   /// }
   /// ```
   BasePageConnector({
-    @required BasePageState state,
-    @required this.page,
-    @required PageView Function(PageState) getPage,
+    required BasePageState state,
+    required this.page,
+    required PageView Function(PageState) getPage,
   }) : super(
           model: state,
           builder: (BuildContext context, PageState vm) => getPage(vm),

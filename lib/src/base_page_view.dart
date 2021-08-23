@@ -7,5 +7,5 @@ abstract class BasePageView extends Widget {
   /// Retrieves the page specs of the current page
   ///
   /// This is useful for passing information from child to mother pages.
-  BasePageSpecs get specs;
+  BasePageSpecs? get specs;
 }

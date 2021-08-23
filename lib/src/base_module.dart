@@ -15,12 +15,12 @@ abstract class BaseModule extends StatelessWidget {
   final Map<String, Widget> routes;
 
   /// Child modules
-  final Map<String, BaseModule> modules;
+  final Map<String, BaseModule>? modules;
 
   /// Create a module by passing its [routeName] and all [routes] under it
   BaseModule({
-    @required this.routeName,
-    @required this.routes,
+    required this.routeName,
+    required this.routes,
     this.modules,
   });
 
@@ -29,7 +29,7 @@ abstract class BaseModule extends StatelessWidget {
   Widget build(BuildContext context) => getRoute(context);
 
   /// Retrieves the routeName of the current route in the navigation stack
-  String getRouteName(BuildContext context) =>
+  String? getRouteName(BuildContext context) =>
       NavigateAction.getCurrentNavigatorRouteName(context);
 
   /// Retrieves the current route
@@ -37,9 +37,9 @@ abstract class BaseModule extends StatelessWidget {
   /// If a [routeName] is not specified, it will use the current route from the
   /// navigation stack.
   BasePageConnector<BasePageState, BasePageView> getRoute(BuildContext context,
-      [String routeName]) {
+      [String? routeName]) {
     routeName ??= this.getRouteName(context);
-    routeName = routeName.split('?')[0];
+    routeName = routeName!.split('?')[0];
 
     if (routes.containsKey(routeName)) {
       FxLog.d(
@@ -63,19 +63,19 @@ abstract class BaseModule extends StatelessWidget {
   ///
   /// If a [routeName] is not specified, it will use the current route from the
   /// navigation stack.
-  BasePageConnector<BasePageState, BasePageView> getChild(BuildContext context,
-      [String routeName]) {
+  BasePageConnector<BasePageState, BasePageView>? getChild(BuildContext context,
+      [String? routeName]) {
     if (modules == null) {
       return null;
     }
 
     routeName ??= this.getRouteName(context);
-    routeName = routeName.split('?')[0];
+    routeName = routeName!.split('?')[0];
 
-    if (modules.containsKey(routeName)) {
+    if (modules!.containsKey(routeName)) {
       FxLog.d(
           'getChild(): module->[$routeName].getRoute(): [${this.getRouteName(context)}]');
-      return modules[routeName].getRoute(context, this.getRouteName(context));
+      return modules![routeName]!.getRoute(context, this.getRouteName(context));
     } else {
       var parentRouteName = _trimRouteName(routeName);
       if (parentRouteName == '/' || parentRouteName.isEmpty) {

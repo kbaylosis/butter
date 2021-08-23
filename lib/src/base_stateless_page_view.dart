@@ -10,5 +10,5 @@ abstract class BaseStatelessPageView extends StatelessWidget
     implements BasePageView {
   /// The page specs of type [BasePageSpecs]
   @override
-  BasePageSpecs get specs => null;
+  BasePageSpecs? get specs => null;
 }

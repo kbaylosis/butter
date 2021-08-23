@@ -53,7 +53,7 @@ abstract class BaseStatefulPageView extends StatefulWidget
 
   /// The page specs of type [BasePageSpecs]
   @override
-  BasePageSpecs get specs => null;
+  BasePageSpecs? get specs => null;
 }
 
 /// The [State] implementation of [BaseStatefulPageView]
@@ -61,8 +61,8 @@ abstract class BaseStatefulPageView extends StatefulWidget
 /// It manages the page cycle to make it possible for loading and update events
 /// to be intercepted.
 class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
-  bool initialized;
-  bool loadRetVal;
+  late bool initialized;
+  bool? loadRetVal;
 
   /// Initializes [initialized] and [loadRetVal]
   @override
@@ -99,9 +99,9 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   /// Manages the page cycle
   ///
   /// Returns null if page loading or updating needs to be aborted
-  Future<bool> _cycle(BuildContext context) async {
+  Future<bool?> _cycle(BuildContext context) async {
     if (initialized) {
-      if (!loadRetVal) {
+      if (!loadRetVal!) {
         return null;
       }
 

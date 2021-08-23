@@ -24,14 +24,14 @@ class BaseAction extends ReduxAction<AppState>
 
   /// An override to the [ReduxAction.reduce] to allow processing of anonymous actions
   @override
-  FutureOr<AppState> reduce() => state.copyAll(this._data);
+  FutureOr<AppState> reduce() => state.copyAll(this._data as Map<String, dynamic>);
 
   /// Reads a model of type [BaseUIModel] from the store
   ///
   /// The key used for the model must be guaranteed as unique by the developer
   /// across the whole app.
   @override
-  Model read<Model extends BaseUIModel>(Model defaultModel) =>
+  Model? read<Model extends BaseUIModel>(Model defaultModel) =>
       this.state.read(defaultModel.$key, defaultModel);
 
   /// Modifies the data of the model of type [BaseUIModel] stored the store
@@ -43,7 +43,7 @@ class BaseAction extends ReduxAction<AppState>
   Model mutate<Model extends BaseUIModel>(
       Model defaultModel, void Function(Model m) f,
       [bool overwrite = false]) {
-    var d = overwrite ? defaultModel : read(defaultModel).clone();
+    var d = overwrite ? defaultModel : read(defaultModel)!.clone();
     f(d);
 
     return d;
@@ -99,7 +99,7 @@ class BaseAction extends ReduxAction<AppState>
   @override
   void pushNamed(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
       dispatch(NavigateAction.pushNamed(route, arguments: arguments));
 
@@ -107,7 +107,7 @@ class BaseAction extends ReduxAction<AppState>
   @override
   void pushReplacementNamed(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
       dispatch(
           NavigateAction.pushReplacementNamed(route, arguments: arguments));
@@ -116,7 +116,7 @@ class BaseAction extends ReduxAction<AppState>
   @override
   void pushNamedAndRemoveAll(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
       dispatch(
           NavigateAction.pushNamedAndRemoveAll(route, arguments: arguments));
@@ -126,12 +126,12 @@ class BaseAction extends ReduxAction<AppState>
   @override
   void pushNamedAndRemoveUntil(
     String route, {
-    Object arguments,
-    RoutePredicate predicate,
+    Object? arguments,
+    RoutePredicate? predicate,
   }) =>
       dispatch(NavigateAction.pushNamedAndRemoveUntil(
         route,
-        predicate,
+        predicate!,
         arguments: arguments,
       ));
 

@@ -49,17 +49,17 @@ class _SimpleLogPrinter extends LogPrinter {
   /// Handles the print formatting of the log
   @override
   List<String> log(LogEvent event) {
-    if (_extractMessage(event.message)['fx'] && !Butter.showFxLogs) {
+    if (_extractMessage(event.message)!['fx'] && !Butter.showFxLogs) {
       return [];
     }
 
     return [
-      '🧈: ${Butter.showTimestamp ? '${DateTime.now()}: ' : ''}${levelEmojis[event.level]} ${_extractMessage(event.message)['m']}'
+      '🧈: ${Butter.showTimestamp ? '${DateTime.now()}: ' : ''}${levelEmojis[event.level]} ${_extractMessage(event.message)!['m']}'
     ];
   }
 
   /// Formats a message object into a map
-  Map _extractMessage(var message) {
+  Map? _extractMessage(var message) {
     if (message is String) {
       return {
         'fx': false,

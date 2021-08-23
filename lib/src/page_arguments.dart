@@ -6,7 +6,7 @@ class PageArguments<PageTransition extends BasePageTransition> {
   final dynamic arg;
 
   /// The animation to perform while transitioning to a new page
-  final PageTransition transition;
+  final PageTransition? transition;
 
   /// Creates the page argument object
   PageArguments({

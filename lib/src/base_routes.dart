@@ -24,26 +24,26 @@ import 'page_arguments.dart';
 /// Todo extends [BaseModule]
 class BaseRoutes {
   /// The default page transition animation
-  BasePageTransition defaultTransition;
+  BasePageTransition? defaultTransition;
 
   /// The default module of the application
-  BaseModule _defaultModule;
+  BaseModule? _defaultModule;
 
   /// The default module of the application
-  BaseModule get defaultModule => _defaultModule;
+  BaseModule? get defaultModule => _defaultModule;
 
   /// The list of top level routes in the app
-  Map<String, BaseModule> _routes;
+  Map<String, BaseModule?>? _routes;
 
   /// The list of top level routes in the app
-  Map<String, BaseModule> get routes => _routes;
+  Map<String, BaseModule?>? get routes => _routes;
 
   /// Handles the top level route management of the app given a list of [modules] and
   /// a [defaultTransition]
   ///
   /// The topmost module in the list of [modules] automatically becomes the [defaultModule]
   BaseRoutes({
-    @required List<BaseModule> modules,
+    required List<BaseModule> modules,
     this.defaultTransition,
   })  : assert(modules != null),
         assert(modules.isNotEmpty) {
@@ -54,9 +54,9 @@ class BaseRoutes {
     }
 
     _defaultModule = modules[0];
-    _routes['/'] = _defaultModule;
+    _routes!['/'] = _defaultModule;
     modules.forEach((m) {
-      _routes[m.routeName] = m;
+      _routes![m.routeName] = m;
     });
   }
 
@@ -75,8 +75,8 @@ class BaseRoutes {
   /// );
   /// ```
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final PageArguments args = settings.arguments;
-    final routeFragments = settings.name.split('/');
+    final PageArguments? args = settings.arguments as PageArguments<BasePageTransition>?;
+    final routeFragments = settings.name!.split('/');
     String routePrefix = '';
 
     if (routeFragments.length > 1) {
@@ -87,16 +87,16 @@ class BaseRoutes {
 
     routePrefix = '/$routePrefix';
 
-    if (!this._routes.containsKey(routePrefix)) {
+    if (!this._routes!.containsKey(routePrefix)) {
       routePrefix = '/';
       print('Routing: [${settings.name}] ==> [$routePrefix]');
     }
 
-    RouteTransitionsBuilder transitionsBuilder;
+    RouteTransitionsBuilder? transitionsBuilder;
     if (args?.transition != null) {
-      transitionsBuilder = args.transition.build();
+      transitionsBuilder = args!.transition!.build();
     } else if (this.defaultTransition != null) {
-      transitionsBuilder = this.defaultTransition.build();
+      transitionsBuilder = this.defaultTransition!.build();
     }
 
     return PageRouteBuilder(
@@ -106,7 +106,7 @@ class BaseRoutes {
         Animation<double> animation,
         Animation<double> secondaryAnimation,
       ) =>
-          this._routes[routePrefix],
+          this._routes![routePrefix]!,
       transitionsBuilder: transitionsBuilder ?? _defaultTransitionsBuilder,
     );
   }

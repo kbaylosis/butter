@@ -6,7 +6,7 @@ import 'base_ui_model.dart';
 /// Use this for entities needing to implement [Store] operations
 abstract class BaseStoreUtils {
   /// Reads a model of type [BaseUIModel] from the store
-  Model read<Model extends BaseUIModel>(Model defaultModel);
+  Model? read<Model extends BaseUIModel>(Model defaultModel);
 
   /// Modifies the data of the model of type [BaseUIModel] stored the store
   ///

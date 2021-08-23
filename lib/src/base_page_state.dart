@@ -25,7 +25,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// The key used for the model must be guaranteed as unique by the developer
   /// across the whole app.
   @override
-  Model read<Model extends BaseUIModel>(Model defaultModel) =>
+  Model? read<Model extends BaseUIModel>(Model defaultModel) =>
       this.state.read(defaultModel.$key, defaultModel);
 
   /// Modifies the data of the model of type [BaseUIModel] stored the store
@@ -37,7 +37,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   Model mutate<Model extends BaseUIModel>(
       Model defaultModel, void Function(Model m) f,
       [bool overwrite = false]) {
-    var d = overwrite ? defaultModel : read(defaultModel).clone();
+    var d = overwrite ? defaultModel : read(defaultModel)!.clone();
     f(d);
 
     return d;
@@ -66,7 +66,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   void dispatchModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
           [bool overwrite = false]) =>
-      super.dispatch(BaseAction.build({
+      super.dispatch!(BaseAction.build({
         defaultModel.$key: mutate(defaultModel, f, overwrite),
       }));
 
@@ -81,38 +81,38 @@ abstract class BasePageState<Model extends BaseUIModel>
   Future<void> dispatchFutureModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
           [bool overwrite = false]) =>
-      super.dispatch(BaseAction.build({
+      super.dispatch!(BaseAction.build({
         defaultModel.$key: mutate(defaultModel, f, overwrite),
       }));
 
   /// Removes the current route from the navigation stack
   @override
-  void pop() => dispatch(NavigateAction.pop());
+  void pop() => dispatch!(NavigateAction.pop());
 
   /// Puts a route on top of the navigation stack
   @override
   void pushNamed(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
-      dispatch(NavigateAction.pushNamed(route, arguments: arguments));
+      dispatch!(NavigateAction.pushNamed(route, arguments: arguments));
 
   /// Replaces the current route with the specified route
   @override
   void pushReplacementNamed(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
-      dispatch(
+      dispatch!(
           NavigateAction.pushReplacementNamed(route, arguments: arguments));
 
   /// Adds a route into the navigation stack and removes everything else
   @override
   void pushNamedAndRemoveAll(
     String route, {
-    Object arguments,
+    Object? arguments,
   }) =>
-      dispatch(
+      dispatch!(
           NavigateAction.pushNamedAndRemoveAll(route, arguments: arguments));
 
   /// Adds a route into the navigation stack and removes everything until the condition
@@ -120,12 +120,12 @@ abstract class BasePageState<Model extends BaseUIModel>
   @override
   void pushNamedAndRemoveUntil(
     String route, {
-    Object arguments,
-    RoutePredicate predicate,
+    Object? arguments,
+    RoutePredicate? predicate,
   }) =>
-      dispatch(NavigateAction.pushNamedAndRemoveUntil(
+      dispatch!(NavigateAction.pushNamedAndRemoveUntil(
         route,
-        predicate,
+        predicate!,
         arguments: arguments,
       ));
 
@@ -133,9 +133,9 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// [predicate] is satisfied
   @override
   void popUntil(bool Function(Route<dynamic>) predicate) =>
-      dispatch(NavigateAction.popUntil(predicate));
+      dispatch!(NavigateAction.popUntil(predicate));
 
   /// Puts a route object on top of the navigation stack
   @override
-  void push(Route route) => dispatch(NavigateAction.push(route));
+  void push(Route route) => dispatch!(NavigateAction.push(route));
 }

@@ -5,11 +5,11 @@ import 'app_state.dart';
 abstract class AppPersistor extends Persistor<AppState> {
   final String file;
 
-  LocalPersist _persist;
+  LocalPersist? _persist;
 
   AppPersistor(this.file);
 
-  LocalPersist get persist {
+  LocalPersist? get persist {
     if (_persist == null) {
       _persist = LocalPersist(this.file);
     }
