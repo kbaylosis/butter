@@ -4,7 +4,7 @@ import 'package:butter/butter.dart';
 
 class InitModel extends BaseUIModel<InitModel> {
   bool hasInitialized;
-  VoidCallback proceed;
+  VoidCallback? proceed;
 
   InitModel({
     this.hasInitialized = false,

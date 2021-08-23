@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 
   App({
-    @required this.navigatorKey,
+    required this.navigatorKey,
   });
 
   @override
@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       title: AppConfig.title,
       navigatorKey: this.navigatorKey,
       onGenerateRoute: routes.onGenerateRoute,
-      initialRoute: routes.defaultModule.routeName,
+      initialRoute: routes.defaultModule!.routeName,
     );
   }
 }

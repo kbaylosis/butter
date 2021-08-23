@@ -7,9 +7,9 @@ import '../models/init_model.dart';
 class InitState extends BasePageState<InitModel> {
   InitState();
 
-  InitModel model;
+  InitModel? model;
 
-  InitState.build(this.model, void Function(InitModel m) f)
+  InitState.build(InitModel this.model, void Function(InitModel m) f)
       : super.build(model, f);
 
   @override
@@ -25,7 +25,7 @@ class InitState extends BasePageState<InitModel> {
   InitState fromStore() => InitState.build(
           read<InitModel>(
             InitModel(),
-          ), (m) {
+          )!, (m) {
         m.proceed = () => this.pushNamed(
               "/todo/add",
               arguments: PageArguments(

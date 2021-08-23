@@ -1,5 +1,5 @@
 class RouteConverter {
-  static int routeToIndex(String route) {
+  static int routeToIndex(String? route) {
     switch (route) {
       case '/home/functionA':
         return 1;
@@ -12,7 +12,7 @@ class RouteConverter {
     }
   }
 
-  static String indexToRoute(int index) {
+  static String? indexToRoute(int index) {
     switch (index) {
       case 0:
         return '/home/newsfeed';

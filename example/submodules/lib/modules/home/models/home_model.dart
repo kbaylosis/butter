@@ -6,9 +6,9 @@ class HomeModel extends BaseUIModel<HomeModel> {
   // Do not declare things as final unless you really intend so.
   //
   bool initialized;
-  void Function(int index) onTapMenuItem;
-  bool Function() checkIfInit;
-  VoidCallback exit;
+  void Function(int index)? onTapMenuItem;
+  late bool Function() checkIfInit;
+  late VoidCallback exit;
 
   HomeModel({
     this.initialized = false,

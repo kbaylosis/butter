@@ -7,13 +7,13 @@ import '../models/init_model.dart';
 class InitState extends BasePageState<InitModel> {
   InitState();
 
-  InitModel model;
+  InitModel? model;
 
   // This constructor form is not properly enforced. Which means, if you do not
   // follow this, no errors will be produced in butter. However, this allows you to
   // properly fillup your models with valid function handlers after being read
   // from the store and before it is being fed to the page.
-  InitState.build(this.model, void Function(InitModel m) f)
+  InitState.build(InitModel this.model, void Function(InitModel m) f)
       : super.build(model, f);
 
   @override
@@ -31,7 +31,7 @@ class InitState extends BasePageState<InitModel> {
             InitModel(
               hasInitialized: false,
             ),
-          ), (m) {
-        m.proceed = () => dispatch(GoToHomeAction());
+          )!, (m) {
+        m.proceed = () => dispatch!(GoToHomeAction());
       });
 }

@@ -7,9 +7,9 @@ import '../models/todo_model.dart';
 class TodoState extends BasePageState<TodoModel> {
   TodoState();
 
-  TodoModel model;
+  TodoModel? model;
 
-  TodoState.build(this.model, void Function(TodoModel m) f)
+  TodoState.build(TodoModel this.model, void Function(TodoModel m) f)
       : super.build(model, f);
 
   @override
@@ -17,7 +17,7 @@ class TodoState extends BasePageState<TodoModel> {
     return identical(this, other) ||
         other is TodoState &&
             this.runtimeType == other.runtimeType &&
-            this.model.items == other.model.items;
+            this.model!.items == other.model!.items;
   }
 
   @override
@@ -27,8 +27,8 @@ class TodoState extends BasePageState<TodoModel> {
   TodoState fromStore() => TodoState.build(
           read<TodoModel>(TodoModel(
             items: List<String>(),
-          )), (m) {
-        m.add = (value) => dispatch(AddTodoAction(value));
+          ))!, (m) {
+        m.add = (value) => dispatch!(AddTodoAction(value));
         m.back = () => this.pop();
       });
 }

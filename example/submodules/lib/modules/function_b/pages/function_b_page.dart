@@ -6,7 +6,7 @@ import 'package:submodules/utils/sub_module_page_specs.dart';
 import '../models/function_b_model.dart';
 
 class FunctionBPage extends BaseStatelessPageView {
-  final FunctionBModel model;
+  final FunctionBModel? model;
 
   FunctionBPage({this.model});
 

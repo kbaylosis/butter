@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import '../models/todo_model.dart';
 
 class AddTodoForm extends StatefulWidget {
-  final TodoModel model;
+  final TodoModel? model;
 
   AddTodoForm(this.model);
 
@@ -19,7 +19,7 @@ class _AddTodoFormState extends State<AddTodoForm> {
   Widget build(BuildContext context) {
     List<Widget> items = [];
 
-    widget.model.items.forEach((element) {
+    widget.model!.items!.forEach((element) {
       items.add(
         Container(
           alignment: Alignment.centerLeft,
@@ -44,7 +44,7 @@ class _AddTodoFormState extends State<AddTodoForm> {
                     hintText: 'Enter todo item',
                   ),
                   onSubmitted: (value) {
-                    widget.model.add(value);
+                    widget.model!.add!(value);
                     txtItem.clear();
                   },
                 ),
@@ -54,7 +54,7 @@ class _AddTodoFormState extends State<AddTodoForm> {
                 child: IconButton(
                   icon: Icon(Icons.add_circle),
                   onPressed: () {
-                    widget.model.add(txtItem.text);
+                    widget.model!.add!(txtItem.text);
                     txtItem.clear();
                   },
                 ),

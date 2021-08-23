@@ -5,8 +5,8 @@ import '../models/home_model.dart';
 import '../utils/route_converter.dart';
 
 class Navbar extends StatelessWidget {
-  final HomeModel model;
-  final String routeName;
+  final HomeModel? model;
+  final String? routeName;
 
   Navbar({
     this.model,
@@ -16,7 +16,7 @@ class Navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        onTap: this.model.onTapMenuItem,
+        onTap: this.model!.onTapMenuItem,
         currentIndex: RouteConverter.routeToIndex(this.routeName),
         items: [
           BottomNavigationBarItem(

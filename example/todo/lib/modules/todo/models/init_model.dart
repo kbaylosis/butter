@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:butter/butter.dart';
 
 class InitModel extends BaseUIModel<InitModel> {
-  VoidCallback proceed;
+  VoidCallback? proceed;
 
   InitModel({
     this.proceed,

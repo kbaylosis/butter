@@ -9,6 +9,6 @@ class AddTodoAction extends BaseAction {
 
   @override
   AppState reduce() => write<TodoModel>(TodoModel(), (m) {
-        m.items.add(this.item);
+        m.items!.add(this.item);
       });
 }

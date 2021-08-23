@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   final GlobalKey<NavigatorState> navigatorKey;
 
   App({
-    @required this.navigatorKey,
+    required this.navigatorKey,
   });
 
   @override
@@ -20,18 +20,18 @@ class App extends StatelessWidget {
       title: AppConfig.title,
       navigatorKey: this.navigatorKey,
       onGenerateRoute: routes.onGenerateRoute,
-      initialRoute: routes.defaultModule.routeName,
+      initialRoute: routes.defaultModule!.routeName,
     );
   }
 
-  static BasePageConnector<BasePageState<BaseUIModel>, BasePageView> getChild(
+  static BasePageConnector<BasePageState<BaseUIModel>, BasePageView>? getChild(
           BuildContext context, BaseUIModel model,
-          [String routeName]) =>
-      App.routes.routes[model.$key].getChild(context, routeName);
+          [String? routeName]) =>
+      App.routes.routes![model.$key]!.getChild(context, routeName);
 
-  static String getRouteName(BuildContext context) =>
+  static String? getRouteName(BuildContext context) =>
       BaseNavigator.getRouteName(context);
 
-  static T getPageArgs<T>(BuildContext context) =>
-      (ModalRoute.of(context).settings.arguments as PageArguments).arg;
+  static T? getPageArgs<T>(BuildContext context) =>
+      (ModalRoute.of(context)!.settings.arguments as PageArguments).arg;
 }

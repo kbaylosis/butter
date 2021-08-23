@@ -9,7 +9,7 @@ import '../models/init_model.dart';
 // it from BaseStatefulPageView that allows you to handle page cycles.
 //
 class InitPage extends BaseStatelessPageView {
-  final InitModel model;
+  final InitModel? model;
 
   InitPage({this.model});
 
@@ -33,7 +33,7 @@ class InitPage extends BaseStatelessPageView {
           Container(
             child: RaisedButton(
               child: Text('Proceed'),
-              onPressed: this.model.proceed,
+              onPressed: this.model!.proceed,
             ),
           ),
         ],

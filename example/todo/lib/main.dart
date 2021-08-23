@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'app/app.dart';
 
-Store<AppState> store;
+late Store<AppState> store;
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() async {

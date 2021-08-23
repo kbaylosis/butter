@@ -5,9 +5,9 @@ import '../models/function_b_model.dart';
 class FunctionBState extends BasePageState<FunctionBModel> {
   FunctionBState();
 
-  FunctionBModel model;
+  FunctionBModel? model;
 
-  FunctionBState.build(this.model, void Function(FunctionBModel m) f)
+  FunctionBState.build(FunctionBModel this.model, void Function(FunctionBModel m) f)
       : super.build(model, f);
 
   @override
@@ -23,6 +23,6 @@ class FunctionBState extends BasePageState<FunctionBModel> {
   FunctionBState fromStore() => FunctionBState.build(
       read<FunctionBModel>(
         FunctionBModel(),
-      ),
+      )!,
       (m) {});
 }

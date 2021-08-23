@@ -10,13 +10,13 @@ import '../models/home_model.dart';
 class HomeState extends BasePageState<HomeModel> {
   HomeState();
 
-  HomeModel model;
+  HomeModel? model;
 
   // This constructor form is not properly enforced. Which means, if you do not
   // follow this, no errors will be produced in butter. However, this allows you to
   // properly fillup your models with valid function handlers after being read
   // from the store and before it is being fed to the page.
-  HomeState.build(this.model, void Function(HomeModel m) f)
+  HomeState.build(HomeModel this.model, void Function(HomeModel m) f)
       : super.build(model, f);
 
   // Make sure to properly define this function. Otherwise, your reducers
@@ -26,7 +26,7 @@ class HomeState extends BasePageState<HomeModel> {
     return identical(this, other) ||
         other is HomeState &&
             this.runtimeType == other.runtimeType &&
-            this.model.initialized == other.model.initialized;
+            this.model!.initialized == other.model!.initialized;
   }
 
   @override
@@ -36,9 +36,9 @@ class HomeState extends BasePageState<HomeModel> {
   HomeState fromStore() => HomeState.build(
           read<HomeModel>(HomeModel(
             initialized: false,
-          )), (m) {
-        m.onTapMenuItem = (index) => dispatch(SeletMenuItemAction(index));
-        m.checkIfInit = () => read<InitModel>(InitModel()).hasInitialized;
-        m.exit = () => dispatch(LogoutAction());
+          ))!, (m) {
+        m.onTapMenuItem = (index) => dispatch!(SeletMenuItemAction(index));
+        m.checkIfInit = () => read<InitModel>(InitModel())!.hasInitialized;
+        m.exit = () => dispatch!(LogoutAction());
       });
 }

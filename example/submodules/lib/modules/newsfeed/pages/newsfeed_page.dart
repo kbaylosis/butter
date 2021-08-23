@@ -7,7 +7,7 @@ import 'package:submodules/utils/sub_module_page_specs.dart';
 import '../models/newsfeed_model.dart';
 
 class NewsFeedPage extends BaseStatefulPageView {
-  final NewsFeedModel model;
+  final NewsFeedModel? model;
 
   NewsFeedPage({this.model});
 

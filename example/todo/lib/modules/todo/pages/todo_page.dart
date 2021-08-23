@@ -6,7 +6,7 @@ import '../components/add_item_form.dart';
 import '../models/todo_model.dart';
 
 class TodoPage extends BaseStatelessPageView {
-  final TodoModel model;
+  final TodoModel? model;
 
   TodoPage({this.model});
 
@@ -18,7 +18,7 @@ class TodoPage extends BaseStatelessPageView {
           title: Text('TODO List'),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
-            onPressed: this.model.back,
+            onPressed: this.model!.back,
           ),
         ),
         body: AddTodoForm(this.model),
