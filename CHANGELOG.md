@@ -1,3 +1,8 @@
+## 1.0.0
+
+* Migrate to null safety
+* Upgrade dependencies
+
 ## 0.6.1
 
 * Fix infinite recursion in getChild if route is root
