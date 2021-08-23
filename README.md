@@ -1,6 +1,6 @@
 <img src="https://github.com/kbaylosis/butter/blob/master/logo.png?raw=true" width="400">
 
-[![pub package](https://img.shields.io/pub/v/butter)](https://pub.dartlang.org/packages/butter) [![Build Status](https://travis-ci.org/kbaylosis/butter.svg?branch=master)](https://travis-ci.org/kbaylosis/butter)
+[![pub package](https://img.shields.io/pub/v/butter)](https://pub.dartlang.org/packages/butter) [![Build Status](https://travis-ci.com/kbaylosis/butter.svg?branch=master)](https://travis-ci.com/github/kbaylosis/butter)
 
 A thin application framework for [flutter](https://flutter.dev/) making use of [async_redux](https://pub.dev/packages/async_redux/).
 
