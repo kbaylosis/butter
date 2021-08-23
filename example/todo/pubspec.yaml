@@ -23,7 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  async_redux: ^2.7.0
   butter:
     path: ../../ 
 
