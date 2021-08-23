@@ -34,13 +34,10 @@ abstract class BaseNavigator {
 
   /// Removes all routes in the navigation stack until the condition specified in
   /// [predicate] is satisfied
-  void popUntil(String route);
+  void popUntil(bool Function(Route<dynamic>) predicate);
 
   /// Puts a route object on top of the navigation stack
-  void push(
-    Route route, {
-    Object arguments,
-  });
+  void push(Route route);
 
   /// Retrieves the routeName of the current route in the navigation stack
   static String getRouteName(BuildContext context) =>

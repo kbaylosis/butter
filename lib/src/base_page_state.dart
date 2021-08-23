@@ -81,7 +81,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   Future<void> dispatchFutureModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
           [bool overwrite = false]) =>
-      super.dispatchFuture(BaseAction.build({
+      super.dispatch(BaseAction.build({
         defaultModel.$key: mutate(defaultModel, f, overwrite),
       }));
 
@@ -125,20 +125,17 @@ abstract class BasePageState<Model extends BaseUIModel>
   }) =>
       dispatch(NavigateAction.pushNamedAndRemoveUntil(
         route,
+        predicate,
         arguments: arguments,
-        predicate: predicate,
       ));
 
   /// Removes all routes in the navigation stack until the condition specified in
   /// [predicate] is satisfied
   @override
-  void popUntil(String route) => dispatch(NavigateAction.popUntil(route));
+  void popUntil(bool Function(Route<dynamic>) predicate) =>
+      dispatch(NavigateAction.popUntil(predicate));
 
   /// Puts a route object on top of the navigation stack
   @override
-  void push(
-    Route route, {
-    Object arguments,
-  }) =>
-      dispatch(NavigateAction.push(route, arguments: arguments));
+  void push(Route route) => dispatch(NavigateAction.push(route));
 }
