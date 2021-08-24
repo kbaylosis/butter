@@ -46,7 +46,7 @@ abstract class BaseModule extends StatelessWidget {
           'getRoute(): module->[${this.routeName}].fetchRouteByType(): [$routeName]');
       return _fetchRouteByType(context, routeName);
     } else {
-      var parentRouteName = routeName == null ? '' : _trimRouteName(routeName);
+      var parentRouteName = _trimRouteName(routeName);
       if (parentRouteName.isEmpty) {
         FxLog.d(
             'getRoute(): module->[${this.routeName}].fetchRouteByType(): [/]');

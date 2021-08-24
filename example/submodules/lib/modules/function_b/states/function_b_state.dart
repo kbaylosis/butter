@@ -23,6 +23,6 @@ class FunctionBState extends BasePageState<FunctionBModel> {
   FunctionBState fromStore() => FunctionBState.build(
       read<FunctionBModel>(
         FunctionBModel(),
-      )!,
+      ),
       (m) {});
 }

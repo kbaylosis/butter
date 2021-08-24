@@ -45,8 +45,7 @@ class BaseRoutes {
   BaseRoutes({
     required List<BaseModule> modules,
     this.defaultTransition,
-  })  : assert(modules != null),
-        assert(modules.isNotEmpty) {
+  }) : assert(modules.isNotEmpty) {
     _routes = Map();
 
     if (modules.isEmpty) {
@@ -75,7 +74,8 @@ class BaseRoutes {
   /// );
   /// ```
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    final PageArguments? args = settings.arguments as PageArguments<BasePageTransition>?;
+    final PageArguments? args =
+        settings.arguments as PageArguments<BasePageTransition>?;
     final routeFragments = settings.name!.split('/');
     String routePrefix = '';
 

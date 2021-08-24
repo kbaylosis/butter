@@ -23,7 +23,7 @@ class HomePage extends BaseStatefulPageView {
   // Kindly use this with care. Most weight of asynchronous processes must be
   // put inside Actions... not here.
   @override
-  beforeLoad(BuildContext context) {
+  bool? beforeLoad(BuildContext context) {
     if (this.model!.checkIfInit()) {
       if (!this.model!.initialized) {
         this.model!.onTapMenuItem!(AppConfig.defaultHomePage);
@@ -40,26 +40,26 @@ class HomePage extends BaseStatefulPageView {
   Widget build(BuildContext context) {
     // The following shows one way on how to handle subModules. This mechanism
     // allows you to have nested modules (a module within a module within a module, etc).
-    var module = App.getChild(context, this.model!);
+    final module = App.getChild(context, this.model!);
     if (module == null) {
       return Scaffold();
     }
 
     // The definition of PageSpecs varies from app to app so change the PageSpecs
     // definition in the utils as you need.
-    final PageSpecs? specs = module?.page?.specs as PageSpecs?;
+    final PageSpecs? specs = module.page?.specs as PageSpecs?;
 
     var appBar = specs != null && specs.hasAppBar
         ? AppBar(
-            leading: specs?.leading ?? Container(),
+            leading: specs.leading ?? Container(),
             centerTitle: true,
             title: Text(
-              specs?.title ?? '',
+              specs.title ?? '',
               style: TextStyle(
                 fontSize: 18,
               ),
             ),
-            actions: specs?.actions,
+            actions: specs.actions,
           )
         : null;
     var safeArea = specs != null && specs.inSafeArea

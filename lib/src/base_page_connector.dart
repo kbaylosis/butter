@@ -9,7 +9,7 @@ import 'base_page_view.dart';
 class BasePageConnector<PageState extends BasePageState,
     PageView extends BasePageView> extends StoreConnector<AppState, PageState> {
   /// A reference to an instance of the page for easy access to its [BasePageSpecs]
-  final PageView page;
+  final PageView? page;
 
   /// Creates a [BasePageConnector] to pair up a state object of type [BasePageState]
   /// with a page of type [BasePageView]

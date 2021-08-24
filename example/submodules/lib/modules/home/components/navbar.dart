@@ -21,19 +21,19 @@ class Navbar extends StatelessWidget {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text("NewsFeed"),
+            label: "NewsFeed",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.traffic),
-            title: Text("Func A"),
+            label: "Func A",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.tv),
-            title: Text("Func B"),
+            label: "Func B",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.power),
-            title: Text("Logout"),
+            label: "Logout",
           ),
         ],
       );

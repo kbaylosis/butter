@@ -27,7 +27,7 @@ class InitPage extends BaseStatelessPageView {
             child: Image.asset('assets/logo.png'),
           ),
           Container(
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Text('Proceed'),
               onPressed: this.model!.proceed,
             ),

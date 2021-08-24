@@ -22,13 +22,13 @@ abstract class BaseStatefulPageView extends StatefulWidget
   ///
   /// Returns either a [Future<bool>] or [bool]. If [true] is returned, the page
   /// will load normally, otherwise, it will not proceed to calling [build].
-  FutureOr<bool> beforeLoad(BuildContext context) => true;
+  FutureOr<bool?> beforeLoad(BuildContext context) => true;
 
   /// Called when a page is about to be updated.
   ///
   /// Returns either a [Future<bool>] or [bool]. If [true] is returned, the page
   /// will update normally, otherwise, it will not proceed to calling [build].
-  FutureOr<bool> beforeUpdate(BuildContext context) => true;
+  FutureOr<bool?> beforeUpdate(BuildContext context) => true;
 
   /// Called while waiting for the result of [beforeLoad]
   ///

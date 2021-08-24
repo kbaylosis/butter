@@ -36,9 +36,9 @@ class HomeState extends BasePageState<HomeModel> {
   HomeState fromStore() => HomeState.build(
           read<HomeModel>(HomeModel(
             initialized: false,
-          ))!, (m) {
+          )), (m) {
         m.onTapMenuItem = (index) => dispatch!(SeletMenuItemAction(index));
-        m.checkIfInit = () => read<InitModel>(InitModel())!.hasInitialized;
+        m.checkIfInit = () => read<InitModel>(InitModel()).hasInitialized;
         m.exit = () => dispatch!(LogoutAction());
       });
 }

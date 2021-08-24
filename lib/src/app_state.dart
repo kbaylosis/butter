@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 /// Stores the application's state
 class AppState {
   final Map<String?, dynamic> _data;
@@ -35,7 +33,7 @@ class AppState {
   }
 
   /// Retrieves a value from the store
-  T? read<T>(String key, [T? defValue]) {
+  T read<T>(String key, [T? defValue]) {
     if (this._data[key] == null || this._data[key] is T) {
       return this._data[key] ?? defValue;
     }

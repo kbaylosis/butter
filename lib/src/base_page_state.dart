@@ -25,7 +25,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   /// The key used for the model must be guaranteed as unique by the developer
   /// across the whole app.
   @override
-  Model? read<Model extends BaseUIModel>(Model defaultModel) =>
+  Model read<Model extends BaseUIModel>(Model defaultModel) =>
       this.state.read(defaultModel.$key, defaultModel);
 
   /// Modifies the data of the model of type [BaseUIModel] stored the store
@@ -37,7 +37,7 @@ abstract class BasePageState<Model extends BaseUIModel>
   Model mutate<Model extends BaseUIModel>(
       Model defaultModel, void Function(Model m) f,
       [bool overwrite = false]) {
-    var d = overwrite ? defaultModel : read(defaultModel)!.clone();
+    var d = overwrite ? defaultModel : read(defaultModel).clone();
     f(d);
 
     return d;

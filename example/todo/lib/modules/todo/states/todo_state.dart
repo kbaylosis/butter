@@ -26,8 +26,8 @@ class TodoState extends BasePageState<TodoModel> {
   @override
   TodoState fromStore() => TodoState.build(
           read<TodoModel>(TodoModel(
-            items: List<String>(),
-          ))!, (m) {
+            items: <String>[],
+          )), (m) {
         m.add = (value) => dispatch!(AddTodoAction(value));
         m.back = () => this.pop();
       });

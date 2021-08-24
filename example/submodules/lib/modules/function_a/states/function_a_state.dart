@@ -7,7 +7,8 @@ class FunctionAState extends BasePageState<FunctionAModel> {
 
   FunctionAModel? model;
 
-  FunctionAState.build(FunctionAModel this.model, void Function(FunctionAModel m) f)
+  FunctionAState.build(
+      FunctionAModel this.model, void Function(FunctionAModel m) f)
       : super.build(model, f);
 
   @override
@@ -23,6 +24,6 @@ class FunctionAState extends BasePageState<FunctionAModel> {
   FunctionAState fromStore() => FunctionAState.build(
       read<FunctionAModel>(
         FunctionAModel(),
-      )!,
+      ),
       (m) {});
 }

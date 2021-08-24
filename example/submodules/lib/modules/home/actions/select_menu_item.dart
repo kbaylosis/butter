@@ -12,7 +12,7 @@ class SeletMenuItemAction extends BaseAction {
   // Make sure to strictly follow the guidelines found here:
   // https://pub.dev/packages/async_redux/#async-reducer
   @override
-  AppState reduce() {
+  AppState? reduce() {
     var route = RouteConverter.indexToRoute(this.index);
 
     if (route == null) {

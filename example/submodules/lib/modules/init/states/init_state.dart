@@ -31,7 +31,7 @@ class InitState extends BasePageState<InitModel> {
             InitModel(
               hasInitialized: false,
             ),
-          )!, (m) {
+          ), (m) {
         m.proceed = () => dispatch!(GoToHomeAction());
       });
 }

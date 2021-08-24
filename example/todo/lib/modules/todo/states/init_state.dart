@@ -25,7 +25,7 @@ class InitState extends BasePageState<InitModel> {
   InitState fromStore() => InitState.build(
           read<InitModel>(
             InitModel(),
-          )!, (m) {
+          ), (m) {
         m.proceed = () => this.pushNamed(
               "/todo/add",
               arguments: PageArguments(
