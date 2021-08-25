@@ -24,7 +24,8 @@ class BaseAction extends ReduxAction<AppState>
 
   /// An override to the [ReduxAction.reduce] to allow processing of anonymous actions
   @override
-  FutureOr<AppState?> reduce() => state.copyAll(this._data as Map<String, dynamic>);
+  Future<AppState?> reduce() async =>
+      state.copyAll(this._data as Map<String, dynamic>);
 
   /// Reads a model of type [BaseUIModel] from the store
   ///
