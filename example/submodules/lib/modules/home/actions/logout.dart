@@ -8,7 +8,7 @@ class LogoutAction extends BaseAction {
   // Make sure to strictly follow the guidelines found here:
   // https://pub.dev/packages/async_redux/#async-reducer
   @override
-  AppState? reduce() {
+  Future<AppState?> reduce() async {
     dispatchModel<HomeModel>(HomeModel(), (m) {
       m.initialized = false;
     });

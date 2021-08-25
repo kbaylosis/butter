@@ -8,7 +8,7 @@ class AddTodoAction extends BaseAction {
   AddTodoAction(this.item);
 
   @override
-  AppState reduce() => write<TodoModel>(TodoModel(), (m) {
+  Future<AppState?> reduce() async => write<TodoModel>(TodoModel(), (m) {
         m.items!.add(this.item);
       });
 }

@@ -8,7 +8,7 @@ class ChangeSubModuleAction extends BaseAction {
   // Make sure to strictly follow the guidelines found here:
   // https://pub.dev/packages/async_redux/#async-reducer
   @override
-  AppState? reduce() {
+  Future<AppState?> reduce() async {
     pushReplacementNamed(this.route);
     return null;
   }

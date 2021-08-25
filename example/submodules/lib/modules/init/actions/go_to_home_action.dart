@@ -4,7 +4,7 @@ import '../models/init_model.dart';
 
 class GoToHomeAction extends BaseAction {
   @override
-  AppState reduce() {
+  Future<AppState?> reduce() async {
     this.pushNamedAndRemoveAll("/");
 
     return write<InitModel>(InitModel(), (m) {
