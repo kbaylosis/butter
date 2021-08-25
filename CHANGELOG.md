@@ -1,3 +1,7 @@
+## 1.1.0
+
+* Discontinue returning FutureOr for reduce()
+
 ## 1.0.0
 
 * Migrate to null safety
