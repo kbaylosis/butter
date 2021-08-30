@@ -1,3 +1,9 @@
+## 1.2.0
+
+* Breaking changes! Complying to async_redux v13.0.0-dev updates
+* Added dispatchAction() as an alternative to dispatch!()
+* Remove dispatchFutureModel(). Use dispatchModel() instead, which now returs a future.
+
 ## 1.1.0
 
 * Discontinue returning FutureOr for reduce()
