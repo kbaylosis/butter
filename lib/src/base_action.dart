@@ -12,7 +12,7 @@ import 'base_ui_model.dart';
 /// A [ReduxAction] wrapper for Action objects and provides all necessary utilities
 /// needed to interact with the [Store] and the [Navigator].
 class BaseAction extends ReduxAction<AppState>
-    implements BaseDispatcher, BaseNavigator, BaseStoreUtils {
+    implements BaseDispatcher<AppState>, BaseNavigator, BaseStoreUtils {
   var _data = {};
 
   BaseAction();
@@ -70,27 +70,20 @@ class BaseAction extends ReduxAction<AppState>
   /// across the whole app. Setting [overwrite] to true forces [dispatchModel] not to
   /// reuse any portion of the [Model] in the [Store].
   @override
-  void dispatchModel<Model extends BaseUIModel>(
+  Future<void> dispatchModel<Model extends BaseUIModel>(
           Model defaultModel, void Function(Model m) f,
-          [bool overwrite = false]) =>
-      super.dispatch(BaseAction.build({
+          [bool overwrite = false]) async =>
+      await super.dispatch(BaseAction.build({
         defaultModel.$key: mutate(defaultModel, f, overwrite),
       }));
 
-  /// Sends an anonymous action given the data of a model of type [BaseUIModel]
+  /// Dispatches an action.
   ///
-  /// The key used for the model must be guaranteed as unique by the developer
-  /// across the whole app. Setting [overwrite] to true forces [dispatchModel] not to
-  /// reuse any portion of the [Model] in the [Store].
-  ///
-  /// Returns a [Future<void>]
+  /// This is an encapsulation of the [dispatch] method. It expects the dispatch
+  /// method to be non-null and to return a [Future].
   @override
-  Future<void> dispatchFutureModel<Model extends BaseUIModel>(
-          Model defaultModel, void Function(Model m) f,
-          [bool overwrite = false]) =>
-      super.dispatch(BaseAction.build({
-        defaultModel.$key: mutate(defaultModel, f, overwrite),
-      }));
+  Future<void> dispatchAction(ReduxAction<AppState> action) async =>
+      super.dispatch(action);
 
   /// Removes the current route from the navigation stack
   @override
