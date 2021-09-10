@@ -1,3 +1,7 @@
+## 1.3.0
+
+* Refine BaseStatefulPageView lifecycle
+
 ## 1.2.0
 
 * Breaking changes! Complying to async_redux v13.0.0-dev updates
