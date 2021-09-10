@@ -62,15 +62,16 @@ abstract class BaseStatefulPageView extends StatefulWidget
 /// to be intercepted.
 class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   late bool initialized;
-  bool? loadRetVal;
+  late Future<bool?>? _loadForm;
 
   /// Initializes [initialized] and [loadRetVal]
   @override
   void initState() {
+    _loadForm =
+        this._cycle(context); //Future.microtask(() => this._cycle(context));
     super.initState();
 
     initialized = false;
-    loadRetVal = false;
   }
 
   /// Housekeeping of [_BaseStatefulPageViewState]
@@ -81,40 +82,22 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
 
   /// Builds the view of the page depending on its state (loading, updating or error)
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: this._cycle(context),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        if (snapshot.hasData) {
-          return widget.build(context);
-        } else if (snapshot.hasError) {
-          return widget.buildError(context);
-        }
+  Widget build(BuildContext context) => FutureBuilder(
+        future: _loadForm,
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            return widget.build(context);
+          } else if (snapshot.hasError) {
+            return widget.buildError(context);
+          }
 
-        return widget.buildLoading(context);
-      },
-    );
-  }
+          return widget.buildLoading(context);
+        },
+      );
 
   /// Manages the page cycle
   ///
   /// Returns null if page loading or updating needs to be aborted
-  Future<bool?> _cycle(BuildContext context) async {
-    if (initialized) {
-      if (!loadRetVal!) {
-        return null;
-      }
-
-      return Future.microtask(() async {
-        return await widget.beforeUpdate(context);
-      });
-    }
-
-    setState(() => initialized = true);
-    return Future.microtask(() async {
-      loadRetVal = await widget.beforeLoad(context);
-      setState(() => loadRetVal = true);
-      return loadRetVal;
-    });
-  }
+  Future<bool?> _cycle(BuildContext context) async =>
+      widget.beforeLoad(context);
 }
