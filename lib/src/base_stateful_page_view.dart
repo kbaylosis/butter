@@ -13,6 +13,12 @@ import 'base_page_view.dart';
 /// processes when a page loads or updates.
 abstract class BaseStatefulPageView extends StatefulWidget
     implements BasePageView {
+  final int animationDelay;
+
+  BaseStatefulPageView({
+    this.animationDelay = 1,
+  });
+
   @override
   State<StatefulWidget> createState() => _BaseStatefulPageViewState();
 
@@ -67,8 +73,10 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   /// Initializes [initialized] and [loadRetVal]
   @override
   void initState() {
-    _loadForm =
-        this._cycle(context); //Future.microtask(() => this._cycle(context));
+    _loadForm = widget.animationDelay == 0
+        ? Future.microtask(() => this._cycle(context))
+        : Future.delayed(Duration(seconds: widget.animationDelay),
+            () => this._cycle(context));
     super.initState();
 
     initialized = false;
