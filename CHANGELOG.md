@@ -1,3 +1,8 @@
+## 1.3.1
+
+* Expose async_redux objects
+* Add asynchronous effect on BaseStatefulPageViews
+
 ## 1.3.0
 
 * Refine BaseStatefulPageView lifecycle
