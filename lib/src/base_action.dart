@@ -13,7 +13,7 @@ import 'base_ui_model.dart';
 /// needed to interact with the [Store] and the [Navigator].
 class BaseAction extends ReduxAction<AppState>
     implements BaseDispatcher<AppState>, BaseNavigator, BaseStoreUtils {
-  var _data = {};
+  var _data = <String, dynamic>{};
 
   BaseAction();
 
@@ -24,8 +24,7 @@ class BaseAction extends ReduxAction<AppState>
 
   /// An override to the [ReduxAction.reduce] to allow processing of anonymous actions
   @override
-  Future<AppState?> reduce() async =>
-      state.copyAll(this._data as Map<String, dynamic>);
+  Future<AppState?> reduce() async => state.copyAll(_data);
 
   /// Reads a model of type [BaseUIModel] from the store
   ///
