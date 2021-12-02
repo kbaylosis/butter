@@ -1,3 +1,7 @@
+## 1.5.0
+
+* Update the async_redux package dependency
+
 ## 1.4.0
 
 * Allow BaseStatefulPage.build to signal a loading op
