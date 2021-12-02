@@ -1,3 +1,7 @@
+## 1.4.0
+
+* Allow BaseStatefulPage.build to signal a loading op
+
 ## 1.3.1
 
 * Expose async_redux objects
