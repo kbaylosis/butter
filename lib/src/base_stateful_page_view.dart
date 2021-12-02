@@ -46,16 +46,12 @@ abstract class BaseStatefulPageView extends StatefulWidget
   /// Renders the 'normal' view of the page
   ///
   /// Returns an empty [Scaffold] by default.
-  Widget build(BuildContext context) {
-    return Scaffold();
-  }
+  Widget build(BuildContext context, {bool loading = false}) => Scaffold();
 
   /// Renders the 'error' view of the page
   ///
   /// Returns an empty [Scaffold] by default.
-  Widget buildError(BuildContext context) {
-    return Scaffold();
-  }
+  Widget buildError(BuildContext context) => Scaffold();
 
   /// The page specs of type [BasePageSpecs]
   @override
@@ -67,7 +63,7 @@ abstract class BaseStatefulPageView extends StatefulWidget
 /// It manages the page cycle to make it possible for loading and update events
 /// to be intercepted.
 class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
-  late bool initialized;
+  bool _loading = true;
   late Future<bool?>? _loadForm;
 
   /// Initializes [initialized] and [loadRetVal]
@@ -78,8 +74,6 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
         : Future.delayed(Duration(seconds: widget.animationDelay),
             () => this._cycle(context));
     super.initState();
-
-    initialized = false;
   }
 
   /// Housekeeping of [_BaseStatefulPageViewState]
@@ -93,8 +87,8 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   Widget build(BuildContext context) => FutureBuilder(
         future: _loadForm,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
-            return widget.build(context);
+          if (snapshot.hasData || widget.animationDelay == 0) {
+            return widget.build(context, loading: _loading);
           } else if (snapshot.hasError) {
             return widget.buildError(context);
           }
@@ -106,6 +100,9 @@ class _BaseStatefulPageViewState extends State<BaseStatefulPageView> {
   /// Manages the page cycle
   ///
   /// Returns null if page loading or updating needs to be aborted
-  Future<bool?> _cycle(BuildContext context) async =>
-      widget.beforeLoad(context);
+  Future<bool?> _cycle(BuildContext context) async {
+    final result = await widget.beforeLoad(context);
+    _loading = !(result ?? false);
+    return result;
+  }
 }

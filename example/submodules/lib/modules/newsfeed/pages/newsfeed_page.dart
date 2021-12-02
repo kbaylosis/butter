@@ -46,7 +46,7 @@ class NewsFeedPage extends BaseStatefulPageView {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, {bool loading = false}) {
     return Scaffold(
       body: Center(
         child: Text('Newsfeed loaded!'),

@@ -37,7 +37,7 @@ class HomePage extends BaseStatefulPageView {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, {bool loading = false}) {
     // The following shows one way on how to handle subModules. This mechanism
     // allows you to have nested modules (a module within a module within a module, etc).
     final module = App.getChild(context, this.model!);
