@@ -1,4 +1,3 @@
-import 'package:async_redux/async_redux.dart';
 import 'package:butter/butter.dart';
 import 'package:flutter/widgets.dart';
 

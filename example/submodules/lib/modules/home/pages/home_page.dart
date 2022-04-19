@@ -1,6 +1,5 @@
 import 'package:butter/butter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:submodules/app/app.dart';
 import 'package:submodules/config/app_config.dart';

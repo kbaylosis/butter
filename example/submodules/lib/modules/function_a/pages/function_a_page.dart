@@ -1,6 +1,5 @@
 import 'package:butter/butter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import 'package:submodules/utils/sub_module_page_specs.dart';
 
