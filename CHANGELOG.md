@@ -1,3 +1,8 @@
+## 1.6.0
+
+* Update async_redux and logger
+* Setup fvm and set flutter to 3.0.1
+
 ## 1.5.0
 
 * Update the async_redux package dependency
