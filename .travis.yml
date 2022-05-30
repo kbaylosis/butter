@@ -10,8 +10,10 @@ addons:
       - libstdc++6
       - fonts-droid-fallback
 before_script:
-  - git clone https://github.com/flutter/flutter.git -b 3.0.1
+  - git clone https://github.com/flutter/flutter.git
   - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter channel stable
+  - ./flutter/bin/flutter upgrade
 script:
   - ./flutter/bin/flutter test
 cache:
