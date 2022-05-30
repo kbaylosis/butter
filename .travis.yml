@@ -14,6 +14,7 @@ before_script:
   - ./flutter/bin/flutter doctor
   - ./flutter/bin/flutter channel stable
   - ./flutter/bin/flutter upgrade
+  - ./flutter/bin/flutter pub upgrade
 script:
   - ./flutter/bin/flutter test
 cache:
