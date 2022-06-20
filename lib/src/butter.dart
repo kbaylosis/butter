@@ -17,22 +17,64 @@ class Butter {
   static set level(LogLevel l) => Logger.level = l.alias;
 
   /// Shorthand for the verbose log
-  static get v => log.v;
+  static get v => _v;
 
   /// Shorthand for the debug log
-  static get d => log.d;
+  static get d => _d;
 
   /// Shorthand for the info log
-  static get i => log.i;
+  static get i => _i;
 
   /// Shorthand for the warning log
-  static get w => log.w;
+  static get w => _w;
 
   /// Shorthand for the erro log
-  static get e => log.e;
+  static get e => _e;
 
   /// Shorthand for the fata log
-  static get f => log.wtf;
+  static get f => _wtf;
+
+  static _v(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.v(message.toString(), [error, stackTrace]);
+
+  static _d(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.d(message.toString(), [error, stackTrace]);
+
+  static _i(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.i(message.toString(), [error, stackTrace]);
+
+  static _w(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.w(message.toString(), [error, stackTrace]);
+
+  static _e(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.e(message.toString(), [error, stackTrace]);
+
+  static _wtf(
+    dynamic message, [
+    dynamic error,
+    StackTrace? stackTrace,
+  ]) =>
+      log.wtf(message.toString(), [error, stackTrace]);
 }
 
 /// Logger printer configuration
