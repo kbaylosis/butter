@@ -1,3 +1,7 @@
+## 1.6.1
+
+* Configure logging to handle messages properly regardless of type
+
 ## 1.6.0
 
 * Update async_redux and logger
