@@ -42,18 +42,18 @@ abstract class BaseModule extends StatelessWidget {
     routeName = routeName!.split('?')[0];
 
     if (routes.containsKey(routeName)) {
-      FxLog.d(
+      FxLog.v(
           'getRoute(): module->[${this.routeName}].fetchRouteByType(): [$routeName]');
       return _fetchRouteByType(context, routeName);
     } else {
       var parentRouteName = _trimRouteName(routeName);
       if (parentRouteName.isEmpty) {
-        FxLog.d(
+        FxLog.v(
             'getRoute(): module->[${this.routeName}].fetchRouteByType(): [/]');
         return _fetchRouteByType(context, '/');
       }
 
-      FxLog.d(
+      FxLog.v(
           'getRoute(): module->[${this.routeName}].getRoute(): [$parentRouteName]');
       return getRoute(context, parentRouteName);
     }
@@ -73,7 +73,7 @@ abstract class BaseModule extends StatelessWidget {
     routeName = routeName!.split('?')[0];
 
     if (modules!.containsKey(routeName)) {
-      FxLog.d(
+      FxLog.v(
           'getChild(): module->[$routeName].getRoute(): [${this.getRouteName(context)}]');
       return modules![routeName]!.getRoute(context, this.getRouteName(context));
     } else {
@@ -84,7 +84,7 @@ abstract class BaseModule extends StatelessWidget {
         return null;
       }
 
-      FxLog.d(
+      FxLog.v(
           'getChild(): module->[${this.routeName}].getChild(): [$parentRouteName]');
       return getChild(context, parentRouteName);
     }
