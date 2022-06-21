@@ -1,3 +1,7 @@
+## 1.6.2
+
+* Downgrade logs in BaseModule to verbose level
+
 ## 1.6.1
 
 * Configure logging to handle messages properly regardless of type
