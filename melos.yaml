@@ -1,0 +1,17 @@
+name: butter
+
+packages:
+  - packages/*
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  prepare: melos bootstrap
+
+  analyze:
+    run: dart analyze .
+
+ide:
+  intellij: false
