@@ -108,6 +108,7 @@ class ManagedController<InstanceType extends ManagedObject>
     // Parameters that doesn't fall under the recognized purposes
     @Bind.query('params') List<String>? params,
   }) async {
+    _loadParams(params, id: id);
     _query = Query<InstanceType>(_context);
     final primaryKey = _query.entity.primaryKey;
     final parsedIdentifier =
@@ -218,6 +219,7 @@ class ManagedController<InstanceType extends ManagedObject>
     @Bind.query('params') List<String>? params,
   }) async {
     try {
+      _loadParams(params, id: id);
       final result = await _context.transaction((transaction) async {
         _query = Query<InstanceType>(transaction);
         final primaryKey = _query.entity.primaryKey;
@@ -286,7 +288,7 @@ class ManagedController<InstanceType extends ManagedObject>
     @Bind.query('params') List<String>? params,
   }) async {
     try {
-      _loadParams(params);
+      _loadParams(params, id: id);
       final result = await _context.transaction((transcation) async {
         _query = Query<InstanceType>(transcation);
         final primaryKey = _query.entity.primaryKey;
@@ -672,9 +674,13 @@ class ManagedController<InstanceType extends ManagedObject>
     }
   }
 
-  void _loadParams(List<String>? params) {
+  void _loadParams(List<String>? params, {String? id}) {
     logger.fine('ManagedController::_loadParams');
     this.params = {};
+    if (id != null) {
+      this.params['id'] = id;
+    }
+
     for (final element in params ?? <String>[]) {
       final frags = element.split(':');
       if (frags.length >= 2) {

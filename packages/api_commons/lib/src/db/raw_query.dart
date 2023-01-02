@@ -14,22 +14,31 @@ class RawQuery {
     this.timeoutInSeconds = 30,
   });
 
-  final ManagedContext context;
+  final ManagedContext? context;
   final int timeoutInSeconds;
 
-  Future<U> perform<U>(String query, {Map<String, dynamic>? variables}) async {
-    print('RawQuery::perform');
-    print(query);
-
-    final store = context.persistentStore as PostgreSQLPersistentStore;
+  Future<List<List<U>>> perform<U>(String query,
+      {Map<String, dynamic>? variables}) async {
+    final store = context!.persistentStore as PostgreSQLPersistentStore;
     final connection = await store.executionContext;
     try {
-      final result = await connection
-          ?.query(query, substitutionValues: variables)
+      final result = await connection!
+          .query(query, substitutionValues: variables)
           .timeout(Duration(seconds: timeoutInSeconds));
-      return result as U;
+      final retVal = <List<U>>[];
+      for (final value in result) {
+        final row = value.toList();
+        final rowItems = <U>[];
+        for (final cell in row) {
+          rowItems.add(cell as U);
+        }
+
+        retVal.add(rowItems);
+      }
+
+      return retVal;
     } on TimeoutException catch (e) {
-      throw QueryException.transport('timed out connecting to database',
+      throw QueryException.transport("timed out connecting to database",
           underlyingException: e);
     }
   }
