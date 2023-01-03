@@ -1,0 +1,16 @@
+name: sample_api
+description: An empty conduit application.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  butter_api_commons:
+    path: ../..
+
+dev_dependencies:
+  conduit_test: ^4.0.0
+  faker: ^2.1.0
+  test: ^1.21.6

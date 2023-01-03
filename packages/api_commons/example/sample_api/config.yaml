@@ -1,0 +1,8 @@
+api: /api/v1
+appName: test_api
+database: postgres://postgres@localhost:5432/test_db
+logLevel: FINE
+apiUrl: https://app.butter.io
+apiKey: io.butter.app
+apiSecret: tgbyhnujm
+release: false
