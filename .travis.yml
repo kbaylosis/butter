@@ -6,7 +6,6 @@ language: dart
 services:
   - postgresql
 addons:
-  postgresql: "12.2"
   chrome: stable
   apt:
     # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
@@ -15,16 +14,12 @@ addons:
     packages:
       - libstdc++6
       - fonts-droid-fallback
-      - postgresql-12
 env:
   global:
     - PGUSER=postgres
     - PGPORT=5432
     - PGHOST=localhost
 before_install:
-  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
-  - sudo service postgresql restart
-  - sleep 1
   - postgres --version
 before_script:
   - git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b stable
