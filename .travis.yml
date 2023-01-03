@@ -3,6 +3,11 @@ os:
 dist: focal
 language: dart
 
+branches:
+  only:
+    - master
+    - stable
+
 services:
   - postgresql
 addons:
