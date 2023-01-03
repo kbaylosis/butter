@@ -1,22 +1,13 @@
-A library for Dart developers.
+<img src="https://github.com/kbaylosis/butter/blob/master/logo.png?raw=true" width="400">
 
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
+[![pub package](https://img.shields.io/pub/v/butter)](https://pub.dartlang.org/packages/butter) [![Build Status](https://travis-ci.com/kbaylosis/butter.svg?branch=master)](https://travis-ci.com/github/kbaylosis/butter)
 
-## Usage
+# butter_commons
 
-A simple usage example:
-
-```dart
-import 'package:alin_app_commons/alin_app_commons.dart';
-
-main() {
-  var awesome = new Awesome();
-}
-```
+Common utilities for butter systems
 
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: http://example.com/issues/replaceme
+[tracker]: https://github.com/kbaylosis/butter/issues

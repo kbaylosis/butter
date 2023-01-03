@@ -1,5 +1,5 @@
 name: butter_commons
-description: Common utilities for Butter systems
+description: Common utilities for butter systems
 version: 1.6.2
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter/tree/master/packages/commons
