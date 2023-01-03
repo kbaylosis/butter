@@ -15,10 +15,11 @@ before_script:
   - ./flutter/bin/flutter channel stable
   - ./flutter/bin/flutter upgrade
   - ./flutter/bin/flutter pub upgrade
+  - cd packages/core
 script:
   - ./flutter/bin/flutter test
 cache:
   directories:
     - $HOME/.pub-cache
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)
