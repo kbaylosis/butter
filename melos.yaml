@@ -13,5 +13,31 @@ scripts:
   analyze:
     run: dart analyze .
 
+  test_all:
+    run: melos bootstrap && melos analyze && melos butter_test && melos butter_api_commons_test && melos butter_commons_test
+    exec:
+      failFast: true
+    select-package:
+      scope: butter
+      dir-exists: test
+
+  butter_test:
+    run: melos exec --dir-exists="test" --fail-fast -- flutter test --coverage
+    select-package:
+      scope: butter
+      dir-exists: test
+
+  butter_api_commons_test:
+    run: cd $MELOS_ROOT_PATH/packages/api_commons/example/sample_api && dart test
+    select-package:
+      scope: butter_api_commons
+      dir-exists: test
+
+  butter_commons_test:
+    run: cd $MELOS_ROOT_PATH/packages/commons && dart test
+    select-package:
+      scope: butter_commons
+      dir-exists: test
+
 ide:
   intellij: false
