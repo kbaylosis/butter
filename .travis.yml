@@ -1,4 +1,6 @@
-dist: xenial
+os:
+  - linux
+dist: focal
 language: dart
 addons:
   postgresql: "13"
