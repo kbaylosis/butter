@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:collection/collection.dart';
 import 'package:conduit/conduit.dart';
 import 'package:conduit/managed_auth.dart';
 import 'package:conduit_open_api/v3.dart';
@@ -92,7 +93,7 @@ abstract class BaseChannel<C extends BaseConfig,
   Controller get entryPoint {
     final router = _buildModuleRoutes();
 
-    Future.delayed(const Duration(seconds: 1), () async {
+    Future.delayed(const Duration(seconds: 3), () async {
       await _initServices();
       await _initModules();
 
@@ -111,7 +112,7 @@ abstract class BaseChannel<C extends BaseConfig,
   /// Build module routes
   ///
   Router _buildModuleRoutes() {
-    logger.info('Channel::_buildModuleRoutes');
+    logger.info('Building module routes');
     final prefix = config.api!;
     final router = Router();
     buildCustomRoutes(prefix, router);
@@ -182,16 +183,16 @@ abstract class BaseChannel<C extends BaseConfig,
       {List<String>? args, String? configFile}) async {
     print(args);
     final processes =
-        args?.firstWhere((element) => element.startsWith('-n')) ?? '';
+        args?.firstWhereOrNull((element) => element.startsWith('-n')) ?? '';
 
     final app = Application<T>()
       ..isolateStartupTimeout = const Duration(hours: 1)
-      ..options.configurationFilePath = configFile ?? 'config.yaml'
+      ..options.configurationFilePath = configFile ?? './config.yaml'
       ..options.port = 8888;
 
     final count = int.tryParse(processes.replaceFirst('-n', '')) ??
         Platform.numberOfProcessors ~/ 2;
-    await app.start(numberOfInstances: count > 0 ? count : 1);
+    await app.start(numberOfInstances: count);
 
     // ignore: avoid_print
     print('Application started on port: ${app.options.port}.');
@@ -201,11 +202,12 @@ abstract class BaseChannel<C extends BaseConfig,
     return app;
   }
 
-  static Future<APIDocument> testDoc<T extends ApplicationChannel>() async {
+  static Future<APIDocument> testDoc<T extends ApplicationChannel>(
+      {String? configFile}) async {
     final x = loadYaml(File('./pubspec.yaml').readAsStringSync()) as Map;
     final channel = instantiate(T)
       ..options = (ApplicationOptions()
-        ..configurationFilePath = 'config.src.yaml'
+        ..configurationFilePath = configFile ?? './config.src.yaml'
         ..port = 8888);
     await channel.prepare();
     return channel

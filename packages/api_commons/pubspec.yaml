@@ -11,6 +11,7 @@ environment:
 dependencies:
   butter_commons:
     path: ../commons
+  collection: ^1.17.0
   conduit: 4.0.0
   conduit_common: 4.0.0
   conduit_open_api: 4.0.0
