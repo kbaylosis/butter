@@ -1,9 +1,8 @@
-os:
-  - linux
 dist: xenial
 language: dart
 addons:
   postgresql: "13"
+  chrome: stable
   apt:
     # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
     sources:
@@ -12,6 +11,16 @@ addons:
       - libstdc++6
       - fonts-droid-fallback
       - postgresql-13
+env:
+  global:
+    - PGUSER=postgres
+    - PGPORT=5432
+    - PGHOST=localhost
+before_install:
+  - sudo sed -i -e '/local.*peer/s/postgres/all/' -e 's/peer\|md5/trust/g' /etc/postgresql/*/main/pg_hba.conf
+  - sudo service postgresql restart
+  - sleep 1
+  - postgres --version
 before_script:
   - git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b stable
   - ./flutter/bin/flutter doctor
@@ -25,8 +34,3 @@ cache:
     - $HOME/.pub-cache
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-env:
-  global:
-    - PGUSER=postgres
-    - PGPORT=5432
-    - PGHOST=localhost
