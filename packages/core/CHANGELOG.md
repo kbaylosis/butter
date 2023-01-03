@@ -1,3 +1,9 @@
+## 2.0.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **CHANGE**: Configure packages for publishing.
+
 ## 1.6.2
 
 * Downgrade logs in BaseModule to verbose level
