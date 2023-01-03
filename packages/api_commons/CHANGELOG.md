@@ -1,3 +1,7 @@
-## 1.0.0
+## 1.6.3
 
-- Initial version.
+ - Update a dependency to the latest release.
+
+## 1.6.2
+
+- Initial version

@@ -1,3 +1,7 @@
+## 1.6.3
+
+ - Update a dependency to the latest release.
+
 ## 1.6.2
 
 * Downgrade logs in BaseModule to verbose level

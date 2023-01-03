@@ -1,3 +1,3 @@
-## 1.0.0
+## 1.6.2
 
-- Initial version, created by Stagehand
+- Initial version
