@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:butter_api_commons/butter_api_commons.dart';
 import 'package:conduit_open_api/v3.dart';
 import 'package:sample_api/channel.dart';
@@ -16,7 +18,8 @@ void main() async {
       expect(await app.stop(), isNot(throwsA(anything)));
     });
 
-    test('Multi process (default spawns)', () async {
+    test('Multi process (default spawns)',
+        skip: Platform.numberOfProcessors ~/ 2 < 2, () async {
       final app =
           await BaseChannel.initApp<TestChannel>(configFile: 'config.yaml');
       expect(app.isRunning, true);
