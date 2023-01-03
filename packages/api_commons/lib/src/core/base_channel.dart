@@ -47,9 +47,7 @@ abstract class BaseChannel<C extends BaseConfig,
   Future prepare() async {
     _spawned = true;
     config = await loadConfig();
-    hierarchicalLoggingEnabled = true;
-    logger.level = toLevel(config.logLevel);
-    logger.parent?.level = logger.level;
+    logger.parent?.level = toLevel(config.logLevel);
     logger.onRecord.listen((rec) {
       // ignore: avoid_print
       print(rec);

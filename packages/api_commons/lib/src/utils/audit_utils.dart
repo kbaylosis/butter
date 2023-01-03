@@ -1,10 +1,6 @@
-import 'dart:convert';
-
-import 'package:butter_commons/butter_commons.dart';
 import 'package:conduit/conduit.dart';
 
 import '../models/auditable.dart';
-import '../models/resource_user_activity.dart';
 
 class AuditUtils {
   AuditUtils({this.request});
@@ -72,17 +68,7 @@ class AuditUtils {
 
   int? get userId => request?.authorization?.ownerID;
 
-  Future<void> post(
-    ManagedContext context, {
-    required ManagedEntity entity,
-    required int refId,
-    ResourceOperation? operation,
-    Map<String, dynamic>? details,
-  }) =>
-      (query<ResourceUserActivity>(context, insert: true)
-            ..values.refId = refId
-            ..values.resource = entity.name
-            ..values.operation = operation
-            ..values.details = Document(jsonEncode(details)))
-          .insert();
+  Future<T> post<T extends ManagedObject>(ManagedContext context,
+          {required T values}) =>
+      query<T>(context, insert: true, values: values).insert();
 }

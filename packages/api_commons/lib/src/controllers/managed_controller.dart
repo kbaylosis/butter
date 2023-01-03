@@ -8,7 +8,7 @@ import 'package:conduit_common/conduit_common.dart';
 import 'package:conduit_open_api/v3.dart';
 
 import '../../butter_api_commons.dart';
-import 'is_managed_entity.dart';
+import '../utils/is_managed_entity.dart';
 
 /// A [Controller] that implements basic CRUD operations for a [ManagedObject].
 ///
