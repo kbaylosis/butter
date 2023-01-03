@@ -2,8 +2,9 @@ os:
   - linux
 dist: focal
 language: dart
+
 addons:
-  postgresql: "13"
+  postgresql: "12"
   chrome: stable
   apt:
     # Flutter depends on /usr/lib/x86_64-linux-gnu/libstdc++.so.6 version GLIBCXX_3.4.18
@@ -12,7 +13,7 @@ addons:
     packages:
       - libstdc++6
       - fonts-droid-fallback
-      - postgresql-13
+      - postgresql-12
 env:
   global:
     - PGUSER=postgres
@@ -26,7 +27,7 @@ before_install:
 before_script:
   - git clone --depth 1 --single-branch https://github.com/flutter/flutter.git -b stable
   - ./flutter/bin/flutter doctor
-  - psql -c 'create database test_db;' -U travis
+  - psql -c 'create database test_db;' -U postgres
 script:
   - cd $TRAVIS_BUILD_DIR/packages/core && ../../flutter/bin/flutter test
   - cd $TRAVIS_BUILD_DIR/packages/api_commons && ../../flutter/bin/dart test
