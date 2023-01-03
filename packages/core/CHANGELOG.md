@@ -1,3 +1,7 @@
+## 2.0.1
+
+ - **FIX**: Add core pubspec files.
+
 ## 2.0.0
 
 > Note: This release has breaking changes.

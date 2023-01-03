@@ -1,3 +1,7 @@
+## 2.0.1
+
+ - **FIX**: Update documentation of the api_commons and commons packages.
+
 ## 2.0.0
 
 > Note: This release has breaking changes.
