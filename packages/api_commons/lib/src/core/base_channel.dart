@@ -1,6 +1,11 @@
+import 'dart:io';
+
 import 'package:conduit/conduit.dart';
 import 'package:conduit/managed_auth.dart';
+import 'package:conduit_open_api/v3.dart';
+import 'package:yaml/yaml.dart';
 
+import '../utils/instantiate.dart';
 import '../utils/log_utils.dart';
 import 'base_auth.dart';
 import 'base_config.dart';
@@ -11,9 +16,16 @@ import 'version_config.dart';
 abstract class BaseChannel<C extends BaseConfig,
     U extends ManagedAuthResourceOwner> extends ApplicationChannel {
   bool _spawned = false;
-  late AuthServer authServer;
   late C config;
-  late ManagedContext context;
+
+  //
+  // Force the implementations to declare these so that the documentation engine
+  // can pick it up
+  //
+  AuthServer get authServer;
+  set authServer(AuthServer value);
+  ManagedContext get context;
+  set context(ManagedContext value);
 
   @override
   Logger get logger => _spawned ? Logger(config.appName!) : super.logger;
@@ -22,7 +34,7 @@ abstract class BaseChannel<C extends BaseConfig,
 
   Future<C> loadConfig();
   void onLogData(LogRecord rec, String severity) {}
-  void buildCustomRoutes(String prefix, Router router) {}
+  void buildCustomRoutes(String prefix, Router router);
   void serverInfo(VersionConfig version, C config);
 
   /// Initialize services in this method.
@@ -35,7 +47,9 @@ abstract class BaseChannel<C extends BaseConfig,
   Future prepare() async {
     _spawned = true;
     config = await loadConfig();
-    logger.parent?.level = toLevel(config.logLevel);
+    hierarchicalLoggingEnabled = true;
+    logger.level = toLevel(config.logLevel);
+    logger.parent?.level = logger.level;
     logger.onRecord.listen((rec) {
       // ignore: avoid_print
       print(rec);
@@ -78,11 +92,7 @@ abstract class BaseChannel<C extends BaseConfig,
   /// This method is invoked after [prepare].
   @override
   Controller get entryPoint {
-    final prefix = config.api!;
-
-    final router = Router();
-
-    _buildModuleRoutes(prefix, router);
+    final router = _buildModuleRoutes();
 
     Future.delayed(const Duration(seconds: 1), () async {
       await _initServices();
@@ -102,8 +112,12 @@ abstract class BaseChannel<C extends BaseConfig,
   ///
   /// Build module routes
   ///
-  void _buildModuleRoutes(String prefix, Router router) {
+  Router _buildModuleRoutes() {
     logger.info('Channel::_buildModuleRoutes');
+    final prefix = config.api!;
+    final router = Router();
+    buildCustomRoutes(prefix, router);
+
     for (final module in modules) {
       try {
         logger.info(module.runtimeType.toString());
@@ -119,9 +133,8 @@ abstract class BaseChannel<C extends BaseConfig,
       }
     }
 
-    buildCustomRoutes(prefix, router);
-
     logger.info('Done!');
+    return router;
   }
 
   ///
@@ -167,21 +180,37 @@ abstract class BaseChannel<C extends BaseConfig,
     logger.info('Done!');
   }
 
-  static void initApp<T extends ApplicationChannel>(List<String> args) async {
+  static Future<Application<T>> initApp<T extends ApplicationChannel>(
+      {List<String>? args, String? configFile}) async {
     print(args);
-    final processes = args.firstWhere((element) => element.startsWith('-n'));
+    final processes =
+        args?.firstWhere((element) => element.startsWith('-n')) ?? '';
 
     final app = Application<T>()
       ..isolateStartupTimeout = const Duration(hours: 1)
-      ..options.configurationFilePath = 'config.yaml'
+      ..options.configurationFilePath = configFile ?? 'config.yaml'
       ..options.port = 8888;
 
-    final count = int.tryParse(processes.replaceFirst('-n', '')) ?? 1;
+    final count = int.tryParse(processes.replaceFirst('-n', '')) ??
+        Platform.numberOfProcessors ~/ 2;
     await app.start(numberOfInstances: count > 0 ? count : 1);
 
     // ignore: avoid_print
     print('Application started on port: ${app.options.port}.');
     // ignore: avoid_print
     print('Use Ctrl-C (SIGINT) to stop running the application.');
+
+    return app;
+  }
+
+  static Future<APIDocument> testDoc<T extends ApplicationChannel>() async {
+    final x = loadYaml(File('./pubspec.yaml').readAsStringSync()) as Map;
+    final channel = instantiate(T)
+      ..options = (ApplicationOptions()
+        ..configurationFilePath = 'config.src.yaml'
+        ..port = 8888);
+    await channel.prepare();
+    return channel
+        .documentAPI(x.map((key, value) => MapEntry(key.toString(), value)));
   }
 }
