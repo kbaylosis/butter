@@ -1,0 +1,9 @@
+language: dart
+dart:
+- stable
+dart_task:
+  xvfb: false
+script:
+- echo "Skipping tests"
+after_success:
+- bash <(curl -s https://codecov.io/bash)

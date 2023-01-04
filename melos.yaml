@@ -11,10 +11,10 @@ scripts:
   prepare: melos bootstrap
 
   analyze:
-    run: dart analyze .
+    run: dart analyze --fatal-infos --fatal-warnings .
 
   test_all:
-    run: melos bootstrap && melos analyze && melos butter_test && melos butter_api_commons_test && melos butter_commons_test
+    run: melos bootstrap && melos analyze && melos butter_test && melos butter_api_commons_test && melos butter_commons_test && melos butter_cli_test
     exec:
       failFast: true
     select-package:
@@ -28,15 +28,21 @@ scripts:
       dir-exists: test
 
   butter_api_commons_test:
-    run: cd $MELOS_ROOT_PATH/packages/api_commons/example/sample_api && dart test
+    run: cd $MELOS_ROOT_PATH/packages/api_commons/example/sample_api && dart test --coverage=./coverage
     select-package:
       scope: butter_api_commons
       dir-exists: test
 
   butter_commons_test:
-    run: cd $MELOS_ROOT_PATH/packages/commons && dart test
+    run: cd $MELOS_ROOT_PATH/packages/commons && dart test --coverage=./coverage
     select-package:
       scope: butter_commons
+      dir-exists: test
+
+  butter_cli_test:
+    run: cd $MELOS_ROOT_PATH/packages/cli && dart test --coverage=./coverage
+    select-package:
+      scope: butter_cli
       dir-exists: test
 
 ide:
