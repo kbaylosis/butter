@@ -38,17 +38,17 @@ class Scaffolding {
 
     // lib/data
     print('$destination/${Paths.libPath}/data');
-    copyPath('$src/${Paths.libScaffoldingPath}/data',
+    copyPathSync('$src/${Paths.libScaffoldingPath}/data',
         '$destination/${Paths.libPath}/data');
 
     // lib/modules
     print('$destination/${Paths.libPath}/modules');
-    copyPath('$src/${Paths.libScaffoldingPath}/modules',
+    copyPathSync('$src/${Paths.libScaffoldingPath}/modules',
         '$destination/${Paths.libPath}/modules');
 
     // lib/services
     print('$destination/${Paths.libPath}/services');
-    copyPath('$src/${Paths.libScaffoldingPath}/services',
+    copyPathSync('$src/${Paths.libScaffoldingPath}/services',
         '$destination/${Paths.libPath}/services');
 
     // lib/utils
