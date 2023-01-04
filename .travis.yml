@@ -34,6 +34,7 @@ script:
   - cd $TRAVIS_BUILD_DIR/packages/core && $TRAVIS_BUILD_DIR/flutter/bin/flutter test
   - cd $TRAVIS_BUILD_DIR/packages/api_commons/example/sample_api && $TRAVIS_BUILD_DIR/flutter/bin/dart test
   - cd $TRAVIS_BUILD_DIR/packages/commons && $TRAVIS_BUILD_DIR/flutter/bin/dart test
+  - cd $TRAVIS_BUILD_DIR/packages/cli && $TRAVIS_BUILD_DIR/flutter/bin/dart test
 cache:
   directories:
     - $HOME/.pub-cache
