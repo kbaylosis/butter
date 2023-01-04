@@ -31,7 +31,7 @@ class ButterCLI {
       var results = parser.parse(arguments ?? []);
       String dest = results['destination'] ?? '.';
 
-      print('Butter CLI v${Config.version}');
+      print('Butter CLI ${Config.version == null ? '' : 'v${Config.version}'}');
 
       if (results['help']) {
         showHelp();
