@@ -30,14 +30,21 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
   }
 
   @override
+  FutureOr<Response> didFindObject(T object, Map<String, dynamic> summary) =>
+      Response.ok(object, headers: {
+        'access-control-expose-headers': 'x-total, x-summary',
+        'x-total': 1,
+        'x-summary': jsonEncode(summary),
+      });
+
+  @override
   FutureOr<Response> didFindObjects(
-      List<T> objects, int? total, Map<String, dynamic> summary) {
-    return Response.ok(objects, headers: {
-      'access-control-expose-headers': 'x-total, x-summary',
-      'x-total': total,
-      'x-summary': jsonEncode(summary),
-    });
-  }
+          List<T> objects, int? total, Map<String, dynamic> summary) =>
+      Response.ok(objects, headers: {
+        'access-control-expose-headers': 'x-total, x-summary',
+        'x-total': total,
+        'x-summary': jsonEncode(summary),
+      });
 
   @override
   Future<void> init(ManagedContext? context) async {

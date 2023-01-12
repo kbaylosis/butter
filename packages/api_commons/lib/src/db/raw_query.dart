@@ -38,7 +38,7 @@ class RawQuery {
 
       return retVal;
     } on TimeoutException catch (e) {
-      throw QueryException.transport("timed out connecting to database",
+      throw QueryException.transport('timed out connecting to database',
           underlyingException: e);
     }
   }

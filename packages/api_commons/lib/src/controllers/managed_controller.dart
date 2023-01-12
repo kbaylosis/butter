@@ -68,9 +68,7 @@ class ManagedController<InstanceType extends ManagedObject>
   /// Returns a route pattern for using [ManagedObjectController]s.
   ///
   /// Returns the string '/$name/[:id]', to be used as a route pattern in a [Router] for instances of [ResourceController] and subclasses.
-  static String routePattern(String name) {
-    return '/$name/[:id]';
-  }
+  static String routePattern(String name) => '/$name/[:id]';
 
   late Query<InstanceType> _query;
 
@@ -81,24 +79,21 @@ class ManagedController<InstanceType extends ManagedObject>
   /// but it must have the same [InstanceType] as this controller. If you return null from this method, no [Query] will be executed
   /// and [didNotFindObject] will immediately be called.
   FutureOr<Query<InstanceType>> willFindObjectWithQuery(
-      Query<InstanceType> query) {
-    return query;
-  }
+          Query<InstanceType> query) =>
+      query;
 
   /// Executed after a fetch by ID query that found a matching instance.
   ///
-  /// By default, returns a [Response.ok] with the encoded instance. The [result] is the fetched [InstanceType]. You may override this method
+  /// By default, returns a [Response.ok] with the encoded instance. The [object] is the fetched [InstanceType]. You may override this method
   /// to provide some other behavior.
-  FutureOr<Response> didFindObject(InstanceType result) {
-    return Response.ok(result);
-  }
+  FutureOr<Response> didFindObject(
+          InstanceType object, Map<String, dynamic> summary) =>
+      Response.ok(object);
 
   /// Executed after a fetch by ID query that did not find a matching instance.
   ///
   /// By default, returns [Response.notFound]. You may override this method to provide some other behavior.
-  FutureOr<Response> didNotFindObject() {
-    return Response.notFound();
-  }
+  FutureOr<Response> didNotFindObject() => Response.notFound();
 
   @Operation.get('id')
   Future<Response> getObject(
@@ -122,7 +117,7 @@ class ManagedController<InstanceType extends ManagedObject>
     if (result == null) {
       return didNotFindObject();
     } else {
-      return didFindObject(result);
+      return didFindObject(result, {});
     }
   }
 
@@ -132,9 +127,8 @@ class ManagedController<InstanceType extends ManagedObject>
   /// but it must have the same type argument as this controller. If you return null from this method,
   /// no values will be inserted and [didInsertObject] will immediately be called with the value null.
   FutureOr<Query<InstanceType>> willInsertObjectWithQuery(
-      Query<InstanceType> query) {
-    return query;
-  }
+          Query<InstanceType> query) =>
+      query;
 
   FutureOr<InstanceType> performInsert(Query<InstanceType> query) =>
       query.insert();
@@ -142,9 +136,8 @@ class ManagedController<InstanceType extends ManagedObject>
   /// Executed after an insert query is successful.
   ///
   /// By default, returns [Response.ok]. The [object] is the newly inserted [InstanceType]. You may override this method to provide some other behavior.
-  FutureOr<Response> didInsertObject(InstanceType? object) {
-    return Response.ok(object);
-  }
+  FutureOr<Response> didInsertObject(InstanceType? object) =>
+      Response.ok(object);
 
   @Operation.post()
   Future<Response> createObject({
@@ -189,16 +182,13 @@ class ManagedController<InstanceType extends ManagedObject>
   /// but it must have the same type argument as this controller. If you return null from this method,
   /// no delete operation will be performed and [didNotFindObjectToDeleteWithID] will immediately be called with the value null.
   FutureOr<Query<InstanceType>> willDeleteObjectWithQuery(
-      Query<InstanceType> query) {
-    return query;
-  }
+          Query<InstanceType> query) =>
+      query;
 
   /// Executed after an object was deleted.
   ///
   /// By default, returns [Response.ok] with no response body. You may override this method to provide some other behavior.
-  FutureOr<Response> didDeleteObjectWithID(dynamic id) {
-    return Response.ok(null);
-  }
+  FutureOr<Response> didDeleteObjectWithID(dynamic id) => Response.ok(null);
 
   FutureOr<int?> performDelete(String id, Query<InstanceType> query) =>
       query.delete();
@@ -258,9 +248,8 @@ class ManagedController<InstanceType extends ManagedObject>
   /// but it must have the same type argument as this controller. If you return null from this method,
   /// no values will be inserted and [didNotFindObjectToUpdateWithID] will immediately be called with the value null.
   FutureOr<Query<InstanceType>> willUpdateObjectWithQuery(
-      Query<InstanceType> query) {
-    return query;
-  }
+          Query<InstanceType> query) =>
+      query;
 
   FutureOr<InstanceType?> performUpdate(String id, Query<InstanceType> query) =>
       query.updateOne();
@@ -268,16 +257,14 @@ class ManagedController<InstanceType extends ManagedObject>
   /// Executed after an object was updated.
   ///
   /// By default, returns [Response.ok] with the encoded, updated object. You may override this method to provide some other behavior.
-  FutureOr<Response> didUpdateObject(InstanceType object) {
-    return Response.ok(object);
-  }
+  FutureOr<Response> didUpdateObject(InstanceType object) =>
+      Response.ok(object);
 
   /// Executed after an object not found during an update query.
   ///
   /// By default, returns [Response.notFound]. You may override this method to provide some other behavior.
-  FutureOr<Response> didNotFindObjectToUpdateWithID(dynamic id) {
-    return Response.notFound();
-  }
+  FutureOr<Response> didNotFindObjectToUpdateWithID(dynamic id) =>
+      Response.notFound();
 
   @Operation.put('id')
   Future<Response> updateObject(
@@ -331,10 +318,9 @@ class ManagedController<InstanceType extends ManagedObject>
   /// but it must have the same type argument as this controller. If you return null from this method,
   /// no objects will be fetched and [didFindObjects] will immediately be called with the value null.
   FutureOr<Query<InstanceType>> willFindObjectsWithQuery(
-      Query<InstanceType> query,
-      {List<String>? searchBy}) {
-    return query;
-  }
+          Query<InstanceType> query,
+          {List<String>? searchBy}) =>
+      query;
 
   FutureOr<InstanceType?> performFindObject(
           String id, Query<InstanceType> query) =>
@@ -356,17 +342,15 @@ class ManagedController<InstanceType extends ManagedObject>
   /// This is used to perform reducer operations on the current query
   ///
   FutureOr<Map<String, dynamic>> processFoundObjectsWithQuery(
-      List<InstanceType> records, Query<InstanceType> query) {
-    return {};
-  }
+          List<InstanceType> records, Query<InstanceType> query) =>
+      {};
 
   /// Executed after a list of objects has been fetched.
   ///
   /// By default, returns [Response.ok] with the encoded list of founds objects (which may be the empty list).
-  FutureOr<Response> didFindObjects(
-      List<InstanceType> objects, int? total, Map<String, dynamic> summary) {
-    return Response.ok(objects);
-  }
+  FutureOr<Response> didFindObjects(List<InstanceType> objects, int? total,
+          Map<String, dynamic> summary) =>
+      Response.ok(objects);
 
   @Operation.get()
   Future<Response> getObjects({
@@ -480,7 +464,7 @@ class ManagedController<InstanceType extends ManagedObject>
 
       if (searchBy != null && searchBy.isNotEmpty) {
         var or = '';
-        var exp = '';
+        final exp = StringBuffer();
         final Map<String, dynamic> values = {};
         for (final s in searchBy) {
           final search = Uri.decodeComponent(s);
@@ -504,7 +488,7 @@ class ManagedController<InstanceType extends ManagedObject>
             continue;
           }
 
-          exp = '$exp$or${searchMap['exp']}';
+          exp.write('$exp$or${searchMap['exp']}');
           if (searchMap['values'] != null) {
             values.addAll(searchMap['values'] as Map<String, dynamic>);
           }
@@ -512,7 +496,7 @@ class ManagedController<InstanceType extends ManagedObject>
           or = ' OR ';
         }
 
-        _query.predicate = QueryPredicate(exp, values);
+        _query.predicate = QueryPredicate(exp.toString(), values);
       }
 
       _query = await willFindObjectsWithQuery(_query, searchBy: searchBy);
@@ -639,9 +623,8 @@ class ManagedController<InstanceType extends ManagedObject>
   }
 
   dynamic _getIdentifierFromPath(
-      String value, ManagedPropertyDescription? desc) {
-    return _parseValueForProperty(value, desc, onError: Response.notFound());
-  }
+          String value, ManagedPropertyDescription? desc) =>
+      _parseValueForProperty(value, desc, onError: Response.notFound());
 
   dynamic _parseValueForProperty(String value, ManagedPropertyDescription? desc,
       {Response? onError}) {

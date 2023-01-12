@@ -181,6 +181,7 @@ abstract class BaseChannel<C extends BaseConfig,
 
   static Future<Application<T>> initApp<T extends ApplicationChannel>(
       {List<String>? args, String? configFile}) async {
+    // ignore: avoid_print
     print(args);
     final processes =
         args?.firstWhereOrNull((element) => element.startsWith('-n')) ?? '';

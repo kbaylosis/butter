@@ -24,9 +24,8 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
   final PostgresQuery<T> _query;
 
   @override
-  Future<double?> average(num? Function(T object) selector) {
-    return _execute('avg(${_columnName(selector)})::float');
-  }
+  Future<double?> average(num? Function(T object) selector) =>
+      _execute('avg(${_columnName(selector)})::float');
 
   @override
   Future<int> count() async {
@@ -39,34 +38,28 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
   }
 
   @override
-  Future<U?> maximum<U>(U? Function(T object) selector) {
-    return _execute('max(${_columnName(selector)})');
-  }
+  Future<U?> maximum<U>(U? Function(T object) selector) =>
+      _execute('max(${_columnName(selector)})');
 
   @override
-  Future<U?> minimum<U>(U? Function(T object) selector) {
-    return _execute('min(${_columnName(selector)})');
-  }
+  Future<U?> minimum<U>(U? Function(T object) selector) =>
+      _execute('min(${_columnName(selector)})');
 
   @override
-  Future<U?> sum<U extends num>(U? Function(T object) selector) {
-    return _execute('sum(${_columnName(selector)})');
-  }
+  Future<U?> sum<U extends num>(U? Function(T object) selector) =>
+      _execute('sum(${_columnName(selector)})');
 
-  Future<U?> perform<U>(String function) {
-    return _execute(function);
-  }
+  Future<U?> perform<U>(String function) => _execute(function);
 
   Future<List<List<dynamic>>> performExpectRows(String function,
-      {int limit = 0}) {
-    return _executeExpectRows(function, limit: limit);
-  }
+          {int limit = 0}) =>
+      _executeExpectRows(function, limit: limit);
 
-  String _columnName(dynamic Function(T object) selector) {
-    return _query.entity.identifyAttribute(selector).name;
-  }
+  String _columnName(dynamic Function(T object) selector) =>
+      _query.entity.identifyAttribute(selector).name;
 
   Future<U?> _execute<U>(String function) async {
+    // ignore: avoid_print
     print('ReducerQuery::_execute');
     final builder = PostgresQueryBuilder(_query);
     final buffer = StringBuffer();
@@ -82,6 +75,7 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
     }
 
     final rawQuery = buffer.toString();
+    // ignore: avoid_print
     print(rawQuery);
 
     final store = _query.context.persistentStore as PostgreSQLPersistentStore;
@@ -99,6 +93,7 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
 
   Future<List<List<dynamic>>> _executeExpectRows(String function,
       {int limit = 0}) async {
+    // ignore: avoid_print
     print('ReducerQuery::_execute');
     final builder = PostgresQueryBuilder(_query);
     final buffer = StringBuffer();
@@ -118,6 +113,7 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
     }
 
     final rawQuery = buffer.toString();
+    // ignore: avoid_print
     print(rawQuery);
 
     final store = _query.context.persistentStore as PostgreSQLPersistentStore;
