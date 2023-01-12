@@ -1,3 +1,7 @@
+## 2.1.0
+
+ - **FEAT**: Add butter_cli package.
+
 ## 2.0.1
 
  - **FIX**: Add core pubspec files.

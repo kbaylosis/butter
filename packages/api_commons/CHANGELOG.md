@@ -1,3 +1,7 @@
+## 2.0.2
+
+ - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.
+
 ## 2.0.1
 
  - **FIX**: Update conduit lib version to 4.0.0.

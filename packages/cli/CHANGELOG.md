@@ -1,3 +1,10 @@
+## 0.3.1
+
+ - **FIX**: Change copyPaths to copyPathSyncs.
+ - **FIX**: Provide fallback value when printing butter_cli version if PubCache() is not working.
+ - **FIX**: Provide fallback value if Paths.getPubCacheDir if PubCache() is not working.
+ - **FEAT**: Add butter_cli package.
+
 ## 0.3.0
 
 * Fixed errors in creating a skeleton project
