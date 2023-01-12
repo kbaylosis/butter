@@ -1,3 +1,7 @@
+## 0.3.1+1
+
+ - **FIX**: Fix pubspec.yaml error.
+
 ## 0.3.1
 
  - **FIX**: Change copyPaths to copyPathSyncs.
