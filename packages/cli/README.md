@@ -1,6 +1,6 @@
 # butter_cli
 
-[![pub package](https://img.shields.io/pub/v/butter_cli)](https://pub.dartlang.org/packages/butter_cli) [![Build Status](https://travis-ci.org/kbaylosis/butter_cli.svg?branch=master)](https://travis-ci.org/kbaylosis/butter_cli)
+[![pub package](https://img.shields.io/pub/v/butter_cli)](https://pub.dartlang.org/packages/butter_cli) [![Build Status](https://travis-ci.org/kbaylosis/butter_cli.svg?branch=master)](https://travis-ci.org/kbaylosis/butter_cli) [![discord](https://img.shields.io/discord/1062944658239520810)](https://discord.gg/CykbJHm8eK)
 
 Generates the [butter](https://pub.dev/packages/butter) framework scaffolding for [flutter](https://flutter.dev/) development.
 
