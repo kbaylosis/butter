@@ -14,7 +14,9 @@ scripts:
     run: dart analyze --fatal-infos --fatal-warnings .
 
   test_all:
-    run: melos bootstrap && melos analyze && melos butter_test && melos butter_api_commons_test && melos butter_commons_test && melos butter_cli_test
+    run: melos bootstrap && melos analyze && melos butter_test && 
+      melos butter_api_commons_test && melos butter_commons_test && 
+      melos butter_cli_test && melos publish -y
     exec:
       failFast: true
     select-package:
