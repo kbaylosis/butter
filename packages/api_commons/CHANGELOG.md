@@ -1,3 +1,7 @@
+## 2.0.4
+
+ - **FIX**: Modify definition of BasicController.addPredicate and addPredicates; Remove addCustomPredicate.
+
 ## 2.0.3
 
  - **DOCS**: Add discord badge on all packages.
