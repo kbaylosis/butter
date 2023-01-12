@@ -1,3 +1,7 @@
+## 0.3.1+2
+
+ - **DOCS**: Add discord badge on all packages.
+
 ## 0.3.1+1
 
  - **FIX**: Fix pubspec.yaml error.

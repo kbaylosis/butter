@@ -1,3 +1,7 @@
+## 2.0.3
+
+ - **DOCS**: Add discord badge on all packages.
+
 ## 2.0.2
 
  - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.

@@ -1,3 +1,8 @@
+## 2.1.1
+
+ - **FIX**: Change the repo value in pubspec.
+ - **DOCS**: Add discord badge on all packages.
+
 ## 2.1.0
 
  - **FEAT**: Add butter_cli package.
