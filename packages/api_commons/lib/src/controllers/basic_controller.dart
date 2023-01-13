@@ -65,7 +65,7 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
         .link(() => this);
   }
 
-  void addPredicate<U extends ManagedObject>(
+  Query<U> addPredicate<U extends ManagedObject>(
       Query<U> query, QueryPredicate predicate) {
     if (query.predicate == null || (query.predicate?.format ?? '').isEmpty) {
       query.predicate = predicate;
@@ -76,9 +76,10 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
     }
 
     logger.fine(query.predicate!.format);
+    return query;
   }
 
-  void addPredicates<U extends ManagedObject>(
+  Query<U> addPredicates<U extends ManagedObject>(
       Query<U> query, List<QueryPredicate> predicates) {
     final formats = predicates.map((e) => e.format).join(' AND ');
     final params = predicates.fold<Map<String, dynamic>>({},
@@ -93,5 +94,6 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
 
     query.predicate!.parameters!.addAll(params);
     logger.fine(query.predicate!.format);
+    return query;
   }
 }

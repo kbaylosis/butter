@@ -1,7 +1,7 @@
 import 'package:conduit/conduit.dart';
 
 class CustomPredicate extends QueryPredicate {
-  CustomPredicate(String format, Map<String, dynamic> parameters)
+  CustomPredicate(String format, [Map<String, dynamic>? parameters = const {}])
       : super(format, parameters);
 
   CustomPredicate.empty() : super.empty();

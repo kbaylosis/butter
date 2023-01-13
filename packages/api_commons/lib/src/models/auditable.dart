@@ -12,4 +12,10 @@ class Auditable {
 
   @Column(nullable: true)
   int? updatedById;
+
+  @Column(nullable: true)
+  DateTime? disabledOn;
+
+  @Column(nullable: true)
+  int? disabledById;
 }

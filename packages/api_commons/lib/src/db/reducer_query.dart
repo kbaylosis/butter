@@ -55,6 +55,13 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
           {int limit = 0}) =>
       _executeExpectRows(function, limit: limit);
 
+  Future<List<Map<String, Map<String, dynamic>>>> performExpectMappedRows(
+    String function, {
+    int limit = 0,
+    String? sqlOrderBy,
+  }) =>
+      _executeExpectMappedRows(function, limit: limit, sqlOrderBy: sqlOrderBy);
+
   String _columnName(dynamic Function(T object) selector) =>
       _query.entity.identifyAttribute(selector).name;
 
@@ -108,7 +115,7 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
       buffer.write('WHERE ${builder.sqlWhereClause} ');
     }
 
-    if (limit == 0) {
+    if (limit != 0) {
       buffer.write('LIMIT $limit ');
     }
 
@@ -123,6 +130,52 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
               ?.query(rawQuery, substitutionValues: builder.variables)
               .timeout(Duration(seconds: _query.timeoutInSeconds)) ??
           [];
+    } on TimeoutException catch (e) {
+      throw QueryException.transport('timed out connecting to database',
+          underlyingException: e);
+    }
+  }
+
+  Future<List<Map<String, Map<String, dynamic>>>> _executeExpectMappedRows(
+    String function, {
+    int limit = 0,
+    String? sqlOrderBy,
+  }) async {
+    // ignore: avoid_print
+    print('ReducerQuery::_execute');
+    final builder = PostgresQueryBuilder(_query);
+    final buffer = StringBuffer();
+    buffer.write('SELECT $function ');
+    buffer.write('FROM ${builder.sqlTableName} ');
+
+    if (builder.containsJoins) {
+      buffer.write('${builder.sqlJoin} ');
+    }
+
+    if (builder.sqlWhereClause != null) {
+      buffer.write('WHERE ${builder.sqlWhereClause} ');
+    }
+
+    if (sqlOrderBy != null) {
+      buffer.write('ORDER BY $sqlOrderBy ');
+    } else {
+      buffer.write('WHERE ${builder.sqlWhereClause} ');
+    }
+
+    if (limit != 0) {
+      buffer.write('LIMIT $limit ');
+    }
+
+    final rawQuery = buffer.toString();
+    // ignore: avoid_print
+    print(rawQuery);
+
+    final store = _query.context.persistentStore as PostgreSQLPersistentStore;
+    final connection = await store.executionContext;
+    try {
+      return await connection!
+          .mappedResultsQuery(rawQuery, substitutionValues: builder.variables)
+          .timeout(Duration(seconds: _query.timeoutInSeconds));
     } on TimeoutException catch (e) {
       throw QueryException.transport('timed out connecting to database',
           underlyingException: e);
