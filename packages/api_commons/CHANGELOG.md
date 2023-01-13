@@ -1,3 +1,7 @@
+## 2.1.0
+
+ - **FEAT**: Improve implementations of BasicController, CustomPredicate, ReducerQuery and Auditable.
+
 ## 2.0.4
 
  - **FIX**: Modify definition of BasicController.addPredicate and addPredicates; Remove addCustomPredicate.
