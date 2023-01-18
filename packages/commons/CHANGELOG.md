@@ -1,3 +1,7 @@
+## 2.0.4
+
+ - **PERF**: Add noComma to Formats.toMoney.
+
 ## 2.0.3
 
  - **DOCS**: Add discord badge on all packages.
