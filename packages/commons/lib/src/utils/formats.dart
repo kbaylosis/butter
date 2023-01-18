@@ -95,9 +95,12 @@ class Formats {
       DateFormat('MM/dd/y').format(local ? date.toLocal() : date);
 
   static final NumberFormat numberFormatter = NumberFormat('#,##0.00', 'en_US');
-  static String toMoney(double value, {bool useParenthesis = false}) {
+  static final NumberFormat numberFormatter2 = NumberFormat('###0.00', 'en_US');
+  static String toMoney(double value,
+      {bool useParenthesis = false, bool noComma = false}) {
     final val = useParenthesis ? value.abs() : value;
-    final formatted = numberFormatter.format(val);
+    final formatted =
+        noComma ? numberFormatter2.format(val) : numberFormatter.format(val);
 
     if (useParenthesis) {
       return value >= 0 ? formatted : '($formatted)';
