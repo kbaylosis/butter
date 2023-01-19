@@ -1,3 +1,7 @@
+## 2.1.3
+
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+
 ## 2.1.2
 
  - Update a dependency to the latest release.

@@ -1,3 +1,7 @@
+## 2.0.5
+
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+
 ## 2.0.4
 
  - **PERF**: Add noComma to Formats.toMoney.
