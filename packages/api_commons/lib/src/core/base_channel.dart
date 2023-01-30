@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:conduit/conduit.dart';
-import 'package:conduit/managed_auth.dart';
+import 'package:conduit_core/managed_auth.dart';
 import 'package:conduit_open_api/v3.dart';
 import 'package:yaml/yaml.dart';
 

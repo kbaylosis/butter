@@ -1,5 +1,5 @@
 import 'package:conduit/conduit.dart';
-import 'package:conduit/managed_auth.dart';
+import 'package:conduit_core/managed_auth.dart';
 
 class AppAuth<T extends ManagedAuthResourceOwner>
     extends ManagedAuthDelegate<T> {

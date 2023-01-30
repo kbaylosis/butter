@@ -9,8 +9,9 @@ environment:
 dependencies:
   butter_api_commons:
     path: ../..
+  conduit_core: ^4.1.8
 
 dev_dependencies:
-  conduit_test: ^4.0.0
+  conduit_test: ^4.1.8
   faker: ^2.1.0
   test: ^1.21.6

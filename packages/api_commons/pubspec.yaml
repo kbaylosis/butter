@@ -10,14 +10,15 @@ environment:
 dependencies:
   butter_commons: ^2.0.5
   collection: ^1.17.0
-  conduit: ">=4.0.0 <4.0.1"
-  conduit_common: ">=4.0.0 <4.0.1"
-  conduit_open_api: ">=4.0.0 <4.0.1"
+  conduit: ^4.1.8
+  conduit_common: ^4.1.8
+  conduit_core: ^4.1.8
+  conduit_open_api: ^4.1.8
   path: ^1.8.0
   yaml: ^3.1.1
 
 dev_dependencies:
-  conduit_test: ">=4.0.0 <4.0.1"
+  conduit_test: ^4.1.8
   faker: ^2.1.0
   lints: ^2.0.0
   test: ^1.22.0

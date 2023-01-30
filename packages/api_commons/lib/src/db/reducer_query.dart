@@ -3,9 +3,9 @@ import 'dart:async';
 
 import 'package:conduit/conduit.dart';
 // ignore: implementation_imports
-import 'package:conduit/src/db/postgresql/postgresql_query.dart';
+import 'package:conduit_core/src/db/postgresql/postgresql_query.dart';
 // ignore: implementation_imports
-import 'package:conduit/src/db/postgresql/query_builder.dart';
+import 'package:conduit_core/src/db/postgresql/query_builder.dart';
 
 //
 // The PostgresQueryReduce in
