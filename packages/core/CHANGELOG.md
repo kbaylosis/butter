@@ -1,3 +1,7 @@
+## 2.1.4
+
+ - **FIX**: Upgrade conduit to 4.1.8.
+
 ## 2.1.3
 
  - **FIX**: Set the sdks of all packages to >=2.12.0.
