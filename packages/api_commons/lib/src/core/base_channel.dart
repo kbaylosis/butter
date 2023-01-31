@@ -30,8 +30,8 @@ abstract class BaseChannel<C extends BaseConfig,
 
   @override
   Logger get logger => _spawned ? Logger(config.appName!) : super.logger;
-  Iterable<ModuleChannel> get modules;
-  Iterable<Service> get services;
+  List<ModuleChannel> get modules;
+  List<Service> get services;
 
   Future<C> loadConfig();
   void onLogData(LogRecord rec, String severity) {}
@@ -96,6 +96,9 @@ abstract class BaseChannel<C extends BaseConfig,
     Future.delayed(const Duration(seconds: 3), () async {
       await _initServices();
       await _initModules();
+
+      services.clear();
+      modules.clear();
 
       logger.info(' ');
       logger.info('************************************************');

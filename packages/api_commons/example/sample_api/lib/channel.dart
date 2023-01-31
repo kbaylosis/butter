@@ -31,7 +31,7 @@ class TestChannel extends BaseChannel<AppConfig, User> {
       AppConfig(options!.configurationFilePath!);
 
   @override
-  Iterable<ModuleChannel> get modules => moduleList;
+  List<ModuleChannel> get modules => moduleList;
 
   @override
   void serverInfo(VersionConfig version, BaseConfig config) {
@@ -46,5 +46,5 @@ class TestChannel extends BaseChannel<AppConfig, User> {
   }
 
   @override
-  Iterable<Service> get services => serviceList;
+  List<Service> get services => serviceList;
 }
