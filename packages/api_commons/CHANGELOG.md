@@ -1,3 +1,7 @@
+## 2.1.4
+
+ - **FIX**: Ensure that the module and service registries are released after init.
+
 ## 2.1.3
 
  - **FIX**: Upgrade conduit to 4.1.8.
