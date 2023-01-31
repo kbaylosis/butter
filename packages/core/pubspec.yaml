@@ -8,7 +8,11 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  butter_commons: ^2.0.5
+  butter_commons: #^2.0.5
+    git: 
+      url: git@github.com:kbaylosis/butter.git
+      ref: conduit_4.2.1-rc.1
+      path: packages/commons
   flutter:
     sdk: flutter
   async_redux: ^15.0.0
