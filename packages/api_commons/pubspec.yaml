@@ -11,28 +11,28 @@ environment:
 dependencies:
   butter_commons: #^2.0.5
     git: 
-      url: git@github.com:kbaylosis/butter.git
+      url: https://github.com/kbaylosis/butter.git
       ref: conduit_4.2.1-rc.1
       path: packages/commons
   collection: ^1.17.0
   conduit: #^4.2.0
     git: 
-      url: git@github.com:kbaylosis/conduit.git
+      url: https://github.com/kbaylosis/conduit.git
       ref: fix/attach-finalizer-on-connect_fork
       path: packages/cli
   conduit_common: #^4.2.0
     git: 
-      url: git@github.com:kbaylosis/conduit.git
+      url: https://github.com/kbaylosis/conduit.git
       ref: fix/attach-finalizer-on-connect_fork
       path: packages/common
   conduit_core: #^4.2.0
     git: 
-      url: git@github.com:kbaylosis/conduit.git
+      url: https://github.com/kbaylosis/conduit.git
       ref: fix/attach-finalizer-on-connect_fork
       path: packages/core
   conduit_open_api: #^4.2.0
     git: 
-      url: git@github.com:kbaylosis/conduit.git
+      url: https://github.com/kbaylosis/conduit.git
       ref: fix/attach-finalizer-on-connect_fork
       path: packages/open_api
   path: ^1.8.0
@@ -41,7 +41,7 @@ dependencies:
 dev_dependencies:
   conduit_test: #^4.2.0
     git: 
-      url: git@github.com:kbaylosis/conduit.git
+      url: https://github.com/kbaylosis/conduit.git
       ref: fix/attach-finalizer-on-connect_fork
       path: packages/test_harness
   faker: ^2.1.0
