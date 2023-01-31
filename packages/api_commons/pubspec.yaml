@@ -13,7 +13,7 @@ dependencies:
     git: 
       url: git@github.com:kbaylosis/butter.git
       ref: conduit_4.2.1-rc.1
-      path: packages/common
+      path: packages/commons
   collection: ^1.17.0
   conduit: #^4.2.0
     git: 
