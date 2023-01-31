@@ -9,9 +9,17 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
-  butter_commons: ^2.0.5
+  butter_commons: #^2.0.5
+    git: 
+      url: git@github.com:kbaylosis/butter.git
+      ref: conduit_4.2.1-rc.1
+      path: packages/common
   collection: ^1.17.0
-  # conduit: #^4.2.0
+  conduit: #^4.2.0
+    git: 
+      url: git@github.com:kbaylosis/conduit.git
+      ref: fix/attach-finalizer-on-connect_fork
+      path: packages/cli
   conduit_common: #^4.2.0
     git: 
       url: git@github.com:kbaylosis/conduit.git
