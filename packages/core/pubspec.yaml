@@ -3,6 +3,7 @@ description: A thin application framework for flutter making use of async_redux
 version: 2.1.4
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
