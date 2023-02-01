@@ -1,3 +1,7 @@
+## 2.2.0
+
+ - **FEAT**: Upgrade to dart 2.19.0.
+
 ## 2.1.4
 
  - **FIX**: Upgrade conduit to 4.1.8.

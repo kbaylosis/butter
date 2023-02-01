@@ -1,3 +1,7 @@
+## 2.1.0
+
+ - **FEAT**: Upgrade to dart 2.19.0.
+
 ## 2.0.5
 
  - **FIX**: Set the sdks of all packages to >=2.12.0.

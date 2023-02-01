@@ -1,3 +1,7 @@
+## 2.2.0
+
+ - **FEAT**: Upgrade to dart 2.19.0.
+
 ## 2.1.4
 
  - **FIX**: Ensure that the module and service registries are released after init.

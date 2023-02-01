@@ -1,3 +1,7 @@
+## 0.3.2
+
+ - **FEAT**: Upgrade to dart 2.19.0.
+
 ## 0.3.1+2
 
  - **DOCS**: Add discord badge on all packages.
