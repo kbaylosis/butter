@@ -1,4 +1,4 @@
 # melos_managed_dependency_overrides: butter_commons
 dependency_overrides:
-  butter_commons: 
+  butter_commons:
     path: ../commons
