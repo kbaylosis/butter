@@ -1,4 +1,3 @@
-// ignore_from_file: avoid_print
 import 'dart:async';
 import 'dart:convert';
 
@@ -67,8 +66,6 @@ class ManagedController<InstanceType extends ManagedObject>
   /// Returns the string '/$name/[:id]', to be used as a route pattern in a [Router] for instances of [ResourceController] and subclasses.
   static String routePattern(String name) => '/$name/[:id]';
 
-  Query<InstanceType>? _query;
-
   /// Executed prior to a fetch by ID query.
   ///
   /// You may modify the [query] prior to its execution in this method. The [query] will have a single matcher, where the [InstanceType]'s primary key
@@ -100,23 +97,18 @@ class ManagedController<InstanceType extends ManagedObject>
     // Parameters that doesn't fall under the recognized purposes
     @Bind.query('params') List<String>? params,
   }) async {
-    try {
-      _loadParams(params, id: id);
-      _query = Query<InstanceType>(_context!);
-      final primaryKey = _query!.entity.primaryKey;
-      final parsedIdentifier =
-          _getIdentifierFromPath(id, _query!.entity.properties[primaryKey]);
-      _query!.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+    _loadParams(params, id: id);
+    final query = Query<InstanceType>(_context!);
+    final primaryKey = query.entity.primaryKey;
+    final parsedIdentifier =
+        _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
+    query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
 
-      _query = await willFindObjectWithQuery(_query!);
+    final q = await willFindObjectWithQuery(query);
+    final result = await performFindObject(id, q);
 
-      final result = await performFindObject(id, _query!);
-
-      if (result != null) {
-        return didFindObject(result, {});
-      }
-    } finally {
-      _query = null;
+    if (result != null) {
+      return didFindObject(result, {});
     }
 
     return didNotFindObject();
@@ -150,15 +142,15 @@ class ManagedController<InstanceType extends ManagedObject>
     try {
       _loadParams(params);
       final result = await _context!.transaction((transaction) async {
-        _query = Query<InstanceType>(transaction);
-        final instance = _query!.entity.instanceOf() as InstanceType;
+        final query = Query<InstanceType>(transaction);
+        final instance = query.entity.instanceOf() as InstanceType;
         logger.fine('ManagedController::createObject');
         logger.fine(request!.body.as());
         instance.readFromMap(request!.body.as());
-        _query!.values = instance;
+        query.values = instance;
 
-        _query = await willInsertObjectWithQuery(_query!);
-        return performInsert(_query!);
+        final q = await willInsertObjectWithQuery(query);
+        return performInsert(q);
       });
 
       return didInsertObject(result);
@@ -172,8 +164,6 @@ class ManagedController<InstanceType extends ManagedObject>
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
       logger.severe(e, e, stacktrace);
-    } finally {
-      _query = null;
     }
 
     throw RequestNotAllowedException.code(BaseErrorCode.unexpectedError);
@@ -214,15 +204,15 @@ class ManagedController<InstanceType extends ManagedObject>
     try {
       _loadParams(params, id: id);
       final result = await _context!.transaction((transaction) async {
-        _query = Query<InstanceType>(transaction);
-        final primaryKey = _query!.entity.primaryKey;
+        final query = Query<InstanceType>(transaction);
+        final primaryKey = query.entity.primaryKey;
         final parsedIdentifier =
-            _getIdentifierFromPath(id, _query!.entity.properties[primaryKey]);
-        _query!.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+            _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
+        query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
 
-        _query = await willDeleteObjectWithQuery(_query!);
+        final q = await willDeleteObjectWithQuery(query);
 
-        return performDelete(id, _query!);
+        return performDelete(id, q);
       });
 
       if (result == 0) {
@@ -240,8 +230,6 @@ class ManagedController<InstanceType extends ManagedObject>
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
       logger.severe(e, e, stacktrace);
-    } finally {
-      _query = null;
     }
 
     throw RequestNotAllowedException.code(BaseErrorCode.unexpectedError);
@@ -282,19 +270,19 @@ class ManagedController<InstanceType extends ManagedObject>
     try {
       _loadParams(params, id: id);
       final result = await _context!.transaction((transcation) async {
-        _query = Query<InstanceType>(transcation);
-        final primaryKey = _query!.entity.primaryKey;
+        final query = Query<InstanceType>(transcation);
+        final primaryKey = query.entity.primaryKey;
         final parsedIdentifier =
-            _getIdentifierFromPath(id, _query!.entity.properties[primaryKey]);
-        _query!.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+            _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
+        query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
 
-        final instance = _query!.entity.instanceOf() as InstanceType;
+        final instance = query.entity.instanceOf() as InstanceType;
         instance.readFromMap(request!.body.as());
-        _query!.values = instance;
+        query.values = instance;
 
-        _query = await willUpdateObjectWithQuery(_query!);
+        final q = await willUpdateObjectWithQuery(query);
 
-        return performUpdate(id, _query!);
+        return performUpdate(id, q);
       });
 
       if (result == null) {
@@ -312,8 +300,6 @@ class ManagedController<InstanceType extends ManagedObject>
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
       logger.severe(e, e, stacktrace);
-    } finally {
-      _query = null;
     }
 
     throw RequestNotAllowedException.code(BaseErrorCode.unexpectedError);
@@ -412,9 +398,9 @@ class ManagedController<InstanceType extends ManagedObject>
   }) async {
     try {
       _loadParams(params);
-      _query = Query<InstanceType>(_context!);
-      _query!.fetchLimit = count;
-      _query!.offset = offset;
+      final query = Query<InstanceType>(_context!);
+      query.fetchLimit = count;
+      query.offset = offset;
 
       if (pageBy != null) {
         QuerySortOrder direction;
@@ -432,14 +418,14 @@ class ManagedController<InstanceType extends ManagedObject>
           });
         }
 
-        final pageByProperty = _query!.entity.properties[pageBy];
+        final pageByProperty = query.entity.properties[pageBy];
         if (pageByProperty == null) {
           throw Response.badRequest(
               body: {'error': 'cannot page by "$pageBy"'});
         }
 
         final parsed = _parseValueForProperty(pageValue, pageByProperty);
-        _query!.pageBy((t) => t[pageBy], direction,
+        query.pageBy((t) => t[pageBy], direction,
             boundingValue: parsed == 'null' ? null : parsed);
       }
 
@@ -452,7 +438,7 @@ class ManagedController<InstanceType extends ManagedObject>
                   'invalid "sortBy" format. syntax: "name,asc" or "name,desc".'
             });
           }
-          if (_query!.entity.properties[split.first] == null) {
+          if (query.entity.properties[split.first] == null) {
             throw Response.badRequest(
                 body: {'error': 'cannot sort by "$sortBy"'});
           }
@@ -465,7 +451,7 @@ class ManagedController<InstanceType extends ManagedObject>
           final sortOrder = split.last == 'asc'
               ? QuerySortOrder.ascending
               : QuerySortOrder.descending;
-          _query!.sortBy((t) => t[split.first], sortOrder);
+          query.sortBy((t) => t[split.first], sortOrder);
         }
       }
 
@@ -503,15 +489,14 @@ class ManagedController<InstanceType extends ManagedObject>
           or = ' OR ';
         }
 
-        _query!.predicate = QueryPredicate(exp.toString(), values);
+        query.predicate = QueryPredicate(exp.toString(), values);
       }
 
-      _query = await willFindObjectsWithQuery(_query!, searchBy: searchBy);
-      final results =
-          await performFindObjects(_query!, searchBy: searchBy) ?? [];
+      final q = await willFindObjectsWithQuery(query, searchBy: searchBy);
+      final results = await performFindObjects(q, searchBy: searchBy) ?? [];
 
-      final total = await performFindCount(_query!);
-      final summary = await processFoundObjectsWithQuery(results, _query!);
+      final total = await performFindCount(query);
+      final summary = await processFoundObjectsWithQuery(results, query);
 
       return didFindObjects(results, total, summary);
     } on Response {
@@ -524,8 +509,6 @@ class ManagedController<InstanceType extends ManagedObject>
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
       logger.severe(e, e, stacktrace);
-    } finally {
-      _query = null;
     }
 
     throw RequestNotAllowedException.code(BaseErrorCode.unexpectedError);
