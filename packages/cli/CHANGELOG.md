@@ -1,3 +1,7 @@
+## 0.3.2+1
+
+ - **FIX**: Discontinue the use of _query in the ManagedController.
+
 ## 0.3.2
 
  - **FEAT**: Upgrade to dart 2.19.0.
