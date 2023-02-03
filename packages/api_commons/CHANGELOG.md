@@ -1,3 +1,7 @@
+## 2.2.3
+
+ - **FIX**: Export the printStacktrace util.
+
 ## 2.2.2
 
  - **FIX**: Print a stacktrace everytime the ReqestNotAllowedException is used.
