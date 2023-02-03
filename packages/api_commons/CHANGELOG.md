@@ -1,3 +1,7 @@
+## 2.2.2
+
+ - **FIX**: Print a stacktrace everytime the ReqestNotAllowedException is used.
+
 ## 2.2.1
 
  - **FIX**: Discontinue the use of _query in the ManagedController.

@@ -1,6 +1,6 @@
 name: butter_api_commons
 description: Common API Utilities for butter systems
-version: 2.2.1
+version: 2.2.2
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter/tree/master/packages/api_commons
 
