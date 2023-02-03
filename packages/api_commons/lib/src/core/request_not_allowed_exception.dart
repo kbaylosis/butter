@@ -1,5 +1,7 @@
 import 'package:conduit/conduit.dart';
 
+import '../utils/print_stacktrace.dart';
+
 class RequestNotAllowedException<T> implements HandlerException {
   RequestNotAllowedException(
     this.error, {
@@ -11,7 +13,9 @@ class RequestNotAllowedException<T> implements HandlerException {
     T code, {
     this.message,
     this.notFound = false,
-  }) : error = code.toString();
+  }) : error = code.toString() {
+    printStacktrace();
+  }
 
   final String? error;
   final String? message;
