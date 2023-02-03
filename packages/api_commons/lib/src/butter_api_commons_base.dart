@@ -20,3 +20,4 @@ export 'models/basic_model.dart';
 export 'utils/audit_utils.dart';
 export 'utils/instantiate.dart';
 export 'utils/log_utils.dart';
+export 'utils/print_stacktrace.dart';
