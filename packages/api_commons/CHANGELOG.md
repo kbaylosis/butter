@@ -1,3 +1,7 @@
+## 2.2.5
+
+ - **FIX**: Set the module and service attributes back to iterables.
+
 ## 2.2.4
 
  - **FIX**: Discontinue clearing the services and module lists.
