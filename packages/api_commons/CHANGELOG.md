@@ -1,3 +1,7 @@
+## 2.2.4
+
+ - **FIX**: Discontinue clearing the services and module lists.
+
 ## 2.2.3
 
  - **FIX**: Export the printStacktrace util.
