@@ -97,9 +97,6 @@ abstract class BaseChannel<C extends BaseConfig,
       await _initServices();
       await _initModules();
 
-      services.clear();
-      modules.clear();
-
       logger.info(' ');
       logger.info('************************************************');
       logger.info(' ');
