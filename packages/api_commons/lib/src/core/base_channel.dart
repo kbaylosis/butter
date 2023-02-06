@@ -30,8 +30,8 @@ abstract class BaseChannel<C extends BaseConfig,
 
   @override
   Logger get logger => _spawned ? Logger(config.appName!) : super.logger;
-  List<ModuleChannel> get modules;
-  List<Service> get services;
+  Iterable<ModuleChannel> get modules;
+  Iterable<Service> get services;
 
   Future<C> loadConfig();
   void onLogData(LogRecord rec, String severity) {}
