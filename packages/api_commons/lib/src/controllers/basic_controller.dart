@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 import '../../butter_api_commons.dart';
 

@@ -1,4 +1,4 @@
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 Stream<List<T>> queryStream<T extends ManagedObject>(int limit,
     {List<T>? details, Query<T>? query}) async* {

@@ -1,6 +1,6 @@
 import 'dart:mirrors';
 
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 abstract class ManagedObjectProxy<T> extends ManagedObject<T> {
   @override

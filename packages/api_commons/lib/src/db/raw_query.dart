@@ -1,7 +1,8 @@
 // ignore_from_file: avoid_print
 import 'dart:async';
 
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
+import 'package:conduit_postgresql/conduit_postgresql.dart';
 
 //
 // The PostgresQueryReduce in

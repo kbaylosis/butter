@@ -1,5 +1,4 @@
-
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 class BasicModel {
   @primaryKey

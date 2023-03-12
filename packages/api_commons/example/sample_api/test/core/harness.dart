@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:butter_api_commons/butter_api_commons.dart';
+import 'package:conduit_core/conduit_core.dart';
 import 'package:conduit_test/conduit_test.dart';
 import 'package:faker/faker.dart';
 import 'package:sample_api/app_config.dart';

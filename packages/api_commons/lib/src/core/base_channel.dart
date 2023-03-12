@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 import 'package:conduit_core/managed_auth.dart';
 import 'package:conduit_open_api/v3.dart';
+import 'package:conduit_postgresql/conduit_postgresql.dart';
 import 'package:yaml/yaml.dart';
 
 import '../utils/instantiate.dart';

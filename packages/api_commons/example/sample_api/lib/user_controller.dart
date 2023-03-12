@@ -1,5 +1,5 @@
 import 'package:butter_api_commons/butter_api_commons.dart';
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 import 'user.dart';
 

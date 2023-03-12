@@ -1,4 +1,4 @@
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 abstract class RouterManager<T extends ManagedObject> {
   RouterManager(this.routeName);

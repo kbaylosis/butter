@@ -1,4 +1,4 @@
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 class CustomPredicate extends QueryPredicate {
   CustomPredicate(String format, [Map<String, dynamic>? parameters = const {}])

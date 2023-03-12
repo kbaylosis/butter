@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:conduit/conduit.dart';
+import 'package:conduit_core/conduit_core.dart';
 
 class BaseConfig extends Configuration {
   BaseConfig(String path) : super.fromFile(File(path));
