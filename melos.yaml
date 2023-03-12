@@ -19,6 +19,7 @@ scripts:
       melos butter_cli_test && melos publish -y
     exec:
       failFast: true
+      concurrency: 1
     select-package:
       scope: butter
       dir-exists: test
