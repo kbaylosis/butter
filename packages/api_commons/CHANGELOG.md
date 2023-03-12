@@ -1,3 +1,7 @@
+## 2.2.6
+
+ - **FIX**: Upgrade to conduit v4.3.9.
+
 ## 2.2.5
 
  - **FIX**: Set the module and service attributes back to iterables.

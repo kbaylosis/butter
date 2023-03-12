@@ -1,3 +1,7 @@
+## 0.3.2+2
+
+ - **FIX**: Upgrade to conduit v4.3.9.
+
 ## 0.3.2+1
 
  - **FIX**: Discontinue the use of _query in the ManagedController.
