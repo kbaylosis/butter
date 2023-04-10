@@ -118,70 +118,71 @@ lib
 ```
 
 ### Directories
-[app](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/app) - App specific codes
+      
+[app](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/app) - App specific codes
 
-[config](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/config) - App configurations separated depending on purpose, such as, security, API urls, etc.
+[config](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/config) - App configurations separated depending on purpose, such as, security, API urls, etc.
   
-[data](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/data) - Data models to be used for things like API transactions
+[data](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/data) - Data models to be used for things like API transactions
 
-[modules](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules) - All app modules
+[modules](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules) - All app modules
 
-[services](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/services) - All services pertaining to the device api encapsulations or 3rd party api middlewares
+[services](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/services) - All services pertaining to the device api encapsulations or 3rd party api middlewares
 
-[utils](https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/utils) - Utility codes from shared components across modules and utility libraries that doesn't qualify elsewhere
+[utils](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/utils) - Utility codes from shared components across modules and utility libraries that doesn't qualify elsewhere
 
 ### First Class Files
 [main.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/main.dart) 
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/main.dart) 
    - App boostrap code
 
 [app/app.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/app/app.dart) 
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/app/app.dart) 
    - The main app declaration
    - Where the navigation settings are loaded
 
 [app/routes.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/app/routes.dart)
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/app/routes.dart)
    - List of all top level modules
    - The first defined module in the list automatically gets assigned with the root route ('/')
    - See [BaseRoutes](https://pub.dev/documentation/butter/latest/butter/BaseRoutes-class.html) class
 
 [app/theme.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/app/theme.dart)
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/app/theme.dart)
    - App theming and branding definitions
 
 [config/app_config.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/config/app_config.dart)
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/config/app_config.dart)
    - General app configurations and initial settings
 
 ### Module Organization 
 
 [actions](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/actions)
+https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules/function_a/actions)
    - All actions
    - See [BaseAction](https://pub.dev/documentation/butter/latest/butter/BaseAction-class.html) class
 
 [components](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/components)
+https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules/function_a/components)
    - Components that can be shared across all pages within the module
 
 [models](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/models)
+https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules/function_a/models)
    - Page UI models
    - See [BaseUIModel](https://pub.dev/documentation/butter/latest/butter/BaseUIModel-class.html) class
 
 [pages](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/pages)
+https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules/function_a/pages)
    - Page views
    - See [BaseStatefulPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatefulPageView-class.html) and [BaseStatelessPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatelessPageView-class.html) classes
 
 [states](
-https://github.com/kbaylosis/butter/tree/master/example/submodules/lib/modules/function_a/states)
+https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules/lib/modules/function_a/states)
    - Page states
    - See [BasePageState](https://pub.dev/documentation/butter/latest/butter/BasePageState-class.html) class
 
 [<module-name.dart>](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/modules/home/home.dart)
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/modules/home/home.dart)
    - Root file of the module
    - Sub routing and child modules are defined here
    - See [BaseModule](https://pub.dev/documentation/butter/latest/butter/BaseModule-class.html) class
@@ -189,17 +190,17 @@ https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/modules/h
 ### Optional Files
 
 [utils/sub_module_page_specs.dart](
-https://github.com/kbaylosis/butter/blob/master/example/submodules/lib/utils/sub_module_page_specs.dart)
+https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules/lib/utils/sub_module_page_specs.dart)
    - Page specs definition for sub-module data passing
    - See [BasePageSpecs](https://pub.dev/documentation/butter/latest/butter/BasePageSpecs-class.html) class
 
 ## Examples
 
-[Todo](https://github.com/kbaylosis/butter/tree/master/example/todo)
+[Todo](https://github.com/kbaylosis/butter/tree/master/packages/core/example/todo)
    - demonstrates the basics of creating a single module with multiple screens
    - also shows how stateful components are constructed within a page
 
-[Submodules](https://github.com/kbaylosis/butter/tree/master/example/submodules)
+[Submodules](https://github.com/kbaylosis/butter/tree/master/packages/core/example/submodules)
    - shows how an app with multiple modules looks like
    - demonstrates how submodules are constructed
    - provides the differences between a page inheriting from a [BaseStatefulPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatefulPageView-class.html) and a [BaseStatelessPageView](https://pub.dev/documentation/butter/latest/butter/BaseStatelessPageView-class.html)
