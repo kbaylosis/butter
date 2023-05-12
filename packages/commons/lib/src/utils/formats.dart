@@ -8,7 +8,7 @@ class Formats {
 
   static String getMMMdy(DateTime date) => DateFormat('MMM d, y').format(date);
 
-  static String getYYMM(DateTime date) => DateFormat('YYMM').format(date);
+  static String getYYMM(DateTime date) => DateFormat('yyMM').format(date);
 
   static String getTimeOrDate(DateTime date, {bool local = true}) {
     var format = 'h:mm a';
