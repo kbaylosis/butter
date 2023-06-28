@@ -38,8 +38,8 @@ abstract class BaseModule extends StatelessWidget {
   /// navigation stack.
   BasePageConnector<BasePageState, BasePageView> getRoute(BuildContext context,
       [String? routeName]) {
-    routeName ??= this.getRouteName(context);
-    routeName = routeName!.split('?')[0];
+    routeName ??= this.getRouteName(context) ?? '';
+    routeName = routeName.split('?')[0];
 
     if (routes.containsKey(routeName)) {
       FxLog.v(
