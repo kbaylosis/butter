@@ -1,3 +1,7 @@
+## 2.2.3
+
+ - **FIX**: Prevent a null check crash in BaseModule.
+
 ## 2.2.2
 
  - **FIX**: Upgrade to conduit v4.3.9.

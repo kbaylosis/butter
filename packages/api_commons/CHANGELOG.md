@@ -1,3 +1,7 @@
+## 2.2.7
+
+ - Update a dependency to the latest release.
+
 ## 2.2.6
 
  - **FIX**: Upgrade to conduit v4.3.9.

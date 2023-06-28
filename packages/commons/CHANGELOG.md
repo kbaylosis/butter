@@ -1,3 +1,7 @@
+## 2.1.1
+
+ - **FIX**: Fix Formats.getYYMM.
+
 ## 2.1.0
 
  - **FEAT**: Upgrade to dart 2.19.0.
