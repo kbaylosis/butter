@@ -1,3 +1,7 @@
+## 2.2.4
+
+ - **FIX**(dep): Update intl to 0.18.0.
+
 ## 2.2.3
 
  - **FIX**: Prevent a null check crash in BaseModule.

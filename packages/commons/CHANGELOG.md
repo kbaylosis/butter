@@ -1,3 +1,7 @@
+## 2.1.2
+
+ - **FIX**(dep): Update intl to 0.18.0.
+
 ## 2.1.1
 
  - **FIX**: Fix Formats.getYYMM.

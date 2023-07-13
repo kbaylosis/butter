@@ -1,6 +1,6 @@
 name: butter_cli
 description: The cli companion of the butter framework. This tool is used to generate the project scaffolding.
-version: 0.3.2+2
+version: 0.3.2+3
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter/tree/master/packages/cli
 environment:

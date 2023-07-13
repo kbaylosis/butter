@@ -1,3 +1,7 @@
+## 0.3.2+3
+
+ - **FIX**(dep): Update intl to 0.18.0.
+
 ## 0.3.2+2
 
  - **FIX**: Upgrade to conduit v4.3.9.
