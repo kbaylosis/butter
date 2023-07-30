@@ -31,7 +31,7 @@ packages:
       path: "../commons"
       relative: true
     source: path
-    version: "2.1.1"
+    version: "2.1.2"
   characters:
     dependency: transitive
     description:

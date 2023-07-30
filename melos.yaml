@@ -1,7 +1,7 @@
 name: butter
 
 packages:
-  - packages/*
+  - packages/**
 
 command:
   bootstrap:
