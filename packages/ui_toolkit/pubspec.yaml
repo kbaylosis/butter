@@ -1,6 +1,6 @@
 name: butter_toolkit
 description: UI toolkit for butter projects
-version: 0.0.1
+version: 2.3.0
 # homepage:
 publish_to: none
 
@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   avoid_keyboard: ^0.3.0
-  butter: ^2.2.2
+  butter: ^2.3.0
   collection: ^1.16.0
   country_pickers: ^2.0.0
   flutter:

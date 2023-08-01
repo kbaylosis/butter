@@ -1,3 +1,7 @@
+## 2.3.0
+
+ - Synchronize package versioning
+
 ## 2.2.4
 
  - **FIX**(dep): Update intl to 0.18.0.
