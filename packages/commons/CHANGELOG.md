@@ -1,3 +1,14 @@
+## 2.4.0
+
+ - **PERF**(commons): Add noComma to Formats.toMoney.
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Fix Formats.getYYMM.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.
+ - **FIX**: Update documentation of the api_commons and commons packages.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **DOCS**: Add discord badge on all packages.
+
 ## 2.1.2
 
  - **FIX**(dep): Update intl to 0.18.0.

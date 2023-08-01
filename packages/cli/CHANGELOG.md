@@ -1,3 +1,16 @@
+## 2.4.0
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**(cli): Fix pubspec.yaml error.
+ - **FIX**(cli): Change copyPaths to copyPathSyncs.
+ - **FIX**(cli): Provide fallback value when printing butter_cli version if PubCache() is not working.
+ - **FIX**(cli): Provide fallback value if Paths.getPubCacheDir if PubCache() is not working.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**: Add butter_cli package.
+ - **DOCS**: Add discord badge on all packages.
+
 ## 0.3.2+3
 
  - **FIX**(dep): Update intl to 0.18.0.
