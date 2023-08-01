@@ -1,3 +1,22 @@
+## 2.4.0
+
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**: Set the module and service attributes back to iterables.
+ - **FIX**: Discontinue clearing the services and module lists.
+ - **FIX**: Export the printStacktrace util.
+ - **FIX**: Print a stacktrace everytime the ReqestNotAllowedException is used.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**: Ensure that the module and service registries are released after init.
+ - **FIX**: Upgrade conduit to 4.1.8.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**(core): Modify definition of BasicController.addPredicate and addPredicates; Remove addCustomPredicate.
+ - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.
+ - **FIX**(api_commons): Update conduit lib version to 4.0.0.
+ - **FIX**: Update documentation of the api_commons and commons packages.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**(api_commons): Improve implementations of BasicController, CustomPredicate, ReducerQuery and Auditable.
+ - **DOCS**: Add discord badge on all packages.
+
 ## 2.2.8
 
  - Update a dependency to the latest release.

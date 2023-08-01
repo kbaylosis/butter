@@ -1,3 +1,17 @@
+## 2.4.0
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Prevent a null check crash in BaseModule.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**: Upgrade conduit to 4.1.8.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**(core): Change the repo value in pubspec.
+ - **FIX**: Add core pubspec files.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**: Add butter_cli package.
+ - **DOCS**: Add discord badge on all packages.
+
 ## 2.3.0
 
  - Synchronize package versioning

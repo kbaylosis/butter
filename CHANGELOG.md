@@ -15,6 +15,118 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`butter` - `v2.4.0`](#butter---v240)
+ - [`butter_api_commons` - `v2.4.0`](#butter_api_commons---v240)
+ - [`butter_cli` - `v2.4.0`](#butter_cli---v240)
+ - [`butter_commons` - `v2.4.0`](#butter_commons---v240)
+ - [`butter_toolkit` - `v2.4.0`](#butter_toolkit---v240)
+ - [`sample_api` - `v2.4.0`](#sample_api---v240)
+ - [`sample_flutter` - `v2.4.0`](#sample_flutter---v240)
+ - [`submodules` - `v2.3.1`](#submodules---v231)
+ - [`todo` - `v2.3.1`](#todo---v231)
+
+---
+
+#### `butter` - `v2.4.0`
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Prevent a null check crash in BaseModule.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**: Upgrade conduit to 4.1.8.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**(core): Change the repo value in pubspec.
+ - **FIX**: Add core pubspec files.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**: Add butter_cli package.
+ - **DOCS**: Add discord badge on all packages.
+
+#### `butter_api_commons` - `v2.4.0`
+
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**: Set the module and service attributes back to iterables.
+ - **FIX**: Discontinue clearing the services and module lists.
+ - **FIX**: Export the printStacktrace util.
+ - **FIX**: Print a stacktrace everytime the ReqestNotAllowedException is used.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**: Ensure that the module and service registries are released after init.
+ - **FIX**: Upgrade conduit to 4.1.8.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**(core): Modify definition of BasicController.addPredicate and addPredicates; Remove addCustomPredicate.
+ - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.
+ - **FIX**(api_commons): Update conduit lib version to 4.0.0.
+ - **FIX**: Update documentation of the api_commons and commons packages.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**(api_commons): Improve implementations of BasicController, CustomPredicate, ReducerQuery and Auditable.
+ - **DOCS**: Add discord badge on all packages.
+
+#### `butter_cli` - `v2.4.0`
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**(api_commons): Discontinue the use of _query in the ManagedController.
+ - **FIX**(cli): Fix pubspec.yaml error.
+ - **FIX**(cli): Change copyPaths to copyPathSyncs.
+ - **FIX**(cli): Provide fallback value when printing butter_cli version if PubCache() is not working.
+ - **FIX**(cli): Provide fallback value if Paths.getPubCacheDir if PubCache() is not working.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **FEAT**: Add butter_cli package.
+ - **DOCS**: Add discord badge on all packages.
+
+#### `butter_commons` - `v2.4.0`
+
+ - **PERF**(commons): Add noComma to Formats.toMoney.
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Fix Formats.getYYMM.
+ - **FIX**: Set the sdks of all packages to >=2.12.0.
+ - **FIX**: Apply new linting rules; Change didFindObject and didFindObjects definitions.
+ - **FIX**: Update documentation of the api_commons and commons packages.
+ - **FEAT**: Upgrade to dart 2.19.0.
+ - **DOCS**: Add discord badge on all packages.
+
+#### `butter_toolkit` - `v2.4.0`
+
+ - **FIX**(ui_toolkit): Fix for publishing.
+ - **FEAT**: Add ui_toolkit.
+
+#### `sample_api` - `v2.4.0`
+
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**: Ensure that the module and service registries are released after init.
+ - **FIX**: Upgrade conduit to 4.1.8.
+ - **FEAT**: Upgrade to dart 2.19.0.
+
+#### `sample_flutter` - `v2.4.0`
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FEAT**: Add butter_cli package.
+
+#### `submodules` - `v2.3.1`
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**: Upgrade conduit to 4.1.8.
+
+#### `todo` - `v2.3.1`
+
+ - **FIX**(dep): Update intl to 0.18.0.
+ - **FIX**: Upgrade to conduit v4.3.9.
+ - **FIX**: Upgrade conduit to 4.1.8.
+
+
+## 2023-08-01
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`butter` - `v2.3.0`](#butter---v230)
 
 ---
