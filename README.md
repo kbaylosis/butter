@@ -209,3 +209,25 @@ https://github.com/kbaylosis/butter/blob/master/packages/core/example/submodules
 * [butter_cli](https://pub.dev/packages/butter_cli)
 * [async_redux](https://pub.dev/packages/async_redux/)
 * [redux](https://redux.js.org/)
+
+## Release Management
+
+Regular release flow:
+```
+melos version --all
+melos run sync_version
+git commit -m "WIP"
+git rebase -i HEAD^^
+<squash the latest commit>
+<review release>
+melos publish --no-dry-run
+```
+
+To force a new version, replace
+```
+melos version --all
+```
+with this...
+```
+melos version -Vbutter:<manual-version>
+```
