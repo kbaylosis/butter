@@ -24,6 +24,13 @@ scripts:
       scope: butter
       dir-exists: test
 
+  sync_versions:
+    description: Synchronize the versions of all packages to match the root package version.
+    run: |
+      ROOT_VERSION=$(melos list --scope="butter" --json | jq -r ".[0].version")
+      melos exec "sed -i \"\" \"s/version: .*/version: $ROOT_VERSION/\" pubspec.yaml"
+      melos version --no-git-tag-version --yes
+
   butter_test:
     run: melos exec --dir-exists="test" --fail-fast -- flutter test --coverage
     select-package:
