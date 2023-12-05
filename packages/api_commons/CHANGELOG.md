@@ -1,3 +1,7 @@
+## 2.4.3
+
+ - **FIX**(api_commons): Remove the .as().
+
 ## 2.4.2
 
  - **FIX**(api_commons): Decode the body if necessary.

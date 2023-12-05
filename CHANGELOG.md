@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`butter_api_commons` - `v2.4.3`](#butter_api_commons---v243)
+
+---
+
+#### `butter_api_commons` - `v2.4.3`
+
+ - **FIX**(api_commons): Remove the .as().
+
+
+## 2023-12-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`butter_api_commons` - `v2.4.2`](#butter_api_commons---v242)
 
 ---
