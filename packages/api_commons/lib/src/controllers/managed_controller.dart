@@ -269,6 +269,7 @@ class ManagedController<InstanceType extends ManagedObject>
   }) async {
     try {
       _loadParams(params, id: id);
+      final body = request!.body.as();
       final result = await _context!.transaction((transcation) async {
         final query = Query<InstanceType>(transcation);
         final primaryKey = query.entity.primaryKey;
@@ -277,7 +278,7 @@ class ManagedController<InstanceType extends ManagedObject>
         query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
 
         final instance = query.entity.instanceOf() as InstanceType;
-        instance.readFromMap(request!.body.as());
+        instance.readFromMap(body);
         query.values = instance;
 
         final q = await willUpdateObjectWithQuery(query);
@@ -291,14 +292,18 @@ class ManagedController<InstanceType extends ManagedObject>
         return didUpdateObject(result);
       }
     } on Response {
+      logger.fine(request);
       rethrow;
     } on RequestNotAllowedException catch (e, stacktrace) {
+      logger.fine(request);
       logger.severe(e, e, stacktrace);
       rethrow;
     } on QueryException catch (e, stacktrace) {
+      logger.fine(request);
       logger.severe(e, e, stacktrace);
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
+      logger.fine(request);
       logger.severe(e, e, stacktrace);
     }
 
