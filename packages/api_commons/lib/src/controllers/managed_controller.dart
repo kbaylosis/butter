@@ -267,9 +267,16 @@ class ManagedController<InstanceType extends ManagedObject>
     // Parameters that doesn't fall under the recognized purposes
     @Bind.query('params') List<String>? params,
   }) async {
+
+    late final Map<String, dynamic> body;
     try {
       _loadParams(params, id: id);
-      final body = request!.body.as();
+      try {
+        body = await request!.body.as();
+      } catch (e) {
+        body = (await request!.body.decode()).as();
+      }
+
       final result = await _context!.transaction((transcation) async {
         final query = Query<InstanceType>(transcation);
         final primaryKey = query.entity.primaryKey;
@@ -293,17 +300,21 @@ class ManagedController<InstanceType extends ManagedObject>
       }
     } on Response {
       logger.fine(request);
+      logger.fine(body);
       rethrow;
     } on RequestNotAllowedException catch (e, stacktrace) {
       logger.fine(request);
+      logger.fine(body);
       logger.severe(e, e, stacktrace);
       rethrow;
     } on QueryException catch (e, stacktrace) {
       logger.fine(request);
+      logger.fine(body);
       logger.severe(e, e, stacktrace);
       throw RequestNotAllowedException(e.message);
     } catch (e, stacktrace) {
       logger.fine(request);
+      logger.fine(body);
       logger.severe(e, e, stacktrace);
     }
 
