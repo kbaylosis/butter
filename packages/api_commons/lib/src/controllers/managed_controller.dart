@@ -274,7 +274,7 @@ class ManagedController<InstanceType extends ManagedObject>
       try {
         body = await request!.body.as();
       } catch (e) {
-        body = (await request!.body.decode()).as();
+        body = await request!.body.decode();
       }
 
       final result = await _context!.transaction((transcation) async {
