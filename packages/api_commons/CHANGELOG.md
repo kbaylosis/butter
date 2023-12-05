@@ -1,3 +1,7 @@
+## 2.4.2
+
+ - **FIX**(api_commons): Decode the body if necessary.
+
 ## 2.4.1
 
  - **FIX**(api_commons): Prevent the creation of a transaction if there is no body.

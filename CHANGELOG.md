@@ -15,6 +15,27 @@ Packages with breaking changes:
 
 Packages with other changes:
 
+ - [`butter_api_commons` - `v2.4.2`](#butter_api_commons---v242)
+
+---
+
+#### `butter_api_commons` - `v2.4.2`
+
+ - **FIX**(api_commons): Decode the body if necessary.
+
+
+## 2023-12-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
  - [`butter_api_commons` - `v2.4.1`](#butter_api_commons---v241)
  - [`butter_toolkit` - `v2.4.1`](#butter_toolkit---v241)
 
