@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2023-12-05
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`butter_api_commons` - `v2.4.1`](#butter_api_commons---v241)
+ - [`butter_toolkit` - `v2.4.1`](#butter_toolkit---v241)
+
+---
+
+#### `butter_api_commons` - `v2.4.1`
+
+ - **FIX**(api_commons): Prevent the creation of a transaction if there is no body.
+
+#### `butter_toolkit` - `v2.4.1`
+
+ - **DOCS**: Update the ui toolkit README.md.
+
+
 ## 2023-08-01
 
 ### Changes

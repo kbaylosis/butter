@@ -1,3 +1,7 @@
+## 2.4.1
+
+ - **FIX**(api_commons): Prevent the creation of a transaction if there is no body.
+
 ## 2.4.0
 
  - **FIX**: Upgrade to conduit v4.3.9.

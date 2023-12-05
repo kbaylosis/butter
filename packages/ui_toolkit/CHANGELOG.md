@@ -1,3 +1,7 @@
+## 2.4.1
+
+ - **DOCS**: Update the ui toolkit README.md.
+
 ## 2.4.0
 
  - **FIX**(ui_toolkit): Fix for publishing.
