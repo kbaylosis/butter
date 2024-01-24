@@ -57,12 +57,17 @@ class _ApproveItemDialogState extends State<ApproveItemDialog> {
               } on String catch (e, stacktrace) {
                 Butter.e(e);
                 Butter.e(stacktrace.toString());
+
+                if (!context.mounted) return;
                 String err = ButterToolkit().translator.getMessage(context, e);
+
                 Navigator.of(context).pop();
                 widget.onError!(err);
               } catch (e, stacktrace) {
                 Butter.e(e.toString());
                 Butter.e(stacktrace.toString());
+
+                if (!context.mounted) return;
                 const err = 'An error occured during update';
                 Navigator.of(context).pop();
                 widget.onError!(err);

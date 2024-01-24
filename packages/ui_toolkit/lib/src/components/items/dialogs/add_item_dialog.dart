@@ -186,12 +186,15 @@ class _AddItemDialogState<T extends ItemsTableModel>
                                 Navigator.of(context).pop();
                               }
                             } on String catch (e) {
+                              if (!context.mounted) return;
                               error = ButterToolkit()
                                   .translator
                                   .getMessage(context, e);
                             } catch (e, stacktrace) {
                               Butter.e(e.toString());
                               Butter.e(stacktrace.toString());
+
+                              if (!context.mounted) return;
                               error = ButterToolkit().translator.getMessage(
                                   context,
                                   'Error ${widget.mode == DialogMode.add ? 'adding' : 'updating'} the record');
@@ -274,12 +277,15 @@ class _AddItemDialogState<T extends ItemsTableModel>
                                       Navigator.of(context).pop();
                                     }
                                   } on String catch (e) {
+                                    if (!context.mounted) return;
                                     error = ButterToolkit()
                                         .translator
                                         .getMessage(context, e);
                                   } catch (e, stacktrace) {
                                     Butter.e(e.toString());
                                     Butter.e(stacktrace.toString());
+
+                                    if (!context.mounted) return;
                                     error = ButterToolkit().translator.getMessage(
                                         context,
                                         'Error ${widget.mode == DialogMode.add ? 'adding' : 'updating'} the record');

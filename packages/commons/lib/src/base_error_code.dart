@@ -3,6 +3,7 @@ import 'utils/enum_utils.dart';
 enum BaseErrorCode {
   undefined,
   //
+  badPassword,
   duplicateItem,
   entityAlreadyExists,
   foreignKeyViolation,

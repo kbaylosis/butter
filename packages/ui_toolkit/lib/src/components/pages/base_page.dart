@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fullscreen/fullscreen.dart';
 
 abstract class BasePage extends StatefulWidget {
   final List<Widget>? actions;
@@ -46,10 +44,6 @@ class _BasePageState extends State<BasePage> {
   @override
   void initState() {
     super.initState();
-
-    if (widget.showStatusBar && !kIsWeb) {
-      FullScreen.exitFullScreen();
-    }
 
     widget.dismissKeyboard();
   }

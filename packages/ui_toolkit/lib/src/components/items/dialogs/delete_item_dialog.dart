@@ -53,10 +53,12 @@ class _DeleteItemDialogState extends State<DeleteItemDialog> {
                 }
               } on String catch (e) {
                 Butter.d(e);
+                if (!context.mounted) return;
                 String err = ButterToolkit().translator.getMessage(context, e);
                 Navigator.of(context).pop();
                 widget.onError!(err);
               } catch (e) {
+                if (!context.mounted) return;
                 Navigator.of(context).pop();
                 widget.onError!('An error occured during deletion');
               }

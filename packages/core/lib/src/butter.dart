@@ -39,53 +39,53 @@ class Butter {
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.v(message.toString(), [error, stackTrace]);
+      log.t(message.toString(), error: error, stackTrace: stackTrace);
 
   static _d(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.d(message.toString(), [error, stackTrace]);
+      log.d(message.toString(), error: error, stackTrace: stackTrace);
 
   static _i(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.i(message.toString(), [error, stackTrace]);
+      log.i(message.toString(), error: error, stackTrace: stackTrace);
 
   static _w(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.w(message.toString(), [error, stackTrace]);
+      log.w(message.toString(), error: error, stackTrace: stackTrace);
 
   static _e(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.e(message.toString(), [error, stackTrace]);
+      log.e(message.toString(), error: error, stackTrace: stackTrace);
 
   static _wtf(
     dynamic message, [
     dynamic error,
     StackTrace? stackTrace,
   ]) =>
-      log.wtf(message.toString(), [error, stackTrace]);
+      log.f(message.toString(), error: error, stackTrace: stackTrace);
 }
 
 /// Logger printer configuration
 class _SimpleLogPrinter extends LogPrinter {
   static final levelEmojis = {
-    Level.verbose: '',
+    Level.trace: '',
     Level.debug: '🐞',
     Level.info: '💡',
     Level.warning: '⚠️',
     Level.error: '⛔',
-    Level.wtf: '👾',
+    Level.fatal: '👾',
   };
 
   /// Handles the print formatting of the log
@@ -130,7 +130,7 @@ extension _LogLevelExtension on LogLevel {
   Level get alias {
     switch (this) {
       case LogLevel.verbose:
-        return Level.verbose;
+        return Level.trace;
       case LogLevel.info:
         return Level.info;
       case LogLevel.warning:
@@ -138,9 +138,9 @@ extension _LogLevelExtension on LogLevel {
       case LogLevel.error:
         return Level.error;
       case LogLevel.fatal:
-        return Level.wtf;
+        return Level.fatal;
       case LogLevel.nothing:
-        return Level.nothing;
+        return Level.off;
       case LogLevel.debug:
       default:
         return Level.debug;
