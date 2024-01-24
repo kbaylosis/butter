@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-01-24
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`butter` - `v2.5.0`](#butter---v250)
+ - [`butter_api_commons` - `v2.5.0`](#butter_api_commons---v250)
+ - [`butter_cli` - `v2.5.0`](#butter_cli---v250)
+ - [`butter_commons` - `v2.5.0`](#butter_commons---v250)
+ - [`butter_toolkit` - `v2.5.0`](#butter_toolkit---v250)
+
+---
+
+#### `butter` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_api_commons` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_cli` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_commons` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_toolkit` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+
 ## 2023-12-05
 
 ### Changes

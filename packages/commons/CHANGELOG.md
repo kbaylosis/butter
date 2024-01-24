@@ -1,3 +1,7 @@
+## 2.5.0
+
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
 ## 2.4.0
 
  - **PERF**(commons): Add noComma to Formats.toMoney.
