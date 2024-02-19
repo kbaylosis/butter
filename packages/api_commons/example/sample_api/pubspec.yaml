@@ -1,6 +1,6 @@
 name: sample_api
 description: An empty conduit application.
-version: 2.4.0
+version: 2.5.0
 publish_to: none
 
 environment:

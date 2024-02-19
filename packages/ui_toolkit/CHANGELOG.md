@@ -1,3 +1,9 @@
+## 2.6.0
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
 ## 2.5.0
 
  - **FEAT**: Upgrade to flutter 3.16.x.

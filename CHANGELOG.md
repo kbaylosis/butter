@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2024-02-19
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - There are no breaking changes in this release.
+
+Packages with other changes:
+
+ - [`butter` - `v2.6.0`](#butter---v260)
+ - [`butter_api_commons` - `v2.6.0`](#butter_api_commons---v260)
+ - [`butter_cli` - `v2.6.0`](#butter_cli---v260)
+ - [`butter_commons` - `v2.6.0`](#butter_commons---v260)
+ - [`butter_toolkit` - `v2.6.0`](#butter_toolkit---v260)
+ - [`sample_api` - `v2.5.0`](#sample_api---v250)
+ - [`sample_flutter` - `v2.5.0`](#sample_flutter---v250)
+ - [`submodules` - `v2.5.0`](#submodules---v250)
+ - [`todo` - `v2.5.0`](#todo---v250)
+
+---
+
+#### `butter` - `v2.6.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_api_commons` - `v2.6.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_cli` - `v2.6.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_commons` - `v2.6.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `butter_toolkit` - `v2.6.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `sample_api` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `sample_flutter` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `submodules` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+#### `todo` - `v2.5.0`
+
+ - **FEAT**: Upgrade to flutter 3.19.0 + dart 3.3.0.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+ - **FEAT**: Upgrade to flutter 3.16.x.
+
+
 ## 2024-01-24
 
 ### Changes
