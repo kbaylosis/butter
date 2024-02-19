@@ -51,7 +51,7 @@ class _ApproveItemDialogState extends State<ApproveItemDialog> {
             onPressed: () async {
               try {
                 await widget.onApprove!(widget.id, !widget.deny);
-                if (mounted) {
+                if (context.mounted) {
                   Navigator.of(context).pop();
                 }
               } on String catch (e, stacktrace) {

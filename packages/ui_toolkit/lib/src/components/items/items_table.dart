@@ -231,10 +231,10 @@ class _ItemsTableState<T extends ItemsTableModel> extends State<ItemsTable> {
   Widget build(BuildContext context) {
     final screen = Screens(context);
 
-    return RawKeyboardListener(
+    return KeyboardListener(
       autofocus: screen.isMobile,
       focusNode: _scrollFocusNode,
-      onKey: _handleKeyEvent,
+      onKeyEvent: _handleKeyEvent,
       child: Container(
         alignment: Alignment.center,
         child: SizedBox(
@@ -927,7 +927,7 @@ class _ItemsTableState<T extends ItemsTableModel> extends State<ItemsTable> {
           );
   }
 
-  void _handleKeyEvent(RawKeyEvent event) {
+  void _handleKeyEvent(KeyEvent event) {
     final isMobile = Screens(context).isMobile;
     final offset = _scrollController.offset;
     if ((isMobile && event.logicalKey == LogicalKeyboardKey.arrowUp) ||

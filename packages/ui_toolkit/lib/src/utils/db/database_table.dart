@@ -1,4 +1,4 @@
-import 'package:moor/moor.dart';
+import 'package:drift/drift.dart';
 
 abstract class DatabaseTable<D extends GeneratedDatabase, T extends TableInfo,
     R extends DataClass> {

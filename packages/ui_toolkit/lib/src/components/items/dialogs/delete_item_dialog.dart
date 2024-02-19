@@ -48,7 +48,7 @@ class _DeleteItemDialogState extends State<DeleteItemDialog> {
             onPressed: () async {
               try {
                 await widget.onDelete!(widget.id);
-                if (mounted) {
+                if (context.mounted) {
                   Navigator.of(context).pop();
                 }
               } on String catch (e) {

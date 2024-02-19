@@ -4,14 +4,14 @@ version: 2.4.0
 publish_to: none
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   butter_api_commons:
     path: ../..
-  conduit: ^4.3.9
+  conduit: ^4.4.0
 
 dev_dependencies:
-  conduit_test: ^4.3.7
+  conduit_test: ^5.0.0
   faker: ^2.1.0
-  test: ^1.25.1
+  test: ^1.25.2

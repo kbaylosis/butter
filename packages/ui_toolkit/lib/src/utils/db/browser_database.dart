@@ -1,4 +1,4 @@
-import 'package:moor/moor_web.dart';
+import 'package:drift/web.dart';
 
 class Database {
   final String name;

@@ -17,10 +17,10 @@ class ErrorDialog extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => RawKeyboardListener(
+  Widget build(BuildContext context) => KeyboardListener(
         focusNode: FocusNode(),
         autofocus: true,
-        onKey: (v) {
+        onKeyEvent: (v) {
           if (v.logicalKey == LogicalKeyboardKey.enter) {
             Navigator.pop(context);
           }

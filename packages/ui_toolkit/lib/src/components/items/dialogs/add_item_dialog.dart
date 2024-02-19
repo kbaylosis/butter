@@ -182,7 +182,7 @@ class _AddItemDialogState<T extends ItemsTableModel>
                                 await widget.onEdit?.call();
                               }
 
-                              if (mounted) {
+                              if (context.mounted) {
                                 Navigator.of(context).pop();
                               }
                             } on String catch (e) {
@@ -273,7 +273,7 @@ class _AddItemDialogState<T extends ItemsTableModel>
                                       await widget.onEdit?.call();
                                     }
 
-                                    if (mounted) {
+                                    if (context.mounted) {
                                       Navigator.of(context).pop();
                                     }
                                   } on String catch (e) {

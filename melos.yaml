@@ -14,15 +14,9 @@ scripts:
     run: dart analyze --fatal-infos --fatal-warnings .
 
   test_all:
-    run: melos bootstrap && melos analyze && melos butter_test && 
+    run: melos bootstrap && melos analyze && melos butter_test && melos butter_ui_test &&
       melos butter_api_commons_test && melos butter_commons_test && 
-      melos butter_cli_test && melos publish -y
-    exec:
-      failFast: true
-      concurrency: 1
-    select-package:
-      scope: butter
-      dir-exists: test
+      melos butter_cli_test
 
   sync_versions:
     description: Synchronize the versions of all packages to match the root package version.
@@ -32,9 +26,15 @@ scripts:
       melos version --no-git-tag-version --yes
 
   butter_test:
-    run: melos exec --dir-exists="test" --fail-fast -- flutter test --coverage
+    run: cd $MELOS_ROOT_PATH/packages/core && flutter test --coverage
     select-package:
       scope: butter
+      dir-exists: test
+  
+  butter_ui_test:
+    run: cd $MELOS_ROOT_PATH/packages/ui_toolkit && flutter test --coverage
+    select-package:
+      scope: butter_toolkit
       dir-exists: test
 
   butter_api_commons_test:
