@@ -171,16 +171,10 @@ class ReducerQuery<T extends ManagedObject> implements QueryReduceOperation<T> {
     print(rawQuery);
 
     final store = _query.context.persistentStore as PostgreSQLPersistentStore;
-    // final connection = await store.executionContext;
     try {
-      // return await connection!
-      //     .mappedResultsQuery(rawQuery, substitutionValues: builder.variables)
-      //     .timeout(Duration(seconds: _query.timeoutInSeconds));
-      final result = await store.execute(rawQuery,
+      return await store.execute(rawQuery,
           substitutionValues: builder.variables,
           timeout: Duration(seconds: _query.timeoutInSeconds));
-
-      return result;
     } on TimeoutException catch (e) {
       throw QueryException.transport('timed out connecting to database',
           underlyingException: e);
