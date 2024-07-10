@@ -2,7 +2,7 @@ import 'package:conduit_core/conduit_core.dart';
 
 class CustomPredicate extends QueryPredicate {
   CustomPredicate(String format, [Map<String, dynamic>? parameters = const {}])
-      : super(format, parameters);
+      : super(format, parameters!);
 
   CustomPredicate.empty() : super.empty();
 
@@ -33,10 +33,9 @@ class CustomPredicate extends QueryPredicate {
     final allFormatStrings = [];
     final valueMap = <String, dynamic>{};
     for (final predicate in predicateList) {
-      final duplicateKeys = predicate.parameters?.keys
-              .where((k) => valueMap.keys.contains(k))
-              .toList() ??
-          [];
+      final duplicateKeys = predicate.parameters.keys
+          .where((k) => valueMap.keys.contains(k))
+          .toList();
 
       if (duplicateKeys.isNotEmpty) {
         var fmt = predicate.format;
@@ -49,12 +48,12 @@ class CustomPredicate extends QueryPredicate {
         }
 
         allFormatStrings.add(fmt);
-        predicate.parameters?.forEach((key, value) {
+        predicate.parameters.forEach((key, value) {
           valueMap[dupeMap[key] ?? key] = value;
         });
       } else {
         allFormatStrings.add(predicate.format);
-        valueMap.addAll(predicate.parameters ?? {});
+        valueMap.addAll(predicate.parameters);
       }
     }
 
@@ -80,10 +79,9 @@ class CustomPredicate extends QueryPredicate {
     final allFormatStrings = [];
     final valueMap = <String, dynamic>{};
     for (final predicate in predicateList) {
-      final duplicateKeys = predicate!.parameters?.keys
-              .where((k) => valueMap.keys.contains(k))
-              .toList() ??
-          [];
+      final duplicateKeys = predicate!.parameters.keys
+          .where((k) => valueMap.keys.contains(k))
+          .toList();
 
       if (duplicateKeys.isNotEmpty) {
         var fmt = predicate.format;
@@ -96,12 +94,12 @@ class CustomPredicate extends QueryPredicate {
         }
 
         allFormatStrings.add(fmt);
-        predicate.parameters?.forEach((key, value) {
+        predicate.parameters.forEach((key, value) {
           valueMap[dupeMap[key] ?? key] = value;
         });
       } else {
         allFormatStrings.add(predicate.format);
-        valueMap.addAll(predicate.parameters ?? {});
+        valueMap.addAll(predicate.parameters);
       }
     }
 

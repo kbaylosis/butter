@@ -3,7 +3,7 @@ import 'package:conduit_core/managed_auth.dart';
 
 class AppAuth<T extends ManagedAuthResourceOwner>
     extends ManagedAuthDelegate<T> {
-  AppAuth(ManagedContext? context) : super(context);
+  AppAuth(ManagedContext? context) : super(context!);
 
   @override
   Future<T?> getResourceOwner(AuthServer server, String username) {
