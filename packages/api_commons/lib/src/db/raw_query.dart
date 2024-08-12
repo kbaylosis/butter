@@ -23,9 +23,8 @@ class RawQuery {
     final store = context!.persistentStore as PostgreSQLPersistentStore;
     final connection = await store.executionContext;
     try {
-      final result = await connection!
-          .query(query, substitutionValues: variables)
-          .timeout(Duration(seconds: timeoutInSeconds));
+      final result = await connection.execute(query,
+          parameters: variables, timeout: Duration(seconds: timeoutInSeconds));
       final retVal = <List<U>>[];
       for (final value in result) {
         final row = value.toList();
