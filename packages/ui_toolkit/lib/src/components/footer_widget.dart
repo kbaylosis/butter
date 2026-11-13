@@ -12,13 +12,13 @@ class FooterWidget extends StatelessWidget {
   final bool versionOnly;
 
   const FooterWidget({
-    Key? key,
+    super.key,
     required this.privacy,
     required this.projName,
     required this.projVersion,
     required this.toc,
     this.versionOnly = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Column(

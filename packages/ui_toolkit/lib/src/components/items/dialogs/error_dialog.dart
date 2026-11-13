@@ -12,9 +12,9 @@ class ErrorDialog extends StatelessWidget {
 
   const ErrorDialog(
     this.message, {
-    Key? key,
+    super.key,
     this.details,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => KeyboardListener(

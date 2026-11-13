@@ -11,6 +11,9 @@ dependencies:
     path: ../..
   conduit: ^4.4.0
 
+  conduit_core: any
+  conduit_common: any
+  conduit_open_api: any
 dev_dependencies:
   conduit_test: ^5.0.0
   faker: ^2.1.0

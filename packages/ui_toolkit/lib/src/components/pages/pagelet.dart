@@ -15,7 +15,7 @@ class Pagelet extends StatelessWidget {
   final Widget? child;
 
   const Pagelet({
-    Key? key,
+    super.key,
     this.buildLabel,
     this.label = '',
     this.loading = false,
@@ -23,7 +23,7 @@ class Pagelet extends StatelessWidget {
     this.onBack,
     this.onClose,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(

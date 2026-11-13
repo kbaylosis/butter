@@ -21,10 +21,11 @@ class RawQuery {
   Future<List<List<U>>> perform<U>(String query,
       {Map<String, dynamic>? variables}) async {
     final store = context!.persistentStore as PostgreSQLPersistentStore;
-    final connection = await store.executionContext;
     try {
-      final result = await connection.execute(query,
-          parameters: variables, timeout: Duration(seconds: timeoutInSeconds));
+      // Changed from session.execute to PostgreSQLPersistentStore.execute as session needs sq;.named
+      final result = await store.execute(query,
+          substitutionValues: variables,
+          timeout: Duration(seconds: timeoutInSeconds));
       final retVal = <List<U>>[];
       for (final value in result) {
         final row = value.toList();

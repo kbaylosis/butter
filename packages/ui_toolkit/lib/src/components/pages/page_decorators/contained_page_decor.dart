@@ -37,10 +37,9 @@ class _Header extends StatelessWidget {
   final String title;
 
   const _Header({
-    Key? key,
     required this.logoPath,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Container(
@@ -49,7 +48,8 @@ class _Header extends StatelessWidget {
           children: [
             Image.asset(assetPath(logoPath), height: 50),
             const SizedBox(width: 10),
-            HighlightText(title, style: Theme.of(context).textTheme.headlineSmall),
+            HighlightText(title,
+                style: Theme.of(context).textTheme.headlineSmall),
           ],
         ),
       );
@@ -59,9 +59,8 @@ class _Footer extends StatelessWidget {
   final String? text;
 
   const _Footer({
-    Key? key,
     this.text,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Container(

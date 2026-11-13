@@ -12,13 +12,13 @@ class ProceedDialog extends StatefulWidget {
   final void Function()? onProceed;
 
   const ProceedDialog({
-    Key? key,
+    super.key,
     this.name,
     this.onCancel,
     this.onProceed,
     this.title,
     this.message,
-  }) : super(key: key);
+  });
   @override
   State<StatefulWidget> createState() => _ProceedDialogState();
 }

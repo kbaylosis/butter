@@ -11,7 +11,7 @@ class ButtonIcon extends StatelessWidget {
   final Widget? child;
 
   const ButtonIcon({
-    Key? key,
+    super.key,
     this.iconData,
     this.color = const Color.fromRGBO(119, 119, 119, 0.8),
     this.hide = false,
@@ -20,7 +20,7 @@ class ButtonIcon extends StatelessWidget {
     this.padding = const EdgeInsets.all(2),
     this.size,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => hide

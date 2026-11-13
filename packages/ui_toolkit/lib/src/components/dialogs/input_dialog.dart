@@ -14,7 +14,7 @@ class InputDialog extends StatefulWidget {
   final double? width;
 
   const InputDialog({
-    Key? key,
+    super.key,
     this.height,
     this.hintText,
     this.initValue,
@@ -22,7 +22,7 @@ class InputDialog extends StatefulWidget {
     this.onProceed,
     this.title,
     this.width,
-  }) : super(key: key);
+  });
   @override
   State<StatefulWidget> createState() => _InputDialogState();
 }

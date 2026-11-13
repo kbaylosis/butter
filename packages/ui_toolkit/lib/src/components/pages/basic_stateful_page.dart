@@ -4,8 +4,7 @@ import 'package:butter/butter.dart';
 import 'package:flutter/material.dart';
 
 abstract class BasicStatefulPage extends BaseStatefulPageView {
-  BasicStatefulPage({int animationDelay = 0, Key? key})
-      : super(animationDelay: animationDelay);
+  BasicStatefulPage({super.key, super.animationDelay = 0});
 
   @override
   @mustCallSuper

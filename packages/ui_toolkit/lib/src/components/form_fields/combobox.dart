@@ -32,7 +32,7 @@ class Combobox<T> extends StatefulWidget {
   final String dialogTitle;
 
   const Combobox({
-    Key? key,
+    super.key,
     this.allowClear = true,
     this.autoSearch = true,
     this.dialogHintText = 'Search',
@@ -55,7 +55,7 @@ class Combobox<T> extends StatefulWidget {
     this.width,
     this.value = '',
     this.dialogTitle = '',
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _ComboboxState<T>();

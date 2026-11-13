@@ -16,7 +16,7 @@ class BaseButton extends StatelessWidget {
   final double? width;
 
   const BaseButton({
-    Key? key,
+    super.key,
     this.alignment,
     this.height = 47,
     this.label,
@@ -28,7 +28,7 @@ class BaseButton extends StatelessWidget {
     this.suffix,
     this.type,
     this.width,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => type == ButtonType.hidden

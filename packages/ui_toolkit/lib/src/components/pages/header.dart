@@ -8,10 +8,10 @@ class Header extends StatelessWidget {
   final String title;
 
   const Header({
-    Key? key,
+    super.key,
     required this.logoPath,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Row(

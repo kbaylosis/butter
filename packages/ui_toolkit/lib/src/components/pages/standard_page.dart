@@ -42,7 +42,7 @@ class StandardPage extends StatefulWidget {
   final Widget? body;
 
   const StandardPage({
-    Key? key,
+    super.key,
     this.actions,
     this.allowBack = true,
     this.allowExit = false,
@@ -71,7 +71,7 @@ class StandardPage extends StatefulWidget {
     this.width,
     //
     this.body,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _StandardPageState();

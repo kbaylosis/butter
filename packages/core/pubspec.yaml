@@ -1,6 +1,7 @@
 name: butter
 description: A thin application framework for flutter making use of async_redux
 version: 2.6.0
+publish_to: none
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter
 
@@ -9,11 +10,15 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
-  butter_commons: ^2.6.0
-  flutter:
+ butter_commons:
+    git: 
+      url: https://github.com/rodjam/butter_update.git
+      ref: flutter_3.38.3
+      path: "packages/commons"
+ flutter:
     sdk: flutter
-  async_redux: ^21.0.1
-  logger: ^2.0.2+1
+ async_redux: ^21.0.1
+ logger: ^2.0.2+1
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +28,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
-flutter:
+# flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:

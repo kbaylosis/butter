@@ -10,14 +10,14 @@ class CollapsibleSidebar extends StatefulWidget {
   final EdgeInsets? padding;
 
   const CollapsibleSidebar({
-    Key? key,
+    super.key,
     this.backgroundColor,
     this.footer,
     this.header,
     this.itemColor,
     this.padding,
     this.children,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _CollapsibleSidebarState();
@@ -68,7 +68,7 @@ class CollapsibleSidebarItem extends StatefulWidget {
   final CollapsibleSidebar? list;
 
   const CollapsibleSidebarItem({
-    Key? key,
+    super.key,
     this.arrowSize,
     this.icon,
     this.onSelected,
@@ -77,7 +77,7 @@ class CollapsibleSidebarItem extends StatefulWidget {
     this.selectedColor,
     this.title,
     this.list,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _CollapsibleSidebarItemState();

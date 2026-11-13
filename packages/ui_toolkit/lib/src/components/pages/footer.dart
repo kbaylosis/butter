@@ -6,7 +6,7 @@ import '../highlight_text.dart';
 class Footer extends StatelessWidget {
   final String text;
 
-  const Footer({Key? key, this.text = 'Powered by Zoog '}) : super(key: key);
+  const Footer({super.key, this.text = 'Powered by Zoog '});
 
   @override
   Widget build(BuildContext context) => HighlightText(text,

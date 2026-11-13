@@ -94,7 +94,7 @@ class ItemsTable<T extends ItemsTableModel> extends StatefulWidget {
   final bool wildcardSearch;
 
   const ItemsTable({
-    Key? key,
+    super.key,
     this.actions,
     this.allowApprove,
     this.allowEdit,
@@ -137,7 +137,7 @@ class ItemsTable<T extends ItemsTableModel> extends StatefulWidget {
     this.visible = true,
     this.width,
     this.wildcardSearch = true,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _ItemsTableState<T>();
@@ -410,8 +410,8 @@ class _ItemsTableState<T extends ItemsTableModel> extends State<ItemsTable> {
         color: Colors.transparent,
         child: DataTable(
           headingRowHeight: 50,
-          headingRowColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) =>
+          headingRowColor: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) =>
                   ButterToolkit().brandInfo.grayLighter.withOpacity(0.3)),
           showCheckboxColumn: false,
           sortColumnIndex: widget.model.sortCol,
@@ -559,8 +559,8 @@ class _ItemsTableState<T extends ItemsTableModel> extends State<ItemsTable> {
   List<DataRow> _dataRows() => List.generate(
         widget.model.items?.length ?? 0,
         (index) => DataRow(
-          color: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
+          color: WidgetStateProperty.resolveWith<Color?>(
+              (Set<WidgetState> states) {
             // Even rows will have a grey color.
             if (index % 2 == 0) {
               return null; // Use default value for other states and odd rows.

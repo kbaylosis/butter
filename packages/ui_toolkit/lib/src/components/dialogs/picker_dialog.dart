@@ -29,7 +29,7 @@ class PickerDialog<T> extends StatefulWidget {
   final double width;
 
   const PickerDialog({
-    Key? key,
+    super.key,
     this.autoSearch = false,
     required this.controller,
     this.fetchItems,
@@ -46,7 +46,7 @@ class PickerDialog<T> extends StatefulWidget {
     this.onSelect,
     this.searcheable = true,
     this.width = 300,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _PickerDialogState<T>();

@@ -1,6 +1,7 @@
 name: butter_api_commons
 description: Common API Utilities for butter systems
 version: 2.6.0
+publish_to: none
 homepage: https://applybutter.com
 repository: https://github.com/kbaylosis/butter/tree/master/packages/api_commons
 
@@ -8,18 +9,22 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
-  butter_commons: ^2.6.0
+  butter_commons:
+    git: 
+      url: https://github.com/rodjam/butter_update.git
+      ref: flutter_3.38.3
+      path: "packages/commons"
   collection: ^1.18.0
-  conduit: ^5.1.3
-  conduit_common: ^5.1.3
-  conduit_core: ^5.1.3
-  conduit_open_api: ^5.1.3
-  conduit_postgresql: ^5.1.3
+  conduit: ^6.0.0
+  conduit_common: ^6.0.0
+  conduit_core: ^6.0.0
+  conduit_open_api: ^6.0.0
+  conduit_postgresql: ^6.0.0
   path: ^1.9.0
   yaml: ^3.1.2
 
 dev_dependencies:
-  conduit_test: ^5.0.0
+  conduit_test: ^6.0.0
   faker: ^2.1.0
   lints: ^2.0.0
   test: ^1.25.2

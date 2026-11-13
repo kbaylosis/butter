@@ -102,7 +102,7 @@ class ManagedController<InstanceType extends ManagedObject>
     final primaryKey = query.entity.primaryKey;
     final parsedIdentifier =
         _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
-    query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+    query.where((o) => o[primaryKey]).equalTo(parsedIdentifier);
 
     final q = await willFindObjectWithQuery(query);
     final result = await performFindObject(id, q);
@@ -208,7 +208,7 @@ class ManagedController<InstanceType extends ManagedObject>
         final primaryKey = query.entity.primaryKey;
         final parsedIdentifier =
             _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
-        query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+        query.where((o) => o[primaryKey]).equalTo(parsedIdentifier);
 
         final q = await willDeleteObjectWithQuery(query);
 
@@ -282,7 +282,7 @@ class ManagedController<InstanceType extends ManagedObject>
         final primaryKey = query.entity.primaryKey;
         final parsedIdentifier =
             _getIdentifierFromPath(id, query.entity.properties[primaryKey]);
-        query.where((o) => o[primaryKey!]).equalTo(parsedIdentifier);
+        query.where((o) => o[primaryKey]).equalTo(parsedIdentifier);
 
         final instance = query.entity.instanceOf() as InstanceType;
         instance.readFromMap(body);

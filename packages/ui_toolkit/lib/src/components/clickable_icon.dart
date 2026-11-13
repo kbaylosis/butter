@@ -11,7 +11,7 @@ class ClickableIcon extends StatelessWidget {
   final Widget? child;
 
   const ClickableIcon({
-    Key? key,
+    super.key,
     this.color,
     this.hide = false,
     this.iconData,
@@ -20,7 +20,7 @@ class ClickableIcon extends StatelessWidget {
     this.padding = const EdgeInsets.all(2),
     this.size,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => hide

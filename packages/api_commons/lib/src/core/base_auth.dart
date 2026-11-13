@@ -7,7 +7,7 @@ class AppAuth<T extends ManagedAuthResourceOwner>
 
   @override
   Future<T?> getResourceOwner(AuthServer server, String username) {
-    final query = Query<T>(context!)
+    final query = Query<T>(context)
       ..predicate = QueryPredicate(
         'email = @username OR mobile = @username',
         {

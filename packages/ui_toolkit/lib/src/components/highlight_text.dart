@@ -7,10 +7,10 @@ class HighlightText extends StatelessWidget {
 
   const HighlightText(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.textAlign,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => SelectableText(

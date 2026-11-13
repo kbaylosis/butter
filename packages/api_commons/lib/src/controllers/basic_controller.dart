@@ -72,7 +72,7 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
     } else {
       query.predicate!.format =
           [query.predicate!.format, predicate.format].join(' AND ');
-      query.predicate!.parameters!.addAll(predicate.parameters!);
+      query.predicate!.parameters.addAll(predicate.parameters);
     }
 
     logger.fine(query.predicate!.format);
@@ -83,7 +83,7 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
       Query<U> query, List<QueryPredicate> predicates) {
     final formats = predicates.map((e) => e.format).join(' AND ');
     final params = predicates.fold<Map<String, dynamic>>({},
-        (previousValue, element) => previousValue..addAll(element.parameters!));
+        (previousValue, element) => previousValue..addAll(element.parameters));
 
     if (query.predicate == null || (query.predicate?.format ?? '').isEmpty) {
       query.predicate!.format = formats;
@@ -92,7 +92,7 @@ class BasicController<T extends ManagedObject> extends ManagedController<T>
           [query.predicate!.format, formats].join(' AND ');
     }
 
-    query.predicate!.parameters!.addAll(params);
+    query.predicate!.parameters.addAll(params);
     logger.fine(query.predicate!.format);
     return query;
   }

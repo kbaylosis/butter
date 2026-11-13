@@ -6,7 +6,7 @@ abstract class StackedPage extends Widget {
   final String title = '';
   final void Function()? onChanged = null;
 
-  const StackedPage({Key? key}) : super(key: key);
+  const StackedPage({super.key});
 
   bool get allowNext;
   bool goBack();
@@ -20,10 +20,10 @@ class StackedView extends StatelessWidget {
   final double? height;
 
   const StackedView({
-    Key? key,
+    super.key,
     this.child,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => SizedBox(

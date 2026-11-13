@@ -13,13 +13,13 @@ class ApproveItemDialog extends StatefulWidget {
   final bool deny;
 
   const ApproveItemDialog({
-    Key? key,
+    super.key,
     required this.id,
     required this.name,
     this.onApprove,
     this.onError,
     this.deny = false,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _ApproveItemDialogState();

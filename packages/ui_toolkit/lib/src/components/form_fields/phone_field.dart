@@ -16,14 +16,14 @@ class PhoneField extends StatefulWidget {
   final bool readOnly;
 
   const PhoneField({
-    Key? key,
+    super.key,
     this.initialIsoCode = 'PH',
     this.code,
     this.hintText,
     this.number,
     required this.onChanged,
     this.readOnly = false,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _PhoneFieldState();

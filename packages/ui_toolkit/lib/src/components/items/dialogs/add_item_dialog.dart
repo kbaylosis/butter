@@ -16,11 +16,11 @@ abstract class AbstractAddItemDialog<T extends ItemsTableModel>
   final int? index;
 
   const AbstractAddItemDialog({
-    Key? key,
+    super.key,
     required this.controller,
     required this.model,
     this.index,
-  }) : super(key: key);
+  });
 }
 
 class AddItemDialog<T extends ItemsTableModel> extends StatefulWidget {
@@ -41,7 +41,7 @@ class AddItemDialog<T extends ItemsTableModel> extends StatefulWidget {
   final double width;
 
   const AddItemDialog({
-    Key? key,
+    super.key,
     this.buildItemFields,
     required this.controller,
     this.height = 200,
@@ -56,7 +56,7 @@ class AddItemDialog<T extends ItemsTableModel> extends StatefulWidget {
     this.showCancel = true,
     this.showSave = true,
     this.width = 300,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _AddItemDialogState<T>();

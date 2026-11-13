@@ -6,11 +6,11 @@ class CircularButton extends StatelessWidget {
   final Widget? child;
 
   const CircularButton({
-    Key? key,
+    super.key,
     this.onTap,
     this.radius = 0,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) => Material(

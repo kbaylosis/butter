@@ -13,7 +13,7 @@ class RiveAnimation extends StatefulWidget {
   final double? width;
 
   const RiveAnimation({
-    Key? key,
+    super.key,
     this.asset,
     required this.animation,
     this.enabled = true,
@@ -22,7 +22,7 @@ class RiveAnimation extends StatefulWidget {
     this.onLoaded,
     this.placeholder,
     this.width,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _RiveAnimationState();

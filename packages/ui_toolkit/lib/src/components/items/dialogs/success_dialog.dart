@@ -9,7 +9,7 @@ import '../../pages/standard_button.dart';
 class SuccessDialog extends StatelessWidget {
   final String message;
 
-  const SuccessDialog(this.message, {Key? key}) : super(key: key);
+  const SuccessDialog(this.message, {super.key});
 
   @override
   Widget build(BuildContext context) => KeyboardListener(

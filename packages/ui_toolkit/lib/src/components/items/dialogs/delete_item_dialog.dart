@@ -12,12 +12,12 @@ class DeleteItemDialog extends StatefulWidget {
   final void Function(dynamic e)? onError;
 
   const DeleteItemDialog({
-    Key? key,
+    super.key,
     required this.id,
     required this.name,
     this.onDelete,
     this.onError,
-  }) : super(key: key);
+  });
   @override
   State<StatefulWidget> createState() => _DeleteItemDialogState();
 }

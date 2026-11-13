@@ -11,12 +11,12 @@ class MessageDialog extends StatefulWidget {
   final void Function()? onOk;
 
   const MessageDialog({
-    Key? key,
+    super.key,
     this.name,
     this.onOk,
     this.title,
     this.message,
-  }) : super(key: key);
+  });
   @override
   State<StatefulWidget> createState() => _MessageDialogState();
 }

@@ -15,7 +15,7 @@ abstract class BasePage extends StatefulWidget {
   final Widget? title;
 
   const BasePage({
-    Key? key,
+    super.key,
     this.actions,
     this.backgroundColor,
     required this.body,
@@ -27,7 +27,7 @@ abstract class BasePage extends StatefulWidget {
     this.showLeading = true,
     this.showStatusBar = true,
     this.title,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _BasePageState();

@@ -15,6 +15,7 @@ abstract class BaseStatefulPageView extends StatefulWidget
   final int animationDelay;
 
   BaseStatefulPageView({
+    super.key,
     this.animationDelay = 1,
   });
 
